@@ -323,6 +323,10 @@ augroup _other
   autocmd BufNewFile,BufRead,BufEnter *.ejs setfiletype html
 augroup END
 
+augroup _filetype
+  autocmd FileType * set formatoptions-=cro fo+=j
+augroup END
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                shellcode goodies                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
