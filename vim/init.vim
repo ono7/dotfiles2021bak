@@ -106,7 +106,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'neoclide/coc.nvim', {'branch': 'release',
           \ 'for' : ['python', 'yaml', 'jinja', 'ansible',
           \ 'json', 'javascript', 'css', 'markdown', 'typescript',
-          \ 'terraform', 'cs', 'lua']}
+          \ 'terraform', 'cs', 'lua', 'vimwiki']}
       let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-prettier', 'coc-omnisharp', 'coc-lua']
     Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
       " use all the beautiful things jedi-vim offers, but leave completion to coc
