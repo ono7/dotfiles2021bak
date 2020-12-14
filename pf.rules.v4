@@ -1,0 +1,25 @@
+# Options
+set block-policy drop
+set ruleset-optimization basic
+set skip on lo0
+# Normalization
+# Scrub incoming packets
+# scrub in all no-df
+# Queueing
+# Translation
+# Filtering
+# Antispoof
+# antispoof log quick for { lo0 en0 en2 }
+# Block by default
+block in log
+# Block to/from illegal destinations or sources
+block in log quick from no-route to any
+# Allow critical system traffic
+pass in quick inet proto udp from any port 67 to any port 68
+# Allow ICMP from home LAN
+pass in log proto icmp from 10.100.0.0/12
+# Allow outgoing traffic
+# pass out inet proto tcp from any to any keep state
+# pass out inet proto udp from any to any keep state
+# pass out inet proto icmp from any to any keep state
+pass out

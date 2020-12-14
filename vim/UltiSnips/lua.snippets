@@ -1,0 +1,32 @@
+
+snippet "(function|func|fun)" "function" br
+function $0
+	${VISUAL}
+end
+endsnippet
+
+snippet "(if)" "if" br
+if $0 then
+	${VISUAL}
+end
+endsnippet
+
+snippet "(while)" "while" br
+while $0 do
+	${VISUAL}
+end
+endsnippet
+
+snippet "(for)" "for with counter" br
+for $0 do
+	${VISUAL}
+end
+endsnippet
+
+snippet "doc(s)?" "docstring" br
+--[[
+
+$0${VISUAL}
+
+--]]
+endsnippet

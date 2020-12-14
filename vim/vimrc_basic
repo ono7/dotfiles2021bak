@@ -1,0 +1,323 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"               basic vimrc settings for vanilla deployments...                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader = " "
+let maplocalleader = "\\"
+
+if has('vim_starting')
+  " Be improved
+  set nocompatible
+endif
+
+if has('unnamedplus')
+  set clipboard+=unnamed,unnamedplus
+endif
+
+if &shell =~# 'fish$'
+    set shell=bash
+endif
+
+set background=dark
+
+filetype plugin indent on
+
+syntax on
+
+let loaded_matchparen = 1
+
+" enter normal mode
+inoremap jk <Esc>
+
+" move easier around line wraps
+nmap k gk
+nmap j gj
+
+map K <Nop>
+
+" move to begining ^ or end $ of line easier in normal/visual mode
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
+nnoremap / mM/\v
+vnoremap / mM/\v
+nnoremap ? mM?\v
+vnoremap ? mM?\v
+nnoremap 's `S
+nnoremap 'm `M
+nnoremap 'v `V
+nnoremap ss mS
+
+nnoremap cw ciw
+nnoremap cW ciW
+vnoremap w iw
+vnoremap W iW
+
+nnoremap gd mMgd
+
+nnoremap <silent><leader>e :e
+
+" more natural re-do command
+map U <C-r>
+
+set shortmess+=I                                    " start with no welcome screen
+set nobackup nowritebackup noswapfile               " we are both concenting adults here...
+set updatetime=5                                    " diagnostic message time
+set synmaxcol=0
+syntax sync minlines=64
+
+set t_Co=256
+
+function! <SID>StripTrailingWhitespaces()
+  " saves and restores cursor position
+  " after removing whitespace
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+command! RemoveTrailingWhiteSpaces call <SID>StripTrailingWhitespaces()
+
+augroup _global
+  autocmd!
+  autocmd BufNewFile,BufRead,BufEnter *.asm,*.nasm setfiletype nasm
+  autocmd FileType asm,nasm setlocal nowrap commentstring=;\ %s
+  autocmd FileType yaml,yml,ansible setlocal ai ts=2 sw=2 et fo+=c
+  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
+        \ softtabstop=4 textwidth=0 nowrap
+  if has('nvim') && isdirectory(expand('~/.config/nvim/plugged'))
+    autocmd BufWritePre *.py silent! | retab | Neoformat
+  else
+    autocmd BufWritePre *.py silent! | retab
+  endif
+  " GLOBAL SETINGS
+  autocmd BufEnter * set fo-=c fo-=r fo-=o
+  " set local current directory per file as we enter the buffer
+  autocmd BufWritePre * silent! | retab
+  autocmd BufRead *
+      \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
+      \ exec "set path+=".s:tempPath
+  " remove trailing white space
+  autocmd BufWritePre * silent! :call <SID>StripTrailingWhitespaces()
+  " restore cursor position when entering file
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
+if &diff
+    set cursorline
+    map ] ]c
+    map [ [c
+endif
+
+set updatetime=5                                    " diagnostic message time
+set title                                           " set terminal title
+set fillchars+=vert:│                               " nicer vertical line separator
+set magic                                           " extended regex, ref: http://vimregex.com
+set nrformats-=octal                                " change C-a and C-x use decimal not octal
+set shortmess+=I                                    " start with no welcome screen
+set nocursorline                                    " highlight current line
+set directory=~/.tmp                                " dont clutter my dirs, mkdir -p ~/.tmp
+
+set nobackup nowritebackup noswapfile               " we are both concenting adults here...
+set ruler                                           " show curren position
+set hidden                                          " allow switching buffers with out saving first
+set undolevels=500                                  " add more undo levels & remember more commands
+set history=200                                     " command history bump
+" set showmatch                                     " show matching parenthesis
+set splitbelow                                      " More natural splits
+set splitright
+set nojoinspaces                                    " prevent inserting spaces after puntiation on a join
+set ignorecase smartcase incsearch                  " search
+set novisualbell noerrorbells                       " stop!
+" set listchars=eol:¬,tab:▸\ ,extends:▸,trail:·,nbsp:·   " display invisible characters
+set numberwidth=1
+set si                                              " set smart indent, useful for coding
+set laststatus=0                                    " always show status
+set autoindent                                      " set viminfo+=! "
+set smartindent                                     " smart indentation..
+set completeopt-=preview                            " Supertab close preview
+set shiftround                                      " When at 3 spaces and I hit >>, go to 4, not 5.
+" set viminfo='20,<1000,s1000                       " default register size bump
+" set noshowmode                                    " hide INSERT/VISUAL/NORMAL if using airline
+set showmode                                        " show INSERT/VISUAL/NORMAL if using airline
+set showcmd                                         " show line count in visual select mode
+set winaltkeys=no                                   " this was really annoying....
+set scrolloff=5                                     " up/down scrolloff
+set sidescrolloff=0                                 " side scroll off characters
+set sidescroll=0
+set textwidth=80                                    " max text width...
+set diffopt=filler                                  " add vertical spaces to keep right and left aligned
+set backspace=indent,eol,start                      " make backspace work normal (delete)
+set display+=lastline                               " show most of long line instead of @
+set pastetoggle=<F2>                                " toggle paste on and off
+
+" performance related settings
+set matchtime=0                                     " how long to show parenthesis matches
+set lazyredraw                                      " dont redraw while executing macros
+set redrawtime=10000
+set ttyfast                                         " should make scrolling fasters in vim, no effect in nvim
+
+" edit/reload $MYVIMRC
+nnoremap <leader>ve :e $MYVIMRC<cr>
+nnoremap <leader>vs :source $MYVIMRC<cr>
+
+nnoremap <silent><leader>w :w<CR>
+
+" close file, save etc
+nnoremap <leader>x :x!<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <silent><leader>bd :bd<cr>
+
+" cycle through buffers using tab and shift-tab
+nnoremap <silent><Tab> :bnext<CR>
+nnoremap <silent><S-Tab> :bprevious<CR>
+
+" shift Y yanks till end of line, one for D is baked in
+nnoremap Y y$
+vmap y ygv<esc>
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" happiness
+cnoreabbrev W! w!
+cnoreabbrev w1 w!
+cnoreabbrev X! x!
+cnoreabbrev X1 x!
+cnoreabbrev Q! q!
+cnoreabbrev Q1 q!
+cnoreabbrev q1 q!
+cnoreabbrev qq q!
+cnoreabbrev bd1 bd!
+cnoreabbrev bd bd!
+cnoreabbrev Qall! qall!
+cnoreabbrev qall1 qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+" more happiness
+ab teh the
+ab taht that
+ab fro for
+ab whlie while
+ab anotehr another
+ab initilize initialize
+ab initilise initialize
+ab accross across
+ab mitake mistake
+ab corected corrected
+ab lenght length
+ab lenhgt length
+ab shoudl should
+ab healt health
+ab yiedl yield
+ab yeild yield
+ab Flase False
+ab becuase because
+
+hi  my_blue         ctermfg=4    " guifg=#6baeea
+hi  my_lightblue    ctermfg=4    " guifg=#6baeea
+hi  my_magenta      ctermfg=5    guifg=#af87d7
+hi  my_number       ctermfg=3    guifg=#e5c17a
+hi  my_yellow       ctermfg=3    guifg=#e5c07b
+hi  my_lightyellow  ctermfg=11   guifg=#edbf69
+hi  my_red          ctermfg=1    guifg=#e5c17a
+hi  my_lightred     ctermfg=9    guifg=#e06c75
+hi  my_normal       ctermfg=15   guifg=#c5c8cd
+" hi  my_orange       ctermfg=208  guifg=#ff8700
+hi  my_cyan         ctermfg=6   guifg=#55b6c2
+hi  my_green        ctermfg=2    guifg=#8fb681
+hi  my_lightgreen   ctermfg=10   guifg=#8fb681
+
+hi link my_blue_italic        my_blue
+hi link my_lightblue_italic   my_lightblue
+hi link my_magenta_italic     my_magenta
+hi link my_number_italic      my_number
+hi link my_yellow_italic      my_yellow
+hi link my_lightyellow_italic my_lightyellow
+hi link my_red_italic         my_red
+hi link my_lightred_italic    my_lightred
+hi link my_normal_italic      my_normal
+hi link my_orange_italic      my_orange
+hi link my_cyan_italic        my_cyan
+hi link my_green_italic       my_green
+hi link my_lightgreen_italic  my_lightgreen
+
+hi link my_blue_bold        my_blue
+hi link my_lightblue_bold   my_lightblue
+hi link my_magenta_bold     my_magenta
+hi link my_number_bold      my_number
+hi link my_yellow_bold      my_yellow
+hi link my_lightyellow_bold my_lightyellow
+hi link my_red_bold         my_red
+hi link my_lightred_bold    my_lightred
+hi link my_normal_bold      my_normal
+" hi link my_orange_bold      my_orange
+hi link my_cyan_bold        my_cyan
+hi link my_green_bold       my_green
+hi link my_lightgreen_bold  my_lightgreen
+
+" ========== other color overrides ==========
+
+" if, else
+hi  Conditional  ctermfg=1  guifg=#af87d7
+
+" repeat = for,while
+hi  repeat       ctermfg=1  guifg=#af87d7
+
+" def, return, break
+hi  Statement    ctermfg=5  cterm=bold guifg=#af87d7
+
+hi  Define       ctermfg=5  cterm=bold  guifg=#af87d7
+hi  Exception    ctermfg=5  guifg=#af87d7
+
+" Numbers
+hi  Number  ctermfg=1  guifg=#e5c17a
+hi  Float   ctermfg=1  guifg=#e5c17a
+" hi MoreMsg  ctermfg=8  guifg=#727b8a
+hi ModeMsg  ctermfg=5  guifg=#727b8a
+hi MsgArea  ctermfg=8  guifg=#727b8a
+
+" Normal - just plain text
+hi  Normal     ctermfg=7  guifg=#c5c8cd
+hi  Function   ctermfg=4  guifg=#6baeea
+hi  IncSearch  ctermfg=0  ctermbg=3      guifg=#000000  guibg=#e5c17a
+hi  Comment    ctermfg=8  guifg=#727b8a
+hi  Conceal    ctermfg=8  guifg=#727b8a
+hi  Folded     ctermfg=8  guifg=#5c636f
+hi  String     ctermfg=2  guifg=#8fb681
+
+" status line
+hi  StatusLine    ctermbg=NONE  ctermfg=247  guibg=NONE  guifg=#9e9e9e
+hi  StatusLineNC  ctermbg=NONE  ctermfg=244  guibg=NONE  guifg=#6c6c6c
+
+" " visual select
+hi  Visual  ctermfg=0  ctermbg=10  guifg=#000000  guibg=#87b966
+
+" " Other
+hi  Search   ctermfg=0     ctermbg=5      guifg=#000000  guibg=#af87d7
+hi  NonText  ctermfg=8     guifg=#5c636f
+hi  LineNr   ctermbg=NONE  ctermfg=8      guibg=NONE     guifg=#5c636f
+
+" Menu drop down/selection
+hi  Pmenusel  ctermfg=0   ctermbg=7  guifg=#af87d7  guibg=#c5c8cd
+hi  Pmenu     ctermfg=7  ctermbg=0  guibg=#5c636f
+
+" Override vertical split colors
+hi  VertSplit  ctermfg=8  ctermbg=NONE  guibg=NONE
+
+" hi Special ctermfg=147 guifg=#c678dd
+hi  Special       ctermfg=11  guifg=#c678dd
+hi  Error         ctermfg=1  ctermbg=NONE guifg=#e06c75
+hi  CursorColumn  ctermbg=8
+hi  CursorLine    ctermbg=8
+
+" fzf uses Tabline
+hi  TabLine  ctermbg=0  ctermfg=2
+
