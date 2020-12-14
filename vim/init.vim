@@ -854,6 +854,7 @@ if g:colors_name == "onehalfdark"
   hi! link VimwikiHeader4 markdownH4
   hi! link VimwikiHeader5 markdownH5
   hi! link VimwikiHeader6 markdownH6
+  hi! link VimwikiPre Comment
   hi! link VimwikiLink Purple
   hi! link ALEWarningSign Yellow
   hi! link Repeat RedItalic
