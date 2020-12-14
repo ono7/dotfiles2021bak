@@ -284,7 +284,7 @@ function dnsclear (){
 
 function sp () {
   if test -z "$1"; then
-    i="***REMOVED***";
+    i="testproxyname.com";
     export http_proxy="http://$i:8080"
     export https_proxy="http://$i:8080"
     export all_proxy="http://$i:8080"
