@@ -135,7 +135,7 @@ endsnippet
 # endsnippet
 
 snippet todo "TODO comment" bw
-`!p snip.rv=get_comment_format()[0]` TODO: `!v strftime('%m-%d-%Y')` | ${VISUAL}${1}$0 | ${2:lima} `!p snip.rv=get_comment_format()[2]`
+`!p snip.rv=get_comment_format()[0]` TODO: `!v strftime('%m-%d-%Y')` | ${VISUAL}${1}$0
 endsnippet
 
 snippet date "insert date"
@@ -168,7 +168,7 @@ endsnippet
 # tag
 snippet t "xml tag" b
 <${1:name="${VISUAL}$2"}>
-	$3
+    $3
 </${1/(\w+).*/$1/}>
 endsnippet
 
@@ -179,10 +179,10 @@ endsnippet
 
 snippet pt "xml snippet for pano" b
 <${1:entry name="${VISUAL}$2"}>
-	$3
+    $3
 </${1/(\w+).*/$1/}>
 endsnippet
 
 snippet pti "pano member tag" b
-	<${1:member}>${VISUAL}$2</$1>
+    <${1:member}>${VISUAL}$2</$1>
 endsnippet
