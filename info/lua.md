@@ -35,6 +35,19 @@ https://www.lua.org/pil/20.2.html
 
 `%%` makes escapes to a single `%` literal
 
+## shortest occurance example
+
+```lua
+
+x = '/*this this*/test /*test */1232 test'
+-- this makes sure that only the first closing */ is matched correctly per group
+print(x:gsub('/%*.-%*/', '<comment>'))
+
+▶ lua test.lua
+<comment>test <comment>1232 test
+```
+
+
 #### kali linux support
 
 - this is needed for kali linux lua lsp support
