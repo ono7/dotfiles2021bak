@@ -1,21 +1,58 @@
 # linux lua-lsp support
 
-- this is needed for kali linux lua slp support
+## patterns
+
+https://www.lua.org/pil/20.2.html
+
+### lua character classes
+
+.   all characters
+%a  letters
+%c  control characters
+%d  digits
+%l  lower case letters
+%p  punctuation characters
+%s  space characters
+%u  upper case letters
+%w  alphanumeric characters
+%x  hexadecimal digits
+%z  the character with representation 0
+
+`upper case letter represent the opposite of the class`
+
+`e.g. %A means any none letters`
+
+#### quantifiers
+
+`+` 1 or more repetitions
+`*` 0 or more repetitions
+`-` also 0 or more repetitions (shortest occurrence)
+`?` optional (0 or 1 occurrence)
+
+#### character escaping
+
+`%` can be used to escape special characters
+
+`%%` makes escapes to a single `%` literal
+
+#### kali linux support
+
+- this is needed for kali linux lua lsp support
 
   sudo luarocks install dkjson
   sudo luarocks install lua-lsp
 
-# lua reference
+## lua reference
 
 http://www.syntaxstation.com/lua.html
 
-# method calls colon :
+## method calls colon :
 
 ```lua
 f:read()
 ```
 
-### Lua starts counting at 1, not 0...
+## Lua starts counting at 1, not 0...
 
 ```lua
 local tbl = { "a", "b", "c" }
@@ -151,7 +188,7 @@ end
 -- During loop, variable "result" increases by 2, then 3, then 5.
 ```
 
-## list/arrays are just tables with no key
+### list/arrays are just tables with no key
 
 ```lua
 tbl = { 1, 2, 3 }
@@ -250,7 +287,7 @@ string.sub(str, 4, 7 )
 
 ## method calls can be done with a : on any object
 
-when calling a function with : "self" is in serted as the first parameter
+when calling a function with : "self" is inserted as the first parameter
 
 ```lua
 t = {}
