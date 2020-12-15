@@ -833,8 +833,10 @@ if g:colors_name == "onehalfdark"
   hi!  Folded         ctermfg=245  ctermbg=NONE   guifg=#95c637  guibg=NONE
   hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=167    guifg=#1d2021  guibg=#e78a4e
   hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
-  hi!  Pmenu guifg=#9297a1 guibg=#282c34
-  hi!  PmenuSel guifg=#9297a1 ctermbg=237 guibg=#313640
+  " hi!  Pmenu guifg=#9297a1 guibg=#282c34
+  " hi!  PmenuSel guifg=#9297a1 ctermbg=237 guibg=#313640
+  hi! Pmenu ctermbg=237 guibg=#313640 guifg=#9297a1
+  hi! PmenuSel ctermbg=220 guibg=#313640 guifg=#9297a1 gui=reverse
   hi!  CommentNormal  ctermfg=8  guifg=#95c637
   hi!  Visual         ctermfg=234  ctermbg=142    guifg=#1d2021  guibg=#98c379
   hi!  Search      ctermfg=234  ctermbg=5    guifg=#1d2021  guibg=#de9df1
