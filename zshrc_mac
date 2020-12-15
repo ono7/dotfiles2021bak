@@ -282,22 +282,10 @@ function dnsclear (){
    dscacheutil -flushcache
 }
 
-function sp () {
-  if test -z "$1"; then
-    i="testproxyname.com";
-    export http_proxy="http://$i:8080"
-    export https_proxy="http://$i:8080"
-    export all_proxy="http://$i:8080"
-    export no_proxy="localhost,10.*,127.*,100.*"
-  else
-    i="$1";
-    export http_proxy="$i"
-    export https_proxy="$i"
-    export all_proxy="$i"
-    export no_proxy="localhost,10.*,127.*,100.*"
-  fi
-  echo "cli proxy setup done..."
-}
+# load other functions
+if [ -f ~/.zshf ]; then
+  source ~/.zshf
+fi
 
 function dp() {
   unset http_proxy

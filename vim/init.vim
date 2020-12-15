@@ -147,6 +147,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     " Plug 'vimwiki/vimwiki', { 'for' : 'vimwiki' }
     Plug 'vimwiki/vimwiki'
       let g:vimwiki_table_mappings = 0
+      let g:vimwiki_global_ext = 0
       let wiki = {}
       let wiki.path = 'wiki'
       let wiki.nested_syntaxes = {'python': 'python', 'cpp': 'cpp', 'php': 'php',
@@ -852,6 +853,7 @@ if g:colors_name == "onehalfdark"
   hi! link markdownH5  YellowBold
   hi! link markdownH6  RedBold
   hi! link markdownUrl  PurpleBold
+  hi! link markdownCodeDelimiter Comment
   hi! link VimwikiHeader1 markdownH1
   hi! link VimwikiHeader2 markdownH2
   hi! link VimwikiHeader3 markdownH3

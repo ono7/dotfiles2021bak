@@ -52,3 +52,11 @@ snippet "^l (.*)" "link" br
 * [[`!p snip.rv=fmt_link(match.group(1))`|`!p
 snip.rv=fmt_desc(match.group(1)).strip()`$0]]
 endsnippet
+
+snippet "code" "codeblock" br
+{{{$0
+
+${VISUAL}
+
+}}}
+endsnippet
