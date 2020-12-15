@@ -147,7 +147,8 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     " Plug 'vimwiki/vimwiki', { 'for' : 'vimwiki' }
     Plug 'vimwiki/vimwiki'
       let g:vimwiki_table_mappings = 0
-      let g:vimwiki_global_ext = 0
+      " dont enable for markdown files!
+      " let g:vimwiki_global_ext = 0
       let wiki = {}
       let wiki.path = 'wiki'
       let wiki.nested_syntaxes = {'python': 'python', 'cpp': 'cpp', 'php': 'php',
@@ -171,7 +172,8 @@ if has("mac") || has("macunix") || has("unix")
   let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
 
   set synmaxcol=0
-  syntax sync minlines=1024
+  syntax sync minlines=200
+  syntax sync maxlines=300
   " fix syntax on large files
   let g:vimsyn_embed='0'
 
@@ -304,7 +306,7 @@ command! -register JcopyMatches call CopyMatches(<q-reg>)
 augroup _enter
   autocmd!
   autocmd BufEnter * silent! lcd %:p:h
-  autocmd BufEnter * :syntax sync maxlines=200
+  " autocmd BufEnter * :syntax sync maxlines=200
   " restore last known position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
