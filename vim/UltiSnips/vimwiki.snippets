@@ -54,9 +54,9 @@ snip.rv=fmt_desc(match.group(1)).strip()`$0]]
 endsnippet
 
 snippet "code" "codeblock" br
-{{{$0
+{{{$1
 
-${VISUAL}
+$0${VISUAL/\n{2,}/\n\n/g}
 
 }}}
 endsnippet

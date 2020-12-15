@@ -152,7 +152,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
       let wiki = {}
       let wiki.path = 'wiki'
       let wiki.nested_syntaxes = {'python': 'python', 'cpp': 'cpp', 'php': 'php',
-            \ 'javascript': 'javascript', 'bash' : 'sh'}
+            \ 'javascript': 'javascript', 'bash' : 'sh', 'lua' : 'lua'}
       let g:vimwiki_list = [wiki]
   call plug#end()
 endif
