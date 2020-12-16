@@ -701,7 +701,7 @@ set ttyfast
 set re=1
 
 " pmenu/transparency/items
-set pumheight=20
+set pumheight=12
 set pumblend=5
 
 " fixes issues with extra lines in EOF
