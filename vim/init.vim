@@ -78,10 +78,9 @@ if v:version >= 800
 endif
 
 " performace tweaks
-let loaded_matchparen = 1
-let g:loaded_matchparen = 1
-let g:matchparen_timeout = 10
-let g:matchparen_insert_timeout = 10
+" let loaded_matchparen = 0
+" let g:matchparen_timeout = 10
+" let g:matchparen_insert_timeout = 10
 
 filetype off
 
@@ -693,7 +692,7 @@ set complete+=kspell
 
 " performance settings
 set lazyredraw
-set matchtime=0
+" set matchtime=0
 set nocursorcolumn
 set nocursorline
 set redrawtime=10000
