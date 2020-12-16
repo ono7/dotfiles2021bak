@@ -181,7 +181,6 @@ if has("mac") || has("macunix") || has("unix")
   else
     set t_Co=256
     set background=dark
-    " colorscheme gruvbox-material
     colorscheme onehalfdark
   endif
 else
@@ -303,7 +302,6 @@ command! -register JcopyMatches call CopyMatches(<q-reg>)
 augroup _enter
   autocmd!
   autocmd BufEnter * silent! lcd %:p:h
-  " autocmd BufEnter * :syntax sync maxlines=200
   " restore last known position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
