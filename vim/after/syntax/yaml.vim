@@ -10,7 +10,7 @@ hi! link yamlFlowIndicator Purple
 
 hi! link yamlNodeTag Red
 
-syn match yamlCompOp /\v[.,<>~+-]/
+syn match yamlCompOp /\v[.,<>~]/
 hi! link yamlCompOp NormalBold
 
 syn match yamlCompOp1 /\v[=:?]/

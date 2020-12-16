@@ -25,7 +25,7 @@ hi! def link group5 AquaItalic
 syn keyword group6 console
 hi! def link group6 Blue
 
-syn match javaCompOp /\v[.,<>~+-]/
+syn match javaCompOp /\v[.,<>~]/
 hi! link javaCompOp NormalBold
 
 syn match javaCompOp1 /\v[=:?]/

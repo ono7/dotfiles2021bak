@@ -85,7 +85,7 @@ hi! link pyDocstr2 Comment
 syn match pyMathOp /\v[\*\/\%\^\&\$\\|\{\}]/
 hi! link pyMathOp Orange
 
-syn match pyCompOp /\v[.,<>~+-]/
+syn match pyCompOp /\v[.,<>~]/
 hi! link pyCompOp NormalBold
 
 syn match pyCompOp1 /\v[=:?]/
