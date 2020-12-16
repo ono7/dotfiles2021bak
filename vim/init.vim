@@ -329,7 +329,7 @@ augroup _filetype
 augroup END
 
 augroup _yank
-  au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}
+  au TextYankPost * silent! lua vim.highlight.on_yank {higroup="Search", timeout=100}
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
