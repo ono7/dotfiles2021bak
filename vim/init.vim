@@ -328,6 +328,10 @@ augroup _filetype
   autocmd FileType * set formatoptions-=cro fo+=j
 augroup END
 
+augroup _yank
+  au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}
+augroup END
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                shellcode goodies                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
