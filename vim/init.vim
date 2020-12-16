@@ -692,7 +692,7 @@ set complete+=kspell
 
 " performance settings
 set lazyredraw
-" set matchtime=0
+set matchtime=0
 set nocursorcolumn
 set nocursorline
 set redrawtime=10000
