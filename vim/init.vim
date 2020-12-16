@@ -366,7 +366,8 @@ let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_sign_warning = '⚠'
-let g:ale_sign_error = '◎'
+let g:ale_sign_error = '•'
+" let g:ale_sign_error = '◎'
 " let g:ale_sign_error = '✘'
 " let g:ale_sign_error = '◉'
 let g:ale_sign_offset = 1000000
@@ -865,6 +866,7 @@ if g:colors_name == "onehalfdark"
   hi!  link  VimwikiPre             Comment
   hi!  link  VimwikiLink            Purple
   hi!  link  ALEWarningSign         Yellow
+  hi!  link  ALEErrorSign           YellowBold
   hi!  link  Repeat                 RedItalic
   hi!  link  Conditional            PurpleItalic
   hi!  link  EndOfBuffer            Comment
