@@ -147,11 +147,10 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     " Plug 'vimwiki/vimwiki', { 'for' : 'vimwiki' }
     Plug 'vimwiki/vimwiki'
       let g:vimwiki_table_mappings = 0
-      let g:vimwiki_global_ext = 0
       let wiki = {}
       let wiki.path = 'wiki'
       let wiki.nested_syntaxes = {'python': 'python', 'cpp': 'cpp', 'php': 'php',
-            \ 'javascript': 'javascript', 'bash' : 'sh'}
+            \ 'javascript': 'javascript', 'bash' : 'sh', 'lua' : 'lua'}
       let g:vimwiki_list = [wiki]
   call plug#end()
 endif
@@ -171,7 +170,8 @@ if has("mac") || has("macunix") || has("unix")
   let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
 
   set synmaxcol=0
-  syntax sync minlines=1024
+  syntax sync minlines=200
+  syntax sync maxlines=300
   " fix syntax on large files
   let g:vimsyn_embed='0'
 
@@ -304,7 +304,7 @@ command! -register JcopyMatches call CopyMatches(<q-reg>)
 augroup _enter
   autocmd!
   autocmd BufEnter * silent! lcd %:p:h
-  autocmd BufEnter * :syntax sync maxlines=200
+  " autocmd BufEnter * :syntax sync maxlines=200
   " restore last known position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
@@ -565,7 +565,7 @@ nnoremap <silent>A :noh<cr>A
 nnoremap <silent><enter> :noh<cr>
 
 " tmux send-kyes up and enter, *repeat last command*
-" nnoremap <silent><leader>g :silent !tmux send-keys -t 2 c-p Enter<cr>
+nnoremap <silent><leader>t :silent !tmux send-keys -t 2 c-p Enter<cr>
 
 nnoremap H ^<c-g>
 nnoremap L $<c-g>
@@ -808,11 +808,11 @@ imap <c-b> <nop>
 
 if g:colors_name == "onehalfdark"
 
-  hi!  Red ctermfg=167  guifg=#e06c75
-  hi!  Orange ctermfg=208  guifg=#e78a4e
-  hi!  Yellow ctermfg=214  guifg=#e5c07b
-  hi!  Blue ctermfg=109  guifg=#61afef
-  hi!  Purple ctermfg=175  guifg=#b67fd1
+  hi!  Red     ctermfg=167  guifg=#e06c75
+  hi!  Orange  ctermfg=208  guifg=#e78a4e
+  hi!  Yellow  ctermfg=214  guifg=#e5c07b
+  hi!  Blue    ctermfg=109  guifg=#61afef
+  hi!  Purple  ctermfg=175  guifg=#b67fd1
 
   hi!  RedItalic      cterm=italic  gui=italic  ctermfg=167  guifg=#e06c75
   hi!  OrangeItalic   cterm=italic  gui=italic  ctermfg=208  guifg=#e78a4e
@@ -839,43 +839,43 @@ if g:colors_name == "onehalfdark"
   hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
   " hi!  Pmenu guifg=#9297a1 guibg=#282c34
   " hi!  PmenuSel guifg=#9297a1 ctermbg=237 guibg=#313640
-  hi! Pmenu ctermbg=237 guibg=#313640 guifg=#9297a1
-  hi! PmenuSel ctermbg=220 guibg=#313640 guifg=#9297a1 gui=reverse
-  hi!  CommentNormal  ctermfg=8  guifg=#95c637
+  hi!  Pmenu          ctermbg=237  guibg=#313640  guifg=#9297a1
+  hi!  PmenuSel       ctermbg=220  guibg=#313640  guifg=#9297a1  gui=reverse
+  hi!  CommentNormal  ctermfg=8    guifg=#95c637
   hi!  Visual         ctermfg=234  ctermbg=142    guifg=#1d2021  guibg=#98c379
-  hi!  Search      ctermfg=234  ctermbg=5    guifg=#1d2021  guibg=#de9df1
+  hi!  Search         ctermfg=234  ctermbg=5      guifg=#1d2021  guibg=#de9df1
   " gutter
-  hi! SignColumn ctermfg=223 ctermbg=NONE guifg=#d4be98 guibg=NONE
-  hi! RedSign ctermfg=167 ctermbg=NONE guifg=#e06c75 guibg=NONE
-  hi! YellowSign ctermbg=NONE guifg=#e5c07b guibg=NONE
-  hi! BlueSign ctermfg=109 ctermbg=NONE guifg=#61afef guibg=NONE
-  hi! link lineNr Comment
+  hi!  SignColumn  ctermfg=223   ctermbg=NONE   guifg=#d4be98  guibg=NONE
+  hi!  RedSign     ctermfg=167   ctermbg=NONE   guifg=#e06c75  guibg=NONE
+  hi!  YellowSign  ctermbg=NONE  guifg=#e5c07b  guibg=NONE
+  hi!  BlueSign    ctermfg=109   ctermbg=NONE   guifg=#61afef  guibg=NONE
+  hi!  link        lineNr        Comment
 
   " markdown
-  hi! link markdownH1  GreenBold
-  hi! link markdownH2  BlueBold
-  hi! link markdownH3  OrangeBold
-  hi! link markdownH4  PurpleBold
-  hi! link markdownH5  YellowBold
-  hi! link markdownH6  RedBold
-  hi! link markdownUrl  PurpleBold
-  hi! link markdownCodeDelimiter Comment
-  hi! link VimwikiHeader1 markdownH1
-  hi! link VimwikiHeader2 markdownH2
-  hi! link VimwikiHeader3 markdownH3
-  hi! link VimwikiHeader4 markdownH4
-  hi! link VimwikiHeader5 markdownH5
-  hi! link VimwikiHeader6 markdownH6
-  hi! link VimwikiPre Comment
-  hi! link VimwikiLink Purple
-  hi! link ALEWarningSign Yellow
-  hi! link Repeat RedItalic
-  hi! link Conditional PurpleItalic
-  hi! link EndOfBuffer Comment
-  silent! syn clear Normal
-  silent! syn clear Comment
-  hi! Normal ctermbg=0 guibg=none guifg=none
-  hi! Comment ctermfg=8 guifg=#5c6370
+  hi!  link  markdownH1             GreenBold
+  hi!  link  markdownH2             BlueBold
+  hi!  link  markdownH3             OrangeBold
+  hi!  link  markdownH4             PurpleBold
+  hi!  link  markdownH5             YellowBold
+  hi!  link  markdownH6             RedBold
+  hi!  link  markdownUrl            PurpleBold
+  hi!  link  markdownCodeDelimiter  Comment
+  hi!  link  VimwikiHeader1         markdownH1
+  hi!  link  VimwikiHeader2         markdownH2
+  hi!  link  VimwikiHeader3         markdownH3
+  hi!  link  VimwikiHeader4         markdownH4
+  hi!  link  VimwikiHeader5         markdownH5
+  hi!  link  VimwikiHeader6         markdownH6
+  hi!  link  VimwikiPre             Comment
+  hi!  link  VimwikiLink            Purple
+  hi!  link  ALEWarningSign         Yellow
+  hi!  link  Repeat                 RedItalic
+  hi!  link  Conditional            PurpleItalic
+  hi!  link  EndOfBuffer            Comment
+  silent!  syn      clear      Normal
+  silent!  syn      clear      Comment
+  hi!      Normal   ctermbg=0  guibg=none     guifg=none
+  hi!      Comment  ctermfg=8  guifg=#5c6370
 
 endif
 
