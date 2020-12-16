@@ -808,6 +808,7 @@ if g:colors_name == "onehalfdark"
   hi!  Yellow  ctermfg=214  guifg=#e5c07b
   hi!  Blue    ctermfg=109  guifg=#61afef
   hi!  Purple  ctermfg=175  guifg=#b67fd1
+  hi!  Aqua    guifg=#56b6c2
 
   hi!  RedItalic      cterm=italic  gui=italic  ctermfg=167  guifg=#e06c75
   hi!  OrangeItalic   cterm=italic  gui=italic  ctermfg=208  guifg=#e78a4e

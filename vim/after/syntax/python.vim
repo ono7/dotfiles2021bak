@@ -82,12 +82,20 @@ syn region pyDocstr2 start=/\(^\)\z('''\|"""\)/ skip=/\\["']/ end=/\z1/
 hi! link pyDocstr2 Comment
 
 " syn match pyMathOp /\v[\+\-\*\/\%\^\&\$\\|\{\}=]/
-syn match pyMathOp /\v[\+\-\*\/\%\^\&\$\\|\{\}=]/
+syn match pyMathOp /\v[\*\/\%\^\&\$\\|\{\}]/
 hi! link pyMathOp Orange
 
-" syn match pyCompOp /\v[\=\!\<\>\~]/
-syn match pyCompOp /\v[=!<>~+-]/
+syn match pyCompOp /\v[.,<>~+-]/
 hi! link pyCompOp NormalBold
+
+syn match pyCompOp1 /\v[=:?]/
+hi! link pyCompOp1 BlueBold
+
+syn match pyCompOp3 /\v[;]/
+hi! link pyCompOp3 Normal
+
+syn match pyCompOp4 /\v[!]/
+hi! link pyCompOp4 RedBold
 
 " syn match pySpecialComment "\v\##.*\ze:"
 " hi! def link pySpecialComment Purple

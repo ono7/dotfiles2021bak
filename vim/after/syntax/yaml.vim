@@ -9,3 +9,15 @@ hi! link Group1 Green
 hi! link yamlFlowIndicator Purple
 
 hi! link yamlNodeTag Red
+
+syn match yamlCompOp /\v[.,<>~+-]/
+hi! link yamlCompOp NormalBold
+
+syn match yamlCompOp1 /\v[=:?]/
+hi! link yamlCompOp1 BlueBold
+
+syn match yamlCompOp3 /\v[;]/
+hi! link yamlCompOp3 Normal
+
+syn match yamlCompOp4 /\v[!]/
+hi! link yamlCompOp4 RedBold
