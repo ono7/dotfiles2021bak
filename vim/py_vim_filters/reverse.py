@@ -7,6 +7,5 @@ lines = sys.stdin.readlines()
 
 for i in lines:
     i = i.strip()
-    print i[::-1]
-
-
+    # reverse line
+    print(i[::-1])
