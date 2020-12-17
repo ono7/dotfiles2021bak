@@ -168,8 +168,10 @@ if has("mac") || has("macunix") || has("unix")
   let g:loaded_python_provider = 1
   let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
 
+  " syntax sync minlines=200
+  " set synmaxcol=128
   set synmaxcol=0
-  syntax sync minlines=200
+  syntax sync minlines=256
   syntax sync maxlines=300
   " fix syntax on large files
   let g:vimsyn_embed='0'
@@ -400,7 +402,7 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips', 'UltiSnips']
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsUsePythonVersion = 3
 
 " let g:indentLine_color_term = 239
