@@ -6,6 +6,19 @@
 * lua operators
   https://www.tutorialspoint.com/lua/lua_operators.htm
 
+* quick primer
+  https://www.youtube.com/watch?v=kgiEF1frHQ8
+
+## interpreter
+
+use = in the command interpreter to evalue
+
+```lua
+lua> x = 123
+lua> = type(x)
+number
+```
+
 ## patterns
 
 https://www.lua.org/pil/20.2.html
@@ -87,6 +100,38 @@ end
 
 print(count)
 ```
+
+## tables
+
+```lua
+local colors = { "blue", "green" , "red" }
+
+for i=1, #colors do -- #colors is length of colors
+  print(colors[i])
+end
+```
+## table manipulation
+
+```lua
+
+local colors = { "blue", "green" , "red" }
+
+table.insert(colors, "orange") -- add orange
+table.remove(colors, "blue") -- remove blue
+
+```
+## first class functions
+
+```lua
+-- can be assigned to variables and passed to other functions
+
+fun = function(x) return x + 1 end
+
+```
+
+## variables (*global/local) *default
+
+* assigments are global by default, use local to make them local
 
 ## shortest occurance example
 
