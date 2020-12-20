@@ -130,6 +130,18 @@ lua>local x = {}
 lua>x[1] = print
 lua>x[1]('hello')
 hello
+
+-- define local function, this is only visible in its local scope
+
+local fun = function (x) return x * 20 end
+
+```
+
+## chaining commands
+
+```lua
+-- prints local variable since its on the same scope/line
+local x = 63; print(64)
 ```
 
 ## variables (*global/local) *default
