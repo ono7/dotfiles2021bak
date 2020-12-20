@@ -1,5 +1,11 @@
 # linux lua-lsp support
 
+* string recipes
+  http://lua-users.org/wiki/StringRecipes
+
+* lua operators
+  https://www.tutorialspoint.com/lua/lua_operators.htm
+
 ## patterns
 
 https://www.lua.org/pil/20.2.html
@@ -29,11 +35,58 @@ https://www.lua.org/pil/20.2.html
 `-` also 0 or more repetitions (shortest occurrence)
 `?` optional (0 or 1 occurrence)
 
+####  operators
+
+* lua operators explained
+
+  https://www.tutorialspoint.com/lua/lua_operators.htm
+
+`..`  Concatenates two strings. a..b where a is "Hello " and b is "World", will
+return "Hello World".
+
+`#` An unary operator that return the length of the a string or a table.
+`#"Hello"` will return 5
+
 #### character escaping
 
 `%` can be used to escape special characters
 
 `%%` makes escapes to a single `%` literal
+
+## Comparison Operators
+
+== equal
+< less than
+> greater than
+<= less than or equal to
+>= greater than or equal to
+~= inequality (not !=)
+
+## combining statements and or, if else etc
+
+```lua
+if x > 1 or x < 20 then print(x) end
+if x > 1 end x < 20 then print(x) end
+if not x > 1 end x < 20 then print(x) end
+
+if x
+elseif y
+end
+```
+
+## range, tested loops
+
+```lua
+local count = 0
+
+for i=1, 10 do -- init i to 1, 10 is max range
+  for e=1, 10 do -- different variable
+    count = count + 1 -- no += operator..
+  end
+end
+
+print(count)
+```
 
 ## shortest occurance example
 
