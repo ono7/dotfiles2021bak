@@ -1,5 +1,24 @@
 # linux lua-lsp support
 
+* string recipes
+  http://lua-users.org/wiki/StringRecipes
+
+* lua operators
+  https://www.tutorialspoint.com/lua/lua_operators.htm
+
+* quick primer
+  https://www.youtube.com/watch?v=kgiEF1frHQ8
+
+## interpreter
+
+use = in the command interpreter to evalue
+
+```lua
+lua> x = 123
+lua> = type(x)
+number
+```
+
 ## patterns
 
 https://www.lua.org/pil/20.2.html
@@ -29,11 +48,105 @@ https://www.lua.org/pil/20.2.html
 `-` also 0 or more repetitions (shortest occurrence)
 `?` optional (0 or 1 occurrence)
 
+####  operators
+
+* lua operators explained
+
+  https://www.tutorialspoint.com/lua/lua_operators.htm
+
+`..`  Concatenates two strings. a..b where a is "Hello " and b is "World", will
+return "Hello World".
+
+`#` An unary operator that return the length of the a string or a table.
+`#"Hello"` will return 5
+
 #### character escaping
 
 `%` can be used to escape special characters
 
 `%%` makes escapes to a single `%` literal
+
+## Comparison Operators
+
+== equal
+< less than
+> greater than
+<= less than or equal to
+>= greater than or equal to
+~= inequality (not !=)
+
+## combining statements and or, if else etc
+
+```lua
+if x > 1 or x < 20 then print(x) end
+if x > 1 end x < 20 then print(x) end
+if not x > 1 end x < 20 then print(x) end
+
+if x
+elseif y
+end
+```
+
+## range, tested loops
+
+```lua
+local count = 0
+
+for i=1, 10 do -- init i to 1, 10 is max range
+  for e=1, 10 do -- different variable
+    count = count + 1 -- no += operator..
+  end
+end
+
+print(count)
+```
+
+## tables
+
+```lua
+local colors = { "blue", "green" , "red" }
+
+for i=1, #colors do -- #colors is length of colors
+  print(colors[i])
+end
+```
+## table manipulation
+
+```lua
+
+local colors = { "blue", "green" , "red" }
+
+table.insert(colors, "orange") -- add orange
+table.remove(colors, "blue") -- remove blue
+
+```
+## first class functions
+
+```lua
+-- can be assigned to variables and passed to other functions
+
+lua>fun = function(x) return x + 1 end
+lua>local x = {}
+lua>x[1] = print
+lua>x[1]('hello')
+hello
+
+-- define local function, this is only visible in its local scope
+
+local fun = function (x) return x * 20 end
+
+```
+
+## chaining commands
+
+```lua
+-- prints local variable since its on the same scope/line
+local x = 63; print(64)
+```
+
+## variables (*global/local) *default
+
+* assigments are global by default, use local to make them local
 
 ## shortest occurance example
 

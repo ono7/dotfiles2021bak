@@ -16,6 +16,9 @@ hi! link luaTable Orange
 syn match group6 /\v[\(\)]/
 hi! link group6 Purple
 
+syn match luaMathOp /\v[\#\*\/\%\^\&\$\\|\{\}]/
+hi! link luaMathOp Orange
+
 syn match luaCompOp /\v[.,<>~]/
 hi! link luaCompOp NormalBold
 
