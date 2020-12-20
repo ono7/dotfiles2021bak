@@ -143,6 +143,11 @@ end
 for i=100,0,-5 do
    myNum = myNum + 1
 end
+
+-- for loop include step
+for i=1,100,0.5 do
+  print(i)
+end
 ```
 
 - repeat until
