@@ -125,8 +125,11 @@ table.remove(colors, "blue") -- remove blue
 ```lua
 -- can be assigned to variables and passed to other functions
 
-fun = function(x) return x + 1 end
-
+lua>fun = function(x) return x + 1 end
+lua>local x = {}
+lua>x[1] = print
+lua>x[1]('hello')
+hello
 ```
 
 ## variables (*global/local) *default
