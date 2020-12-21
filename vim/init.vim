@@ -70,7 +70,7 @@ if has('nvim')
   set inccommand=nosplit
   set signcolumn=yes
   " pmenu/transparency/items
-  set pumheight=12
+  set pumheight=10
   set pumblend=0
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   tnoremap jk <C-\><C-n>
