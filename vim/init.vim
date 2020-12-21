@@ -180,8 +180,7 @@ if has("mac") || has("macunix") || has("unix")
   let g:vimsyn_embed='0'
 
   if has('termguicolors')
-    " set termguicolors
-    set t_Co=256
+    set termguicolors
     set background=dark
     colorscheme onehalfdark
   else
