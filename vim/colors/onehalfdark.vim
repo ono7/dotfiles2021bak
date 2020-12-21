@@ -17,20 +17,29 @@ let g:colors_name="onehalfdark"
 let colors_name="onehalfdark"
 
 
-let s:black       = { "gui": "#282c34", "cterm": "236" }
-let s:red         = { "gui": "#e06c75", "cterm": "168" }
-let s:green       = { "gui": "#98c379", "cterm": "114" }
-let s:yellow      = { "gui": "#e5c07b", "cterm": "180" }
-let s:blue        = { "gui": "#61afef", "cterm": "75"  }
+" let s:black       = { "gui": "#282c34", "cterm": "236" }
+" let s:red         = { "gui": "#e06c75", "cterm": "168" }
+" let s:green       = { "gui": "#98c379", "cterm": "114" }
+" let s:yellow      = { "gui": "#e5c07b", "cterm": "180" }
+" let s:blue        = { "gui": "#61afef", "cterm": "75"  }
 " let s:purple      = { "gui": "#b67fd1", "cterm": "176" }
-let s:purple      = { "gui": "#b67fd1", "cterm": "176" }
-let s:cyan        = { "gui": "#56b6c2", "cterm": "73"  }
-let s:white       = { "gui": "#dcdfe4", "cterm": "188" }
+" let s:cyan        = { "gui": "#56b6c2", "cterm": "73"  }
+" let s:white       = { "gui": "#dcdfe4", "cterm": "188" }
+
+let s:black       = { "gui": "#282c34", "cterm": "0" }
+let s:red         = { "gui": "#e06c75", "cterm": "1" }
+let s:green       = { "gui": "#98c379", "cterm": "2" }
+let s:yellow      = { "gui": "#e5c07b", "cterm": "3" }
+let s:blue        = { "gui": "#61afef", "cterm": "4"  }
+" let s:purple      = { "gui": "#b67fd1", "cterm": "176" }
+let s:purple      = { "gui": "#b67fd1", "cterm": "5" }
+let s:cyan        = { "gui": "#56b6c2", "cterm": "6"  }
+let s:white       = { "gui": "#dcdfe4", "cterm": "7" }
 
 let s:fg          = s:white
 let s:bg          = s:black
 
-let s:comment_fg  = { "gui": "#5c6370", "cterm": "241" }
+let s:comment_fg  = { "gui": "#5c6370", "cterm": "8" }
 let s:gutter_bg   = { "gui": "#282c34", "cterm": "236" }
 let s:gutter_fg   = { "gui": "#919baa", "cterm": "247" }
 

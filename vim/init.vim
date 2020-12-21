@@ -69,6 +69,9 @@ let mapleader = " "
 if has('nvim')
   set inccommand=nosplit
   set signcolumn=yes
+  " pmenu/transparency/items
+  set pumheight=12
+  set pumblend=5
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   tnoremap jk <C-\><C-n>
 endif
@@ -177,7 +180,8 @@ if has("mac") || has("macunix") || has("unix")
   let g:vimsyn_embed='0'
 
   if has('termguicolors')
-    set termguicolors
+    " set termguicolors
+    set t_Co=256
     set background=dark
     colorscheme onehalfdark
   else
@@ -703,9 +707,6 @@ set redrawtime=10000
 set ttyfast
 set re=1
 
-" pmenu/transparency/items
-set pumheight=12
-set pumblend=5
 
 " fixes issues with extra lines in EOF
 set fixendofline
