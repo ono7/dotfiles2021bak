@@ -71,7 +71,7 @@ if has('nvim')
   set signcolumn=yes
   " pmenu/transparency/items
   set pumheight=12
-  set pumblend=5
+  set pumblend=0
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   tnoremap jk <C-\><C-n>
 endif
@@ -808,48 +808,49 @@ imap <c-b> <nop>
 
 if g:colors_name == "onehalfdark"
 
-  hi!  Red     ctermfg=167  guifg=#e06c75
+  hi!  Red     ctermfg=1    guifg=#e06c75
+  hi!  Green   ctermfg=2    guifg=#56b6c2
+  hi!  Yellow  ctermfg=3    guifg=#e5c07b
+  hi!  Blue    ctermfg=4    guifg=#61afef
+  hi!  Purple  ctermfg=5    guifg=#b67fd1
+  hi!  Aqua    ctermfg=6    guifg=#56b6c2
   hi!  Orange  ctermfg=208  guifg=#e78a4e
-  hi!  Yellow  ctermfg=214  guifg=#e5c07b
-  hi!  Blue    ctermfg=109  guifg=#61afef
-  hi!  Purple  ctermfg=175  guifg=#b67fd1
-  hi!  Aqua    guifg=#56b6c2
 
-  hi!  RedItalic      cterm=italic  gui=italic  ctermfg=167  guifg=#e06c75
+  hi!  RedItalic      cterm=italic  gui=italic  ctermfg=1  guifg=#e06c75
   hi!  OrangeItalic   cterm=italic  gui=italic  ctermfg=208  guifg=#e78a4e
-  hi!  YellowItalic   cterm=italic  gui=italic  ctermfg=214  guifg=#e5c07b
-  hi!  GreenItalic    cterm=italic  gui=italic  ctermfg=142  guifg=#a9b665
-  hi!  AquaItalic     cterm=italic  gui=italic  ctermfg=108  guifg=#7daea3
-  hi!  BlueItalic     cterm=italic  gui=italic  ctermfg=109  guifg=#61afef
-  hi!  PurpleItalic   cterm=italic  gui=italic  ctermfg=175  guifg=#b67fd1
+  hi!  YellowItalic   cterm=italic  gui=italic  ctermfg=3  guifg=#e5c07b
+  hi!  GreenItalic    cterm=italic  gui=italic  ctermfg=2  guifg=#a9b665
+  hi!  AquaItalic     cterm=italic  gui=italic  ctermfg=6  guifg=#7daea3
+  hi!  BlueItalic     cterm=italic  gui=italic  ctermfg=4  guifg=#61afef
+  hi!  PurpleItalic   cterm=italic  gui=italic  ctermfg=5  guifg=#b67fd1
   hi!  NormalItalic   cterm=italic  gui=italic  ctermfg=223  guifg=#d4be98
   hi!  CommentItalic  cterm=italic  gui=italic  ctermfg=245  guifg=#5c6370
-  hi!  RedBold        cterm=bold    gui=bold    ctermfg=167  guifg=#e06c75
+  hi!  RedBold        cterm=bold    gui=bold    ctermfg=1  guifg=#e06c75
   hi!  OrangeBold     cterm=bold    gui=bold    ctermfg=208  guifg=#e78a4e
-  hi!  YellowBold     cterm=bold    gui=bold    ctermfg=214  guifg=#d8a657
-  hi!  GreenBold      cterm=bold    gui=bold    ctermfg=142  guifg=#98c379
-  hi!  AquaBold       cterm=bold    gui=bold    ctermfg=108  guifg=#89b482
-  hi!  BlueBold       cterm=bold    gui=bold    ctermfg=109  guifg=#61afef
-  hi!  PurpleBold     cterm=bold    gui=bold    ctermfg=175  guifg=#b67fd1
+  hi!  YellowBold     cterm=bold    gui=bold    ctermfg=3  guifg=#d8a657
+  hi!  GreenBold      cterm=bold    gui=bold    ctermfg=2  guifg=#98c379
+  hi!  AquaBold       cterm=bold    gui=bold    ctermfg=6  guifg=#89b482
+  hi!  BlueBold       cterm=bold    gui=bold    ctermfg=4  guifg=#61afef
+  hi!  PurpleBold     cterm=bold    gui=bold    ctermfg=5  guifg=#b67fd1
   hi!  NormalBold     cterm=bold    gui=bold    ctermfg=223  guifg=#dcdfe4
   hi!  CommentBold    cterm=bold    gui=bold    ctermfg=245  guifg=#95c637
 
   hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#a89984  guibg=NONE
   hi!  Folded         ctermfg=245  ctermbg=NONE   guifg=#95c637  guibg=NONE
-  hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=167    guifg=#1d2021  guibg=#e78a4e
+  hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=1    guifg=#1d2021  guibg=#e78a4e
   hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
   " hi!  Pmenu guifg=#9297a1 guibg=#282c34
   " hi!  PmenuSel guifg=#9297a1 ctermbg=237 guibg=#313640
-  hi!  Pmenu          ctermbg=237  guibg=#313640  guifg=#9297a1
-  hi!  PmenuSel       ctermbg=220  guibg=#313640  guifg=#9297a1  gui=reverse
+  hi!  Pmenu          ctermbg=235  ctermfg=8 guibg=#313640  guifg=#9297a1
+  hi!  PmenuSel       ctermbg=239  ctermfg=7 guibg=#313640  guifg=#9297a1  gui=reverse
   hi!  CommentNormal  ctermfg=8    guifg=#95c637
   hi!  Visual         ctermfg=234  ctermbg=142    guifg=#1d2021  guibg=#98c379
   hi!  Search         ctermfg=234  ctermbg=5      guifg=#1d2021  guibg=#de9df1
   " gutter
   hi!  SignColumn  ctermfg=223   ctermbg=NONE   guifg=#d4be98  guibg=NONE
-  hi!  RedSign     ctermfg=167   ctermbg=NONE   guifg=#e06c75  guibg=NONE
+  hi!  RedSign     ctermfg=1   ctermbg=NONE   guifg=#e06c75  guibg=NONE
   hi!  YellowSign  ctermbg=NONE  guifg=#e5c07b  guibg=NONE
-  hi!  BlueSign    ctermfg=109   ctermbg=NONE   guifg=#61afef  guibg=NONE
+  hi!  BlueSign    ctermfg=4   ctermbg=NONE   guifg=#61afef  guibg=NONE
   hi!  link        lineNr        Comment
 
   " markdown
