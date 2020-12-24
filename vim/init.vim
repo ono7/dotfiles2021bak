@@ -4,6 +4,7 @@
 "
 " >>> for the weak vim versions <<<
 "
+" let mapleader = " "
 " set nocompatible
 " filetype plugin indent on
 " inoremap jk <Esc>
