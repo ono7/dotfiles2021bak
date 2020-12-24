@@ -55,6 +55,13 @@
 " nmap j gj
 " nnoremap <silent><leader>w :w<CR>
 " autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+" nnoremap H ^<c-g>
+" nnoremap L $<c-g>
+" xnoremap H ^<c-g>
+" xnoremap L $<c-g>
+" nnoremap U <C-r>
+
+
 
 " disable ex mode
 nnoremap Q <Nop>
