@@ -622,7 +622,7 @@ nnoremap Y y$
 " move cursor to the end of prev changed or yanked text
 " vmap y ygv<esc>
 " mark and return to mark after yank
-vnoremap y mxy`x
+xnoremap y mxy`x
 
 " select visualy selected text for search
 xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>

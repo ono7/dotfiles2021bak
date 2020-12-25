@@ -26,5 +26,7 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "omnisharp.useDotnet": true
+  "Lua.workspace.library": {
+    "/usr/share/nmap/nselib": true
+  }
 }

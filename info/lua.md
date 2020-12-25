@@ -463,3 +463,24 @@ nil
 100
 
 ```
+
+## creating modules
+
+```lua
+-- Create an example file mymodule.lua with the following content:
+
+local mymodule = {}
+
+function mymodule.foo()
+    print("Hello World!")
+end
+
+return mymodule
+
+-- Now to use this new module in the interactive interpreter, just do:
+
+> mymodule = require "mymodule"
+> mymodule.foo()
+Hello World!
+
+```
