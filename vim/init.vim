@@ -4,6 +4,7 @@
 "
 " >>> for the weak vim versions <<<
 "
+" let mapleader = " "
 " set nocompatible
 " filetype plugin indent on
 " inoremap jk <Esc>
@@ -54,7 +55,20 @@
 " nmap k gk
 " nmap j gj
 " nnoremap <silent><leader>w :w<CR>
-" autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+" nnoremap H ^<c-g>
+" nnoremap L $<c-g>
+" xnoremap H ^<c-g>
+" xnoremap L $<c-g>
+" nnoremap U <C-r>
+" augroup _enter
+"   autocmd!
+"   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+"   autocmd BufWritePre * %s/\s\+$//e
+"   autocmd FileType * set formatoptions-=cro fo+=j
+" augroup END
+
+
+
 
 " disable ex mode
 nnoremap Q <Nop>
@@ -314,12 +328,13 @@ augroup _enter
 augroup END
 
 augroup _writepre
+  autocmd!
   " autocmd BufEnter * silent! lcd %:p:h
   autocmd BufWritePre * silent! :call <SID>StripTrailingWhitespaces() | retab
 augroup END
 
 augroup _other
-  autocmd FileType * set formatoptions-=cro fo+=j
+  autocmd!
   autocmd BufNewFile,BufRead,BufEnter *.asm,*.nasm setfiletype nasm
   autocmd BufNewFile,BufRead,BufEnter *.yml,*.yaml setfiletype ansible.yaml
   autocmd BufNewFile,BufRead,BufEnter *.wiki setfiletype vimwiki
@@ -327,6 +342,7 @@ augroup _other
 augroup END
 
 augroup _filetype
+  autocmd!
   autocmd FileType * set formatoptions-=cro fo+=j
 augroup END
 
