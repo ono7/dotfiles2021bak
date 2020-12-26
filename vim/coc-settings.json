@@ -26,22 +26,15 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "Lua.completion.keywordSnippet": "Disable",
-  "Lua.workspace.library": { "/usr/share/nmap/": true },
+  "languageserver": {
+    "lua": {
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
+    }
+  },
+  "Lua.runtime.version": "Lua 5.1",
   "Lua.workspace.preloadFileSize": 1000,
   "Lua.workspace.maxPreload": 2000,
-  "Lua.runtime.version": "Lua 5.1",
-  "Lua.runtime.path": [
-    "?.lua",
-    "?/init.lua",
-    "/usr/share/5.3/?.lua",
-    "/usr/share/lua/5.3/?/init.lua",
-    "/usr/share/lua5.1/?.lua",
-    "/usr/share/lua5.1/?/init.lua",
-    "~/nvim-osx64/share/nvim/runtime/lua/?.lua",
-    "~/nvim-osx64/share/nvim/runtime/lua/?/init.lua"
-  ],
-  "Lua.diagnostics.enable": true,
   "Lua.diagnostics.globals": [
     "hs",
     "vim",
