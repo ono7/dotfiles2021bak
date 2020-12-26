@@ -26,7 +26,42 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "Lua.workspace.library": {
-    "/usr/share/nmap/nselib": true
+  "languageserver": {
+    "lua": {
+      "command": "/home/shubham/.cache/nvim/nvim_lsp/sumneko_lua/lua-language-server/bin/Linux/lua-language-server",
+      "args": [
+        "-E",
+        "/home/shubham/.cache/nvim/nvim_lsp/sumneko_lua/lua-language-server/main.lua"
+      ],
+      "filetypes": ["lua"],
+      "rootPatterns": [".git/"],
+      "settings": {
+        "Lua": {
+          "workspace": {
+            "library": {
+              "/home/kali/nvim-osx64/share/nvim/runtime/lua": true,
+              "/home/kali/nvim-osx64/share/nvim/runtime/lua/vim/lsp": true
+            },
+            "maxPreload": 2000,
+            "preloadFileSize": 1000
+          },
+          "runtime": {
+            "version": "5.4.1"
+          },
+          "diagnostics": {
+            "enable": true,
+            "globals": [
+              "hs",
+              "vim",
+              "it",
+              "describe",
+              "before_each",
+              "after_each"
+            ],
+            "disable": ["lowercase-global"]
+          }
+        }
+      }
+    }
   }
 }
