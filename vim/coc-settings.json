@@ -26,45 +26,29 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "languageserver": {
-    "lua": {
-      "command": "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/macOS/lua-language-server",
-      "args": [
-        "-E",
-        "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
-      ],
-      "filetypes": ["lua"],
-      "rootPatterns": [".git/"],
-      "settings": {
-        "Lua": {
-          "workspace": {
-            "library": {
-              "/Users/jlima/nvim-osx64/share/nvim/runtime/lua": true,
-              "/opt/homebrew/Cellar/nmap/7.91/share/nmap/nselib": true
-            },
-            "maxPreload": 2000,
-            "preloadFileSize": 1000
-          },
-          "runtime": {
-            "version": "Lua 5.3.5"
-          },
-          "diagnostics": {
-            "enable": true,
-            "globals": [
-              "hs",
-              "vim",
-              "it",
-              "describe",
-              "before_each",
-              "after_each"
-            ],
-            "disable": ["lowercase-global"]
-          },
-          "completion": {
-            "keywordSnippet": "Disable"
-          }
-        }
-      }
-    }
-  }
+  "Lua.completion.keywordSnippet": "Disable",
+  "Lua.workspace.library": { "/usr/share/nmap/": true },
+  "Lua.workspace.preloadFileSize": 1000,
+  "Lua.workspace.maxPreload": 2000,
+  "Lua.runtime.version": "Lua 5.1",
+  "Lua.runtime.path": [
+    "?.lua",
+    "?/init.lua",
+    "/usr/share/5.3/?.lua",
+    "/usr/share/lua/5.3/?/init.lua",
+    "/usr/share/lua5.1/?.lua",
+    "/usr/share/lua5.1/?/init.lua",
+    "~/nvim-osx64/share/nvim/runtime/lua/?.lua",
+    "~/nvim-osx64/share/nvim/runtime/lua/?/init.lua"
+  ],
+  "Lua.diagnostics.enable": true,
+  "Lua.diagnostics.globals": [
+    "hs",
+    "vim",
+    "it",
+    "describe",
+    "before_each",
+    "after_each"
+  ],
+  "Lua.diagnostics.disable": ["lowercase-global"]
 }
