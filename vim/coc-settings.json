@@ -28,43 +28,8 @@
   "prettier.singleQuote": true,
   "languageserver": {
     "lua": {
-      "command": "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/Linux/lua-language-server",
-      "args": [
-        "-E",
-        "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
-      ],
-      "filetypes": ["lua"],
-      "rootPatterns": [".git/"],
-      "settings": {
-        "Lua": {
-          "workspace": {
-            "library": {
-              "/home/kali/nvim-osx64/share/nvim/runtime/lua": true,
-              "/usr/share/nmap/nselib": true
-            },
-            "maxPreload": 2000,
-            "preloadFileSize": 1000
-          },
-          "runtime": {
-            "version": "Lua 5.3.5"
-          },
-          "diagnostics": {
-            "enable": true,
-            "globals": [
-              "hs",
-              "vim",
-              "it",
-              "describe",
-              "before_each",
-              "after_each"
-            ],
-            "disable": ["lowercase-global"]
-          },
-          "completion": {
-            "keywordSnippet": "Disable"
-          }
-        }
-      }
+      "command": "lua-lsp",
+      "filetypes": ["lua"]
     }
   }
 }

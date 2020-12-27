@@ -26,6 +26,7 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
+  "Lua.workspace.preloadFileSize": 1000,
   "languageserver": {
     "lua": {
       "command": "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/Linux/lua-language-server",
