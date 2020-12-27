@@ -28,10 +28,10 @@
   "prettier.singleQuote": true,
   "languageserver": {
     "lua": {
-      "command": "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/macOS/lua-language-server",
+      "command": "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/linux/lua-language-server",
       "args": [
         "-E",
-        "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
+        "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
       ],
       "filetypes": ["lua"],
       "rootPatterns": [".git/"],
