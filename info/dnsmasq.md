@@ -6,6 +6,15 @@
 
 sudo brew services restart dnsmasq
 
+* ~/.data/dnsmasq.conf working file
+
+must specify the right interfaces if there are multiple on the system
+or the service will fail to start correctly, this is already set in ~/.data/dnsmasq.conf
+
+interface=en0
+interface=lo0
+
+
 ## troubleshoot
 
 sudo brew services stop dnsmasq
