@@ -28,20 +28,43 @@
   "prettier.singleQuote": true,
   "languageserver": {
     "lua": {
-      "command": "lua-lsp",
-      "filetypes": ["lua"]
+      "command": "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/macOS/lua-language-server",
+      "args": [
+        "-E",
+        "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
+      ],
+      "filetypes": ["lua"],
+      "rootPatterns": [".git/"],
+      "settings": {
+        "Lua": {
+          "workspace": {
+            "library": {
+              "/Users/jlima/nvim-osx64/share/nvim/runtime/lua": true,
+              "/opt/homebrew/Cellar/nmap/7.91/share/nmap/nselib": true
+            },
+            "maxPreload": 2000,
+            "preloadFileSize": 1000
+          },
+          "runtime": {
+            "version": "Lua 5.3.5"
+          },
+          "diagnostics": {
+            "enable": true,
+            "globals": [
+              "hs",
+              "vim",
+              "it",
+              "describe",
+              "before_each",
+              "after_each"
+            ],
+            "disable": ["lowercase-global"]
+          },
+          "completion": {
+            "keywordSnippet": "Disable"
+          }
+        }
+      }
     }
-  },
-  "Lua.runtime.version": "Lua 5.1",
-  "Lua.workspace.preloadFileSize": 1000,
-  "Lua.workspace.maxPreload": 2000,
-  "Lua.diagnostics.globals": [
-    "hs",
-    "vim",
-    "it",
-    "describe",
-    "before_each",
-    "after_each"
-  ],
-  "Lua.diagnostics.disable": ["lowercase-global"]
+  }
 }
