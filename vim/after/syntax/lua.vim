@@ -19,11 +19,11 @@ hi! link group6 Purple
 syn match luaMathOp /\v[\*\/\%\^\&\$\\|\{\}]/
 hi! link luaMathOp Orange
 
-syn match luaCompOp /\v[;.,<>~]/
+syn match luaCompOp /\v[.<>~]/
 hi! link luaCompOp NormalBold
 
 syn match luaCompOp1 /\v[=:?]/
-hi! link luaCompOp1 BlueBold
+hi! link luaCompOp1 Aqua
 
 " syn match luaCompOp3 /\v[;]/
 " hi! link luaCompOp3 Normal

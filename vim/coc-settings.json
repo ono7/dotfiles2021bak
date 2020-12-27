@@ -28,7 +28,7 @@
   "prettier.singleQuote": true,
   "languageserver": {
     "lua": {
-      "command": "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/linux/lua-language-server",
+      "command": "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/Linux/lua-language-server",
       "args": [
         "-E",
         "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
@@ -39,8 +39,8 @@
         "Lua": {
           "workspace": {
             "library": {
-              "/Users/jlima/nvim-osx64/share/nvim/runtime/lua": true,
-              "/opt/homebrew/Cellar/nmap/7.91/share/nmap/nselib": true
+              "/home/kali/nvim-osx64/share/nvim/runtime/lua": true,
+              "/usr/share/nmap/nselib": true
             },
             "maxPreload": 2000,
             "preloadFileSize": 1000
