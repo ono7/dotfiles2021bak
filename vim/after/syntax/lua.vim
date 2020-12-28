@@ -3,13 +3,18 @@ syn keyword luaKeywords else
 syn keyword luaKeywords elseif
 syn keyword luaKeywords then
 syn keyword luaKeywords do
-hi! def link luaKeywords RedItalic
+syn keyword luaKeywords and
+syn keyword luaKeywords or
+hi! def link luaKeywords PurpleItalic
 
-hi! link luaCond RedItalic
-hi! link luaFunction RedItalic
+syn keyword luaKeywords1 self
+hi! def link luaKeywords1 Red
+
+hi! link luaCond PurpleItalic
+hi! link luaFunction PurpleItalic
 hi! link luaFunctionBlock Blue
-hi! link luaRepeat RedItalic
-hi! link luaStatement RedItalic
+hi! link luaRepeat PurpleItalic
+hi! link luaStatement PurpleItalic
 hi! link luaNumber Yellow
 hi! link luaFunc Blue
 hi! link luaTable Orange
@@ -23,7 +28,7 @@ hi! link luaMathOp Orange
 syn match luaCompOp /\v[<>~]/
 hi! link luaCompOp NormalBold
 
-syn match luaCompOp1 /\v[=~.+-/%*]/
+syn match luaCompOp1 /\v[=~.+/%*]/
 hi! link luaCompOp1 Purple
 
 syn match luaCompOp3 /\v[,]/
