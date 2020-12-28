@@ -16,7 +16,6 @@
     "yaml",
     "markdown",
     "typescript",
-    "lua",
     "css"
   ],
   "python.linting.enabled": true,
