@@ -30,10 +30,10 @@ hi! link group6 Purple
 syn match luaMathOp /\v[\/\%\^\&\$\\|\{\}]/
 hi! link luaMathOp Orange
 
-syn match luaCompOp /\v[<>~]/
-hi! link luaCompOp NormalBold
+" syn match luaCompOp /\v[<>~]/
+" hi! link luaCompOp NormalBold
 
-syn match luaCompOp1 /\v[=~.+/%*#]/
+syn match luaCompOp1 /\v[=~.+/%*#<>]/
 hi! link luaCompOp1 Purple
 
 syn match luaCompOp3 /\v[,]/

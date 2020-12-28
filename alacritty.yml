@@ -55,7 +55,7 @@ schemes:
   onehalf: &onehalf
     cursor:
       text: '0x282c34'
-      cursor: '0x4e679d'
+      cursor: '0x4176a2'
 
     primary:
       background: '0x282c34'
@@ -191,6 +191,8 @@ cursor:
   style: Block
 
   unfocused_hollow: true
+
+custom_cursor_colors: false
 
 live_config_reload: true
 

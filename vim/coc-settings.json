@@ -26,10 +26,6 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "languageserver": {
-    "lua": {
-      "command": "lua-lsp",
-      "filetypes": ["lua"]
-    }
-  }
+  "Lua.workspace.preloadFileSize": 1000,
+  "Lua.runtime.version": "Lua 5.3"
 }

@@ -1,4 +1,13 @@
+
 # linux lua-lsp support
+
+
+# sumneko/lua-language-server
+ make sure that luarock is installed, might need to install lua-lsp
+
+ cd ~/.luarocks/share/lua/5.3/lua-lsp/
+ set correct version in CocConfig
+
 
 * string recipes
   http://lua-users.org/wiki/StringRecipes
