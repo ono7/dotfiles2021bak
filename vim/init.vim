@@ -859,8 +859,9 @@ if g:colors_name == "onehalfdark"
   hi!  Pmenu          ctermbg=235  ctermfg=8 guibg=#313640  guifg=#9297a1
   hi!  PmenuSel       ctermbg=239  ctermfg=7 guibg=#313640  guifg=#9297a1  gui=reverse
   hi!  CommentNormal  ctermfg=8    guifg=#95c637
-  hi!  Visual         ctermfg=234  ctermbg=142    guifg=#1d2021  guibg=#98c379
-  hi!  Search         ctermfg=234  ctermbg=5      guifg=#1d2021  guibg=#de9df1
+  " hi!  Visual         ctermfg=234  ctermbg=142    guifg=#1d2021  guibg=#98c379
+  hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#485264
+  hi!  Search         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#485264
   " gutter
   hi!  SignColumn  ctermfg=223   ctermbg=NONE   guifg=#d4be98  guibg=NONE
   hi!  RedSign     ctermfg=1   ctermbg=NONE   guifg=#e06c75  guibg=NONE

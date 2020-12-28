@@ -7,6 +7,7 @@ hi! def link luaKeywords RedItalic
 
 hi! link luaCond RedItalic
 hi! link luaFunction RedItalic
+hi! link luaFunctionBlock Blue
 hi! link luaRepeat RedItalic
 hi! link luaStatement RedItalic
 hi! link luaNumber Yellow
