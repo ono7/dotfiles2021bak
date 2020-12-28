@@ -16,7 +16,6 @@
     "yaml",
     "markdown",
     "typescript",
-    "lua",
     "css"
   ],
   "python.linting.enabled": true,
@@ -26,28 +25,31 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "Lua.workspace.preloadFileSize": 1000,
   "languageserver": {
     "lua": {
-      "command": "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/Linux/lua-language-server",
+      "command": "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/macOS/lua-language-server",
       "args": [
         "-E",
-        "/home/kali/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
+        "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
       ],
       "filetypes": ["lua"],
       "rootPatterns": [".git/"],
       "settings": {
         "Lua": {
+          "telemetry": {
+            "enable": null
+          },
           "workspace": {
             "library": {
-              "/home/kali/nvim-osx64/share/nvim/runtime/lua": true,
-              "/usr/share/nmap/nselib": true
+              "/Users/jlima/.luarocks/share/lua/5.3/lua-lsp/data": true,
+              "/Users/jlima/.luarocks/share/lua/5.3/lua-lsp/": true
             },
             "maxPreload": 2000,
             "preloadFileSize": 1000
           },
           "runtime": {
-            "version": "Lua 5.3.5"
+            "version": "Lua 5.4",
+            "path": ["?.lua", "?/init.lua"]
           },
           "diagnostics": {
             "enable": true,
