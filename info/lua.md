@@ -1,6 +1,7 @@
-
 # linux lua-lsp support
 
+ * install the language server namually or through npm
+ * make sure there are not too many large lua files in the directory
 
 # sumneko/lua-language-server
  make sure that luarock is installed, might need to install lua-lsp

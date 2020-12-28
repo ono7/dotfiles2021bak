@@ -25,6 +25,46 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "Lua.workspace.preloadFileSize": 1000,
-  "Lua.runtime.version": "Lua 5.3"
+  "languageserver": {
+    "lua": {
+      "command": "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/bin/macOS/lua-language-server",
+      "args": [
+        "-E",
+        "/Users/jlima/.config/coc/extensions/coc-lua-data/sumneko-lua-ls/main.lua"
+      ],
+      "filetypes": ["lua"],
+      "rootPatterns": [".git/"],
+      "settings": {
+        "Lua": {
+          "workspace": {
+            "library": {
+              "/Users/jlima/.luarocks/share/lua/5.3/lua-lsp/data": true,
+              "/Users/jlima/.luarocks/share/lua/5.3/lua-lsp/": true
+            },
+            "maxPreload": 2000,
+            "preloadFileSize": 1000
+          },
+          "runtime": {
+            "version": "Lua 5.4",
+            "path": ["?.lua", "?/init.lua"]
+          },
+          "diagnostics": {
+            "enable": true,
+            "globals": [
+              "hs",
+              "vim",
+              "it",
+              "describe",
+              "before_each",
+              "after_each"
+            ],
+            "disable": ["lowercase-global"]
+          },
+          "completion": {
+            "keywordSnippet": "Disable"
+          }
+        }
+      }
+    }
+  }
 }

@@ -122,7 +122,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
           \ 'for' : ['python', 'yaml', 'jinja', 'ansible',
           \ 'json', 'javascript', 'css', 'markdown', 'typescript',
           \ 'terraform', 'cs', 'lua', 'vimwiki']}
-      let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-prettier', 'coc-omnisharp', 'coc-lua' ]
+      let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-prettier', 'coc-omnisharp' ]
     Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
       " use all the beautiful things jedi-vim offers, but leave completion to coc
       let g:jedi#completions_enabled = 0
