@@ -10,6 +10,11 @@ hi! def link luaKeywords PurpleItalic
 syn keyword luaKeywords1 self
 hi! def link luaKeywords1 Red
 
+syn keyword luaKeywords2 local
+hi! def link luaKeywords2 Aqua
+
+
+
 hi! link luaCond PurpleItalic
 hi! link luaFunction PurpleItalic
 hi! link luaFunctionBlock Blue
@@ -28,7 +33,7 @@ hi! link luaMathOp Orange
 syn match luaCompOp /\v[<>~]/
 hi! link luaCompOp NormalBold
 
-syn match luaCompOp1 /\v[=~.+/%*]/
+syn match luaCompOp1 /\v[=~.+/%*#]/
 hi! link luaCompOp1 Purple
 
 syn match luaCompOp3 /\v[,]/
@@ -36,6 +41,3 @@ hi! link luaCompOp3 Normal
 
 syn match luaCompOp4 /\v[!]/
 hi! link luaCompOp4 RedBold
-
-syn match luaCompOp5 /\v[#]/
-hi! link luaCompOp5 Aqua
