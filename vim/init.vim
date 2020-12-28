@@ -66,9 +66,8 @@
 "   autocmd BufWritePre * %s/\s\+$//e
 "   autocmd FileType * set formatoptions-=cro fo+=j
 " augroup END
-
-
-
+" nnoremap <silent><Tab> :bnext<CR>
+" nnoremap <silent><S-Tab> :bprevious<CR>
 
 " disable ex mode
 nnoremap Q <Nop>
@@ -663,6 +662,7 @@ nmap \wn <Plug>VimwikiMakeDiaryNote
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set autoindent
+set mouse=a
 set autoread
 set backspace=indent,eol,start
 set cmdheight=2
@@ -721,7 +721,6 @@ set nocursorline
 set redrawtime=10000
 set ttyfast
 set re=1
-
 
 " fixes issues with extra lines in EOF
 set fixendofline
