@@ -1,9 +1,8 @@
 " Follow the white rabbit...
-"
+
 " ~/.fzf/install (setup keybindings)
-"
-" >>> for the weak vim versions <<<
-"
+
+" minimal vim config
 " let mapleader = " "
 " set nocompatible
 " filetype plugin indent on
