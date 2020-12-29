@@ -731,7 +731,7 @@ if has('folding')
   set foldnestmax=2
   set nofoldenable
 endif
-set fileformats=unix
+set fileformats=unix,dos
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                              CLIPBOARD SUPPORT                               "
