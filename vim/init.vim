@@ -151,7 +151,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'tpope/vim-markdown', {'for' : 'markdown'}
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
       " close nerdtree when opening a file
-      let NERDTreeQuitOnOpen = 1
+      let NERDTreeQuitOnOpen = 0
       let NERDTreeMinimalUI = 1
       let NERDTreeDirArrows = 1
       let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
@@ -561,7 +561,7 @@ nnoremap vp vip
 nnoremap <leader>ve :e $MYVIMRC<cr>
 nnoremap <leader>vr :source $MYVIMRC<cr>
 
-inoremap jk <Esc><c-g>
+inoremap jk <Esc>:noh<cr><c-g>
 
 " highlight last inserted text
 " nnoremap gv `[v`]
@@ -571,12 +571,12 @@ nnoremap gv v`[
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 
-nnoremap <silent>i :noh<cr>i
-nnoremap <silent>I :noh<cr>I
-nnoremap <silent>o :noh<cr>o
-nnoremap <silent>O :noh<cr>O
-nnoremap <silent>A :noh<cr>A
-nnoremap <silent><enter> :noh<cr>
+" nnoremap <silent>i :noh<cr>i
+" nnoremap <silent>I :noh<cr>I
+" nnoremap <silent>o :noh<cr>o
+" nnoremap <silent>O :noh<cr>O
+" nnoremap <silent>A :noh<cr>A
+" nnoremap <silent><enter> :noh<cr>
 
 " tmux send-kyes up and enter, *repeat last command*
 nnoremap <silent><leader>t :silent !tmux send-keys -t 2 c-p Enter<cr>
@@ -893,6 +893,7 @@ if g:colors_name == "onehalfdark"
   hi!  link  EndOfBuffer            Comment
   silent!  syn      clear      Normal
   silent!  syn      clear      Comment
+  hi!     VertSplit ctermbg=NONE guibg=NONE
   hi!      Normal   ctermbg=0  guibg=none     guifg=none
   hi!      Comment  ctermfg=8  guifg=#5c6370
 
