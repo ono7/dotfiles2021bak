@@ -93,11 +93,6 @@ if v:version >= 800
   set nobreakindent
 endif
 
-" performace tweaks
-" let loaded_matchparen = 0
-" let g:matchparen_timeout = 10
-" let g:matchparen_insert_timeout = 10
-
 filetype off
 
 " auto install plug
@@ -112,7 +107,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " ondemand loading for filetypes = 'for', load on commands = 'on'
   call plug#begin('~/.config/nvim/plugged')
 
-    " Plug 'sonph/onehalf', {'rtp': 'vim/'}
     if has('nvim')
       Plug 'bfredl/nvim-miniyank'
       Plug 'SirVer/ultisnips'
@@ -156,10 +150,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
       " let NERDTreeDirArrows = 1
       let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
     Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs'] }
-    " Plug 'hashivim/vim-terraform', { 'for' : ['terraform'] }
-      " let g:terraform_align=1
-      " let g:terraform_fmt_on_save=1
-    " Plug 'vimwiki/vimwiki', { 'for' : 'vimwiki' }
     Plug 'vimwiki/vimwiki'
       let g:vimwiki_table_mappings = 0
       let wiki = {}
@@ -184,8 +174,6 @@ if has("mac") || has("macunix") || has("unix")
   let g:loaded_python_provider = 1
   let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
 
-  " syntax sync minlines=200
-  " set synmaxcol=128
   set synmaxcol=0
   syntax sync minlines=256
   syntax sync maxlines=300
@@ -328,7 +316,6 @@ augroup END
 
 augroup _writepre
   autocmd!
-  " autocmd BufEnter * silent! lcd %:p:h
   autocmd BufWritePre * silent! :call <SID>StripTrailingWhitespaces() | retab
 augroup END
 
@@ -349,18 +336,14 @@ augroup END
 "                                shellcode goodies                             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" remove any spaces (visual select)
+" remove spaces
 xmap <silent><leader>s s/\v\s+//ge<cr>
-
-" nnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
 
 " remove any spaces and hexify (visual select)
 xnoremap <silent><space>h :s/\v\s+//ge<cr><bar> :s/\v(..)/\\\x\1/ge<cr><bar> :s/\v.*/buffer \+\= b"&"/ge<cr>:noh<cr>
-" nnoremap <silent><space>h :s/\v\s+//ge<cr><bar> :s/\v(..)/\\\x\1/ge<cr><bar> :s/\v.*/buffer \+\= b"&"/ge<cr>:noh<cr>
 
 " remove any spaces and un-hexify (visual select)
 xnoremap <silent>\h :s/\v\s+//ge<cr><bar> :s/\v\\x//ge<cr> :noh<cr>
-" nnoremap <silent>\h :s/\v\s+//ge<cr><bar> :s/\v\\x//ge<cr> :noh<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               plugin variables                               "
@@ -369,14 +352,13 @@ xnoremap <silent>\h :s/\v\s+//ge<cr><bar> :s/\v\\x//ge<cr> :noh<cr>
 " lua hi
 let g:vimsyn_embed = 'l'
 
+" coc.vim
 if executable('~/local/node/bin/nodenode')
-  " coc.vim
   let g:coc_node_path = '~/local/node/bin/node'
 endif
 
 let g:vim_markdown_folding_disabled = 1
 
-" Plug 'dense-analysis/ale'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_format = '(%code%): %s'
 let g:ale_echo_msg_warning_str = 'W'
@@ -385,9 +367,6 @@ let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_sign_warning = '⚠'
 let g:ale_sign_error = '•'
-" let g:ale_sign_error = '◎'
-" let g:ale_sign_error = '✘'
-" let g:ale_sign_error = '◉'
 let g:ale_sign_offset = 1000000
 let g:ale_virtualtext_cursor = 0
 let g:ale_warn_about_trailing_blank_lines = 0
@@ -402,28 +381,18 @@ let g:ale_linters = {
       \}
 
 let g:asmsyntax = 'nasm'
-
-" Plug 'tpope/vim-markdown'
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'nasm', 'vim', 'php', 'javascript', 'lua', 'sql']
-
-" disable system conceal
 let g:markdown_syntax_conceal = 0
-
 " 1 = show if 2 files, 2 = always, 0 = disable
 let g:buftabline_show = 0
-
 let g:SuperTabDefaultCompletionType = "<C-n>"
 let g:SuperTabClosePreviewOnPopupClose = 1
-
-" Plug 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips', 'UltiSnips']
 let g:UltiSnipsEditSplit="horizontal"
 let g:UltiSnipsUsePythonVersion = 3
-
-" let g:indentLine_color_term = 239
 let g:indentLine_char = "‧"
 let g:indentLine_color_term = 8
 let g:indentLine_concealcursor = 'inc'
@@ -477,7 +446,6 @@ let g:netrw_fastbrowse = 1
 "                                   bindings                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" nnoremap <silent><leader>gn :e notes.md<CR>
 if exists("plugs")
 
   if has_key(plugs, 'nerdtree')
@@ -489,8 +457,6 @@ if exists("plugs")
   if has_key(plugs, 'fzf') && has_key(plugs, 'fzf.vim')
     nnoremap <silent><C-p> :call FZFOpen(':GFiles')<CR>
     nnoremap <silent><leader>f :call FZFOpen(':Files')<CR>
-    " nnoremap <silent><C-s> :call FZFOpen(':Rg')<CR>
-    " nnoremap <silent><leader>l :call FZFOpen(':Lines')<CR>
     nnoremap <silent><leader>b :call FZFOpen(':Buffers')<CR>
 
   else
@@ -543,13 +509,10 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 
 " diable c-z (bg)
 nnoremap <c-z> <nop>
-
-"disable ex-mode
 cnoremap <c-f> <nop>
-
-" clone paragraph
 nnoremap cp yap<S-}>p
 
+" macros
 nnoremap Q @q
 xnoremap Q :'<,'>norm @q<cr>
 
@@ -563,24 +526,12 @@ nnoremap <leader>vr :source $MYVIMRC<cr>
 
 inoremap jk <Esc>:noh<cr><c-g>
 
-" highlight last inserted text
-" nnoremap gv `[v`]
-nnoremap gv v`[
-
 " move better around line wraps
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 
-" nnoremap <silent>i :noh<cr>i
-" nnoremap <silent>I :noh<cr>I
-" nnoremap <silent>o :noh<cr>o
-" nnoremap <silent>O :noh<cr>O
-" nnoremap <silent>A :noh<cr>A
-" nnoremap <silent><enter> :noh<cr>
-
 " tmux send-kyes up and enter, *repeat last command*
 nnoremap <silent><leader>t :silent !tmux send-keys -t 2 c-p Enter<cr>
-
 nnoremap H ^<c-g>
 nnoremap L $<c-g>
 xnoremap H ^<c-g>
@@ -588,8 +539,6 @@ xnoremap L $<c-g>
 
 " more natural re-do command
 nnoremap U <C-r>
-
-" nnoremap <silent><C-r> :e<cr>
 
 cnoremap w!! w !sudo tee % > /dev/null
 cnoremap %s %s/\v
@@ -634,8 +583,6 @@ xnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
 
 nnoremap Y y$
 
-" move cursor to the end of prev changed or yanked text
-" vmap y ygv<esc>
 " mark and return to mark after yank
 xnoremap y mxy`x
 
@@ -656,10 +603,6 @@ nmap \wk <Plug>VimwikiMakeTomorrowDiaryNote
 nmap \wl <Plug>VimwikiDiaryGenerateLinks
 nmap \wm <Plug>VimwikiTabMakeDiaryNote
 nmap \wn <Plug>VimwikiMakeDiaryNote
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                     set                                      "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set autoindent
 set mouse=a
@@ -699,7 +642,6 @@ set showmode
 set noshowcmd
 set sidescrolloff=1
 set smartcase
-" set smartindent
 set smarttab
 set softtabstop=2
 set tabstop=2
@@ -731,6 +673,7 @@ if has('folding')
   set foldnestmax=2
   set nofoldenable
 endif
+
 set fileformats=unix,dos
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -739,7 +682,6 @@ set fileformats=unix,dos
 
 " requires -> export DISPLAY=:0.0 on zshrc
 
-" if exists('$TMUX')
 if has('macunix')
   let clip_copy = 'pbcopy'
   let clip_paste = 'pbpaste'
@@ -747,6 +689,7 @@ else
   let clip_copy = 'xclip -sel clip -i'
   let clip_paste= 'xclip -out -selection clipboard'
 endif
+
 let g:clipboard = {
       \   'name': 'limaClipboard',
       \   'copy': {
@@ -759,7 +702,6 @@ let g:clipboard = {
       \   },
       \   'cache_enabled': 1
       \ }
-" endif
 
 if has('unnamedplus')
   set clipboard=unnamed

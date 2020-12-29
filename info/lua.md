@@ -1,5 +1,7 @@
 # linux lua-lsp support
 
+* consider a function to be a process that you can give information, and have it
+  complete some task.
 
 ## sumneko/lua-language-server
 
