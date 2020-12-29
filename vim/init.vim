@@ -153,7 +153,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
       " close nerdtree when opening a file
       let NERDTreeQuitOnOpen = 0
       let NERDTreeMinimalUI = 1
-      let NERDTreeDirArrows = 1
+      " let NERDTreeDirArrows = 1
       let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
     Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs'] }
     " Plug 'hashivim/vim-terraform', { 'for' : ['terraform'] }
@@ -862,6 +862,7 @@ if g:colors_name == "onehalfdark"
   hi! Visual         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#3e4451
   hi!  Search         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#3e4451
   hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#3a5286
+  " hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#49629e
   " gutter
   hi!  SignColumn  ctermfg=223   ctermbg=NONE   guifg=#d4be98  guibg=NONE
   hi!  RedSign     ctermfg=1   ctermbg=NONE   guifg=#e06c75  guibg=NONE
