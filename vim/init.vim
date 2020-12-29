@@ -601,7 +601,7 @@ nmap \wm <Plug>VimwikiTabMakeDiaryNote
 nmap \wn <Plug>VimwikiMakeDiaryNote
 
 set autoindent
-set mouse=a
+set mouse-=a
 set autoread
 set backspace=indent,eol,start
 set cmdheight=2
