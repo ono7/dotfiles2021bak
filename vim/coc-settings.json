@@ -29,6 +29,7 @@
   "Lua.runtime.version": "Lua 5.1",
   "Lua.workspace.maxPreload": 2000,
   "Lua.workspace.preloadFileSize": 1000,
+  "Lua.diagnostics.disable": ["lowercase-global"],
   "Lua.diagnostics.globals": [
     "hs",
     "vim",
@@ -36,42 +37,7 @@
     "describe",
     "before_each",
     "after_each"
-  ]
-
-  //      "settings": {
-  //        "Lua": {
-  //          "telemetry": {
-  //            "enable": null
-  //          },
-  //          "workspace": {
-  //            "library": {
-  //              "/Users/jlima/.luarocks/share/lua/5.3/lua-lsp/data": true,
-  //              "/Users/jlima/.luarocks/share/lua/5.3/lua-lsp/": true
-  //            },
-  //            "maxPreload": 2000,
-  //            "preloadFileSize": 1000
-  //          },
-  //          "runtime": {
-  //            "version": "Lua 5.4",
-  //            "path": ["?.lua", "?/init.lua"]
-  //          },
-  //          "diagnostics": {
-  //            "enable": true,
-  //            "globals": [
-  //              "hs",
-  //              "vim",
-  //              "it",
-  //              "describe",
-  //              "before_each",
-  //              "after_each"
-  //            ],
-  //            "disable": ["lowercase-global"]
-  //          },
-  //          "completion": {
-  //            "keywordSnippet": "Disable"
-  //          }
-  //        }
-  //      }
-  //    }
-  //  }
+  ],
+  "Lua.completion.keywordSnippet": "Disable",
+  "Lua.telemetry.enable": null
 }
