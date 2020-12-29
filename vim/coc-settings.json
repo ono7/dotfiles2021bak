@@ -25,7 +25,7 @@
   "tsserver.npm": "~/.npm-packages/bin/npm",
   "javascript.preferences.quoteStyle": "single",
   "prettier.singleQuote": true,
-  "Lua.runtime.path": ["?.lua", "?/init.lua"],
+  "Lua.runtime.path": ["?.lua"],
   "Lua.runtime.version": "Lua 5.1",
   "Lua.workspace.maxPreload": 2000,
   "Lua.workspace.preloadFileSize": 1000,

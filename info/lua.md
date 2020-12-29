@@ -1,14 +1,17 @@
 # linux lua-lsp support
 
- * install the language server namually or through npm
- * make sure there are not too many large lua files in the directory
 
-# sumneko/lua-language-server
- make sure that luarock is installed, might need to install lua-lsp
+## sumneko/lua-language-server
 
- cd ~/.luarocks/share/lua/5.3/lua-lsp/
- set correct version in CocConfig
+this works mostly by installing coc-lua thorugh coc.vim setup..
+one exception to keep the server from crashing when editing lua files
+inside a big project, this line needs to be modified from the defaults
+which recursively parse all files in the current folder
 
+  "Lua.runtime.path": ["?.lua"],
+
+for some reason editing files in ~/ does not work... must be due to some sort of
+recursive resolutoin....
 
 * string recipes
   http://lua-users.org/wiki/StringRecipes
