@@ -51,7 +51,6 @@
 " nnoremap cp yap<S-}>p
 " nnoremap Q @q
 " xnoremap Q :'<,'>norm @q<cr>
-" nnoremap vp vip
 " nmap k gk
 " nmap j gj
 " nnoremap <silent><leader>w :w<CR>
@@ -515,8 +514,6 @@ nnoremap cp yap<S-}>p
 " macros
 nnoremap Q @q
 xnoremap Q :'<,'>norm @q<cr>
-
-nnoremap vp vip
 
 " create list from visual select and normal mode -> single line
 " xnoremap <C-l> :s/\v\s+$//ge<cr>gv :s/\v^(.+)$/"\1",/ge<cr>gvJ :noh<cr>
