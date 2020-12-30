@@ -630,6 +630,7 @@ set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal
 set numberwidth=2
+set number
 set pastetoggle=<F2>
 set ruler
 set scrolloff=999
