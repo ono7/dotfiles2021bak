@@ -77,19 +77,6 @@ endif
 
 let mapleader = " "
 
-if has('nvim')
-  set inccommand=nosplit
-  try
-    set signcolumn=number
-  catch
-    set signcolumn=yes
-  endtry
-  " pmenu/transparency/items
-  set pumheight=10
-  set pumblend=0
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  tnoremap jk <C-\><C-n>
-endif
 
 if v:version >= 800
   set nobreakindent
@@ -629,8 +616,6 @@ set nolist
 set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal
-set numberwidth=2
-set number
 set pastetoggle=<F2>
 set ruler
 set scrolloff=999
@@ -663,6 +648,23 @@ set nocursorline
 set redrawtime=10000
 set ttyfast
 set re=1
+
+set numberwidth=3
+set number
+
+if has('nvim')
+  set inccommand=nosplit
+  try
+    set signcolumn=number
+  catch
+    set signcolumn=yes
+  endtry
+  " pmenu/transparency/items
+  set pumheight=10
+  set pumblend=0
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  tnoremap jk <C-\><C-n>
+endif
 
 " fixes issues with extra lines in EOF
 set fixendofline
