@@ -145,6 +145,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
       " close nerdtree when opening a file
       let NERDTreeQuitOnOpen = 0
       let NERDTreeMinimalUI = 1
+      let g:NERDTreeWinSize=25
       " let NERDTreeDirArrows = 1
       let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
     Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs'] }

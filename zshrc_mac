@@ -285,4 +285,4 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-git_prompt_info() {}
+# git_prompt_info() {}
