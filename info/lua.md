@@ -311,6 +311,16 @@ myVar(20)   -- Returns false
 
 ## tables
 
+* tables in lua are considered associative
+* an associative table is a collection of values that are each associated with a
+  key
+* table keys cannot contain reserved names
+
+```lua
+test = {}
+test.end = 'test' -- error
+```
+
 ```lua
 myTable = {}       -- Creates empty table
 myTable[1] = 'a'   -- Put character 'a' at index 1
@@ -509,4 +519,14 @@ local function table_copy(t)
   end
   return copy
 end
+```
+
+## clearing tables
+
+clear entry on table by assiging nil
+
+```lua
+test = {}
+test.x = 'test'
+test.x = nil
 ```

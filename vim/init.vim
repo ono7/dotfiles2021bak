@@ -21,7 +21,7 @@
 " set softtabstop=2
 " set tabstop=2 shiftwidth=2 expandtab
 " set hlsearch
-" set so=999
+" set so=2
 " nnoremap / mM/\v xnoremap / mM/\v
 " nnoremap ? mM?\v
 " xnoremap ? mM?\v
@@ -99,6 +99,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     if has('nvim')
       Plug 'bfredl/nvim-miniyank'
       Plug 'SirVer/ultisnips'
+      Plug 'lukas-reineke/format.nvim'
     endif
 
     Plug 'neoclide/coc.nvim', {'branch': 'release',
@@ -139,7 +140,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
       let g:NERDTreeWinSize=25
       " let NERDTreeDirArrows = 1
       let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
-    Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs'] }
+    Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs', 'lua'] }
     Plug 'vimwiki/vimwiki'
       let g:vimwiki_table_mappings = 0
       let wiki = {}
@@ -154,9 +155,39 @@ filetype plugin indent on
 
 syntax on
 
+lua << EOF
+require "format".setup {
+  vim = {
+    {
+      cmd = {"luafmt -i 2 -w replace"},
+      start_pattern = "^lua << EOF$",
+      end_pattern = "^EOF$"
+    }
+  },
+  lua = {
+    -- npm install lua-fmt -g
+    {
+      cmd = {
+        function(file)
+          return string.format("luafmt -i 2 -l %s -w replace %s", vim.bo.textwidth, file)
+        end
+      }
+    }
+  },
+  python = {
+    {
+      cmd = {
+        "black"
+      }
+    }
+  }
+}
+EOF
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  MacOS | Unix/Linux/Win32 | :h feature=list                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 if has("mac") || has("macunix") || has("unix")
 
@@ -591,6 +622,7 @@ nmap \wm <Plug>VimwikiTabMakeDiaryNote
 nmap \wn <Plug>VimwikiMakeDiaryNote
 
 set autoindent
+set scrolloff=2
 set mouse=a
 set autoread
 set backspace=indent,eol,start
@@ -618,7 +650,6 @@ set nowrap
 set nrformats-=octal
 set pastetoggle=<F2>
 set ruler
-set scrolloff=999
 set shiftround
 set shiftwidth=2
 set shortmess=atIoOsT
