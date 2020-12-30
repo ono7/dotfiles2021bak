@@ -117,16 +117,16 @@ fi
 
 if [[ -f ~/nvim-osx64/bin/nvim ]]; then
   alias vim='~/nvim-osx64/bin/nvim'
-  alias vi='~/nvim-osx64/bin/nvim'
-  alias v='~/nvim-osx64/bin/nvim'
-  alias vimdiff='~/nvim-osx64/bin/nvim -d'
+  alias vi=vim
+  alias v=vim
+  alias vimdiff='vim -d'
 else
   echo 'Need to install neovim in ~/nvim-osx64/'
 fi
 
 if [[ -f ~/local/nvim.appimage ]]; then
   alias vim='~/local/nvim.appimage'
-  alias vi='~/local/nvim.appimage'
+  alias vi=vim
 fi
 
 if [[ -f ~/local/bin/tmux ]]; then
@@ -135,48 +135,15 @@ else
   echo 'need tmux in ~/loca/bin/tmux'
 fi
 
-if ! command -v rename &> /dev/null
-then
-  echo 'need rename command installed!'
-fi
-
-if [ -f ~/local/bin/sed ]; then
-  alias sed='~/local/bin/sed'
-else
-  echo 'need gnu-sed in ~/loca/bin/sed'
-fi
-
 alias gd='git diff'
 alias gs='git status'
 
 alias cdr='cd $(git rev-parse --show-toplevel) 2>/dev/null'
-# alias c='cd $(git rev-parse --show-toplevel)'
 alias c='clear'
 alias fzf='~/.fzf/bin/fzf'
 alias tf='terraform'
 alias ssh='ssh -X'
 alias rdp='xfreerdp +clipboard'
-
-# create a node project folder, useful to resolve 'require' and other
-# dependencies, requires yarn to be installed!
-function np () {
-  yarn add @yarnpkg/pnpify
-  cp ~/.dotfiles/eslintrc.json .eslintrc.json
-}
-
-
-# create python module directory
-function pyd () {
-  mkdir -p  $1
-  touch $1/__init__.py
-}
-
-# create python project template
-function py () {
-  if [ ! -d "$1" ]; then
-    cp -r ~/.dotfiles/proj_template $1
-  fi
-}
 
 # init new repo
 function ginit () {
@@ -184,10 +151,6 @@ function ginit () {
   cp ~/.dotfiles/gitignore .gitignore
   git add .
   git commit -am 'initial commit'
-}
-
-function gp () {
-  git pull
 }
 
 function gitl () {
@@ -265,21 +228,8 @@ function vc () {
   fi
 }
 
-# ctags!
-function tag () {
-  ctags -R -f ./.tags .
-}
-
 function vs () {
   vim $(fzf)
-}
-
-function p () {
-  which python
-}
-
-function dnsclear (){
-   dscacheutil -flushcache
 }
 
 # load other functions
