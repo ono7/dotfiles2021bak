@@ -244,32 +244,32 @@ endfunction
 
 " Toggle Vexplore (vanilla vim file browser)
 function! ToggleVExplorer()
-    if exists("t:expl_buf_num")
-        let expl_win_num = bufwinnr(t:expl_buf_num)
-        let cur_win_num = winnr()
+  if exists("t:expl_buf_num")
+    let expl_win_num = bufwinnr(t:expl_buf_num)
+    let cur_win_num = winnr()
 
-        if expl_win_num != -1
-            while expl_win_num != cur_win_num
-                exec "wincmd w"
-                let cur_win_num = winnr()
-            endwhile
-            close
-        endif
-        unlet t:expl_buf_num
-    else
-         Vexplore
-         let t:expl_buf_num = bufnr("%")
+    if expl_win_num != -1
+      while expl_win_num != cur_win_num
+        exec "wincmd w"
+        let cur_win_num = winnr()
+      endwhile
+      close
     endif
+    unlet t:expl_buf_num
+  else
+    Vexplore
+    let t:expl_buf_num = bufnr("%")
+  endif
 endfunction
 
 function! NerdTreeToggleFind()
-    if exists("g:NERDTree") && g:NERDTree.IsOpen()
-        NERDTreeClose
-    elseif filereadable(expand('%'))
-        NERDTreeFind
-    else
-        NERDTree
-    endif
+  if exists("g:NERDTree") && g:NERDTree.IsOpen()
+    NERDTreeClose
+  elseif filereadable(expand('%'))
+    NERDTreeFind
+  else
+    NERDTree
+  endif
 endfunction
 
 function! FZFOpen(command_str)
@@ -497,9 +497,6 @@ endif
 "                                core bindings                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" open todo.md
-" nnoremap <silent><leader>t :!ctags -R -f ~/.tags . <CR><c-g>
-
 " find syntax group
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
   \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -530,8 +527,8 @@ nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 nnoremap <silent><leader>t :silent !tmux send-keys -t 2 c-p Enter<cr>
 nnoremap H ^<c-g>
 nnoremap L $<c-g>
-xnoremap H ^<c-g>
-xnoremap L $<c-g>
+vnoremap H ^<c-g>
+vnoremap L $<c-g>
 
 " more natural re-do command
 nnoremap U <C-r>
@@ -580,7 +577,7 @@ xnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
 nnoremap Y y$
 
 " mark and return to mark after yank
-xnoremap y mxy`x
+vnoremap y mxy`x
 
 " select visualy selected text for search
 xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
@@ -789,23 +786,20 @@ if g:colors_name == "onehalfdark"
 
   hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#a89984  guibg=NONE
   hi!  Folded         ctermfg=245  ctermbg=NONE   guifg=#95c637  guibg=NONE
-  hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=1    guifg=#1d2021  guibg=#e78a4e
+  hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=1      guifg=#1d2021  guibg=#e78a4e
   hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
-  " hi!  Pmenu guifg=#9297a1 guibg=#282c34
-  " hi!  PmenuSel guifg=#9297a1 ctermbg=237 guibg=#313640
-  hi!  Pmenu          ctermbg=235  ctermfg=8 guibg=#313640  guifg=#9297a1
-  hi!  PmenuSel       ctermbg=239  ctermfg=7 guibg=#313640  guifg=#9297a1  gui=reverse
+  hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
+  hi!  PmenuSel       ctermbg=239  ctermfg=7      guibg=#313640  guifg=#9297a1  gui=reverse
   hi!  CommentNormal  ctermfg=8    guifg=#95c637
-  " hi!  Visual         ctermfg=234  ctermbg=142    guifg=#1d2021  guibg=#98c379
-  hi! Visual         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#3e4451
-  hi!  Search         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#3e4451
-  hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#3a5286
-  " hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE  guibg=#49629e
+  hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
+  hi!  Search         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
+  hi!  IncSearch      ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3a5286
+
   " gutter
   hi!  SignColumn  ctermfg=223   ctermbg=NONE   guifg=#d4be98  guibg=NONE
-  hi!  RedSign     ctermfg=1   ctermbg=NONE   guifg=#e06c75  guibg=NONE
+  hi!  RedSign     ctermfg=1     ctermbg=NONE   guifg=#e06c75  guibg=NONE
   hi!  YellowSign  ctermbg=NONE  guifg=#e5c07b  guibg=NONE
-  hi!  BlueSign    ctermfg=4   ctermbg=NONE   guifg=#61afef  guibg=NONE
+  hi!  BlueSign    ctermfg=4     ctermbg=NONE   guifg=#61afef  guibg=NONE
   hi!  link        lineNr        Comment
 
   " markdown
@@ -830,11 +824,13 @@ if g:colors_name == "onehalfdark"
   hi!  link  Repeat                 RedItalic
   hi!  link  Conditional            PurpleItalic
   hi!  link  EndOfBuffer            Comment
-  silent!  syn      clear      Normal
-  silent!  syn      clear      Comment
   hi!     VertSplit ctermbg=NONE guibg=NONE
-  hi!      Normal   ctermbg=0  guibg=none     guifg=none
-  hi!      Comment  ctermfg=8  guifg=#5c6370
+
+  silent!  syn  clear  Normal
+  silent!  syn  clear  Comment
+
+  hi!  Normal   ctermbg=0  guibg=none     guifg=none
+  hi!  Comment  ctermfg=8  guifg=#5c6370
 
 endif
 
