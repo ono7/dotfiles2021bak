@@ -79,7 +79,8 @@ let mapleader = " "
 
 if has('nvim')
   set inccommand=nosplit
-  set signcolumn=yes
+  " set signcolumn=yes
+  set signcolumn=number
   " pmenu/transparency/items
   set pumheight=10
   set pumblend=0
@@ -599,7 +600,7 @@ nmap \wm <Plug>VimwikiTabMakeDiaryNote
 nmap \wn <Plug>VimwikiMakeDiaryNote
 
 set autoindent
-set mouse-=a
+set mouse=a
 set autoread
 set backspace=indent,eol,start
 set cmdheight=2
@@ -624,7 +625,7 @@ set nolist
 set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal
-set numberwidth=3
+set numberwidth=2
 set pastetoggle=<F2>
 set ruler
 set scrolloff=999
