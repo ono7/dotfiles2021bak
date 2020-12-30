@@ -16,7 +16,8 @@
     "yaml",
     "markdown",
     "typescript",
-    "css"
+    "css",
+    "lua"
   ],
   "python.linting.enabled": true,
   "python.linting.maxNumberOfProblems": 100,
