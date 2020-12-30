@@ -5,27 +5,27 @@ syn keyword luaKeywords then
 syn keyword luaKeywords do
 syn keyword luaKeywords and
 syn keyword luaKeywords or
+syn keyword luaKeywords in
 hi! def link luaKeywords PurpleItalic
 
 syn keyword luaKeywords1 self
 hi! def link luaKeywords1 Red
 
 syn keyword luaKeywords2 local
-hi! def link luaKeywords2 Aqua
-
-
+hi! def link luaKeywords2 Purple
 
 hi! link luaCond PurpleItalic
 hi! link luaFunction PurpleItalic
-hi! link luaFunctionBlock Blue
+hi! link luaFunctionBlock AquaItalic
 hi! link luaRepeat PurpleItalic
 hi! link luaStatement PurpleItalic
 hi! link luaNumber Yellow
-hi! link luaFunc Blue
+hi! link luaFunc Aqua
 hi! link luaTable Orange
+hi! link luaConstant Yellow
 
-syn match group6 /\v[\(\)]/
-hi! link group6 Purple
+" syn match group6 /\v[\(\)]/
+" hi! link group6 Purple
 
 syn match luaMathOp /\v[\/\%\^\&\$\\|\{\}]/
 hi! link luaMathOp Orange

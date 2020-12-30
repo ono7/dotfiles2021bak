@@ -79,8 +79,11 @@ let mapleader = " "
 
 if has('nvim')
   set inccommand=nosplit
-  " set signcolumn=yes
-  set signcolumn=number
+  try
+    set signcolumn=number
+  catch
+    set signcolumn=yes
+  endtry
   " pmenu/transparency/items
   set pumheight=10
   set pumblend=0
@@ -580,6 +583,7 @@ nnoremap Y y$
 
 " mark and return to mark after yank
 vnoremap y mxy`x
+nnoremap yp mxyap`x
 
 " select visualy selected text for search
 xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
