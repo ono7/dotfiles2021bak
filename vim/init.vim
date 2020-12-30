@@ -157,6 +157,11 @@ syntax on
 
 lua << EOF
 require "format".setup {
+  -- https://github.com/lukas-reineke/format.nvim
+
+  -- npm install lua-fmt -g
+  -- pip install black
+
   vim = {
     {
       cmd = {"luafmt -i 2 -w replace"},
@@ -165,7 +170,6 @@ require "format".setup {
     }
   },
   lua = {
-    -- npm install lua-fmt -g
     {
       cmd = {
         function(file)
@@ -188,30 +192,24 @@ EOF
 "                  MacOS | Unix/Linux/Win32 | :h feature=list                  "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:loaded_ruby_provider = 0
+let g:loaded_python_provider = 1
+let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
 
-if has("mac") || has("macunix") || has("unix")
+set synmaxcol=0
+syntax sync minlines=256
+syntax sync maxlines=300
+" fix syntax on large files
+let g:vimsyn_embed='0'
 
-  let g:loaded_ruby_provider = 0
-  let g:loaded_python_provider = 1
-  let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
-
-  set synmaxcol=0
-  syntax sync minlines=256
-  syntax sync maxlines=300
-  " fix syntax on large files
-  let g:vimsyn_embed='0'
-
-  if has('termguicolors')
-    set termguicolors
-    set background=dark
-    colorscheme onehalfdark
-  else
-    set t_Co=256
-    set background=dark
-    colorscheme onehalfdark
-  endif
+if has('termguicolors')
+  set termguicolors
+  set background=dark
+  colorscheme onehalfdark
 else
   set t_Co=256
+  set background=dark
+  colorscheme onehalfdark
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -338,6 +336,7 @@ augroup END
 augroup _writepre
   autocmd!
   autocmd BufWritePre * silent! :call <SID>StripTrailingWhitespaces() | retab
+  autocmd BufWritePost * FormatWrite
 augroup END
 
 augroup _other
