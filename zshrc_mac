@@ -116,8 +116,8 @@ if [[ $OSTYPE == "linux-gnu"* ]]; then
   export DISPLAY=:0.0
 fi
 
-if [[ -f ~/nvim-osx64/bin/nvim ]]; then
-  alias vim='~/nvim-osx64/bin/nvim'
+if [[ -f ~/nvim/bin/nvim ]]; then
+  alias vim='~/nvim/bin/nvim'
   alias vi=vim
   alias v=vim
   alias vimdiff='vim -d'
