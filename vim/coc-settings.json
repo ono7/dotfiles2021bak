@@ -27,9 +27,14 @@
   "prettier.singleQuote": true,
   "Lua.runtime.path": ["?.lua"],
   "Lua.runtime.version": "Lua 5.1",
-  "Lua.workspace.maxPreload": 2000,
+  "Lua.workspace.maxPreload": 200,
   "Lua.workspace.preloadFileSize": 1000,
-  "Lua.diagnostics.disable": ["lowercase-global"],
+  "Lua.workspace.ignoreDir": [".vscode", ".dotfiles", "~/.dotfiles"],
+  "Lua.diagnostics.disable": [
+    "lowercase-global",
+    "unused-local",
+    "unused-vararg"
+  ],
   "Lua.diagnostics.enable": true,
   "Lua.diagnostics.globals": [
     "hs",

@@ -530,3 +530,11 @@ test = {}
 test.x = "test"
 test.x = nil
 ```
+
+## tables remove elements
+
+remove last element from the table
+
+```lua
+table.remove()
+```

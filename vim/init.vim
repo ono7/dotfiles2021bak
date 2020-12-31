@@ -98,17 +98,20 @@ require "format".setup {
     {
       cmd = {"prettier -w --parser babel"},
       start_pattern = "^{{{javascript$",
-      end_pattern = "^}}}$"
+      end_pattern = "^}}}$",
+      target = "current"
     },
     {
       cmd = {"luafmt -i 2 -w replace"},
       start_pattern = "^{{{lua$",
-      end_pattern = "^}}}$"
+      end_pattern = "^}}}$",
+      target = "current"
     },
     {
       cmd = {"black"},
       start_pattern = "^{{{python$",
-      end_pattern = "^}}}$"
+      end_pattern = "^}}}$",
+      target = "current"
     }
   },
   javascript = {
@@ -119,8 +122,9 @@ require "format".setup {
     {
       cmd = {"luafmt -i 2 -w replace"},
       start_pattern = "^```lua$",
-      end_pattern = "^```$"
-      -- target = "current"
+      end_pattern = "^```$",
+      -- current only format where cursor is
+      target = "current"
     }
   }
 }
