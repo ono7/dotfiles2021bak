@@ -5,7 +5,7 @@
 
 ## sumneko/lua-language-server
 
-this works mostly by installing coc-lua thorugh coc.vim setup..
+this works mostly by installing coc-lua through coc.vim setup..
 one exception to keep the server from crashing when editing lua files
 inside a big project, this line needs to be modified from the defaults
 which recursively parse all files in the current folder
@@ -13,7 +13,7 @@ which recursively parse all files in the current folder
 "Lua.runtime.path": ["?.lua"],
 
 for some reason editing files in ~/ does not work... must be due to some sort of
-recursive resolutoin....
+recursive resolution....
 
 - string recipes
   http://lua-users.org/wiki/StringRecipes
@@ -25,8 +25,6 @@ recursive resolutoin....
   https://www.youtube.com/watch?v=kgiEF1frHQ8
 
 ## interpreter
-
-use = in the command interpreter to evalue
 
 lua> x = 123
 lua> = type(x)
@@ -70,7 +68,7 @@ https://www.lua.org/pil/20.2.html
 `..` Concatenates two strings. a..b where a is "Hello " and b is "World", will
 return "Hello World".
 
-`#` An unary operator that return the length of the a string or a table.
+`#` An unary operator that return the length of the string or a table.
 `#"Hello"` will return 5
 
 #### character escaping
@@ -523,7 +521,7 @@ end
 
 ## clearing tables
 
-clear entry on table by assiging nil
+clear entry on table by assigning nil
 
 ```lua
 test = {}
@@ -537,4 +535,12 @@ remove last element from the table
 
 ```lua
 table.remove()
+```
+
+## table sort
+
+sorts in place
+
+```lua
+table.sort(tbl)
 ```
