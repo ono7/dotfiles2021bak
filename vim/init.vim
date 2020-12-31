@@ -66,7 +66,7 @@ require "format".setup {
 
   -- TODO: resolve black apple m1 arch issues
 
-  -- npm install lua-fmt -g
+  -- npm install lua-fmt prettier -g
   -- pip install black
   -- autocmd BufWritePost * FormatWrite
 
@@ -91,6 +91,35 @@ require "format".setup {
       cmd = {
         "black"
       }
+    }
+  },
+  vimwiki = {
+    {
+      cmd = {"prettier -w --parser babel"},
+      start_pattern = "^{{{javascript$",
+      end_pattern = "^}}}$"
+    },
+    {
+      cmd = {"luafmt -i 2 -w replace"},
+      start_pattern = "^{{{lua$",
+      end_pattern = "^}}}$"
+    },
+    {
+      cmd = {"black"},
+      start_pattern = "^{{{python$",
+      end_pattern = "^}}}$"
+    }
+  },
+  javascript = {
+    {cmd = {"prettier -w", "eslint --fix"}}
+  },
+  markdown = {
+    {cmd = {"prettier -w"}},
+    {
+      cmd = {"luafmt -i 2 -w replace"},
+      start_pattern = "^```lua$",
+      end_pattern = "^```$",
+      target = "current"
     }
   }
 }
