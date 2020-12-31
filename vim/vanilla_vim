@@ -1,0 +1,136 @@
+" minimal vim config
+" let mapleader = " "
+" set nocompatible
+" filetype plugin indent on
+" inoremap jk <Esc>
+" if has('syntax')
+"   syntax on
+" endif
+" set number
+" set magic
+" set nobackup nowritebackup noswapfile
+" set nowrap
+" set smartcase
+" set smartindent
+" set smarttab
+" set autoindent
+" set softtabstop=2
+" set tabstop=2 shiftwidth=2 expandtab
+" set hlsearch
+" set so=2
+" nnoremap / mM/\v xnoremap / mM/\v
+" nnoremap ? mM?\v
+" xnoremap ? mM?\v
+" nnoremap 's `S
+" nnoremap 'a `A
+" nnoremap 'b `B
+" nnoremap 'm `M
+" nnoremap 'v `V
+" nnoremap ss mS
+" nnoremap sa mA
+" nnoremap sb mB
+" nnoremap gg mMgg
+" nnoremap G mMG
+" nnoremap cw ciw
+" nnoremap cW ciW
+" nnoremap yw yiw
+" nnoremap yW yiW
+" xnoremap w iw
+" xnoremap W iW
+" nnoremap gd mMgd
+" nnoremap * mM*
+" nnoremap # mM#
+" cmap %s %s/\v
+" cmap %g %g/\v
+" cmap %v %v/\v
+" nnoremap cp yap<S-}>p
+" nnoremap Q @q
+" xnoremap Q :'<,'>norm @q<cr>
+" nmap k gk
+" nmap j gj
+" nnoremap <silent><leader>w :w<CR>
+" nnoremap H ^<c-g>
+" nnoremap L $<c-g>
+" xnoremap H ^<c-g>
+" xnoremap L $<c-g>
+" nnoremap U <C-r>
+" augroup _enter
+"   autocmd!
+"   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+"   autocmd BufWritePre * %s/\s\+$//e
+"   autocmd FileType * set formatoptions-=cro fo+=j
+" augroup END
+" nnoremap <silent><Tab> :bnext<CR>
+" nnoremap <silent><S-Tab> :bprevious<CR>
+
+set t_Co=256
+set background=dark
+colorscheme onehalfdark
+
+if has('vim_starting')
+  set nocompatible
+endif
+
+
+if v:version >= 800
+  set nobreakindent
+endif
+
+
+" Toggle Vexplore (vanilla vim file browser)
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+    let expl_win_num = bufwinnr(t:expl_buf_num)
+    let cur_win_num = winnr()
+
+    if expl_win_num != -1
+      while expl_win_num != cur_win_num
+        exec "wincmd w"
+        let cur_win_num = winnr()
+      endwhile
+      close
+    endif
+    unlet t:expl_buf_num
+  else
+    Vexplore
+    let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+
+nnoremap <silent><C-e> :call ToggleVExplorer()<CR>
+nnoremap <leader>f :call ToggleVExplorer()<CR>
+
+function! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  %s#\($\n\s*\)\+\%$##e
+  call cursor(l, c)
+endfunction
+command! RemoveTrailingWhiteSpaces call <SID>StripTrailingWhitespaces()
+
+function! s:commentOp(...)
+  '[,']call s:toggleComment()
+endfunction
+
+function! s:toggleComment() range
+    let comment = substitute(get(b:, 'commentstring', &commentstring), '\s*\(%s\)\s*', '%s', '')
+    let pattern = '\V' . printf(escape(comment, '\'), '\(\s\{-}\)\s\(\S\.\{-}\)\s\=')
+    let replace = '\1\2'
+  if getline('.') !~ pattern
+    let indent = matchstr(getline('.'), '^\s*')
+    let pattern = '^' . indent . '\zs\(\s*\)\(\S.*\)'
+    let replace = printf(comment, '\1 \2' . (comment =~ '%s$' ? '' : ' '))
+  endif
+  for lnum in range(a:firstline, a:lastline)
+    call setline(lnum, substitute(getline(lnum), pattern, replace, ''))
+  endfor
+endfunction
+
+" better netrw view (vanilla vim file browser)
+let g:netrw_list_hide = &wildignore
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split=4
+let g:netrw_winsize = 20
+let g:netrw_fastbrowse = 1

@@ -2,85 +2,11 @@
 
 " ~/.fzf/install (setup keybindings)
 
-" minimal vim config
-" let mapleader = " "
-" set nocompatible
-" filetype plugin indent on
-" inoremap jk <Esc>
-" if has('syntax')
-"   syntax on
-" endif
-" set number
-" set magic
-" set nobackup nowritebackup noswapfile
-" set nowrap
-" set smartcase
-" set smartindent
-" set smarttab
-" set autoindent
-" set softtabstop=2
-" set tabstop=2 shiftwidth=2 expandtab
-" set hlsearch
-" set so=2
-" nnoremap / mM/\v xnoremap / mM/\v
-" nnoremap ? mM?\v
-" xnoremap ? mM?\v
-" nnoremap 's `S
-" nnoremap 'a `A
-" nnoremap 'b `B
-" nnoremap 'm `M
-" nnoremap 'v `V
-" nnoremap ss mS
-" nnoremap sa mA
-" nnoremap sb mB
-" nnoremap gg mMgg
-" nnoremap G mMG
-" nnoremap cw ciw
-" nnoremap cW ciW
-" nnoremap yw yiw
-" nnoremap yW yiW
-" xnoremap w iw
-" xnoremap W iW
-" nnoremap gd mMgd
-" nnoremap * mM*
-" nnoremap # mM#
-" cmap %s %s/\v
-" cmap %g %g/\v
-" cmap %v %v/\v
-" nnoremap cp yap<S-}>p
-" nnoremap Q @q
-" xnoremap Q :'<,'>norm @q<cr>
-" nmap k gk
-" nmap j gj
-" nnoremap <silent><leader>w :w<CR>
-" nnoremap H ^<c-g>
-" nnoremap L $<c-g>
-" xnoremap H ^<c-g>
-" xnoremap L $<c-g>
-" nnoremap U <C-r>
-" augroup _enter
-"   autocmd!
-"   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-"   autocmd BufWritePre * %s/\s\+$//e
-"   autocmd FileType * set formatoptions-=cro fo+=j
-" augroup END
-" nnoremap <silent><Tab> :bnext<CR>
-" nnoremap <silent><S-Tab> :bprevious<CR>
-
 " disable ex mode
 nnoremap Q <Nop>
 nnoremap gQ <Nop>
 
-if has('vim_starting')
-  set nocompatible
-endif
-
 let mapleader = " "
-
-
-if v:version >= 800
-  set nobreakindent
-endif
 
 filetype off
 
@@ -96,14 +22,12 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " ondemand loading for filetypes = 'for', load on commands = 'on'
   call plug#begin('~/.config/nvim/plugged')
 
-    if has('nvim')
-      Plug 'bfredl/nvim-miniyank'
-      Plug 'SirVer/ultisnips'
-      Plug 'lukas-reineke/format.nvim'
-    endif
-
+    Plug 'bfredl/nvim-miniyank'
+    Plug 'SirVer/ultisnips'
+    Plug 'lukas-reineke/format.nvim'
     Plug 'neoclide/coc.nvim', {'branch': 'release',
-          \ 'for' : ['python', 'yaml', 'jinja', 'ansible',
+          \ 'for' : [
+          \ 'python', 'yaml', 'jinja', 'ansible',
           \ 'json', 'javascript', 'css', 'markdown', 'typescript',
           \ 'terraform', 'cs', 'lua', 'vimwiki']}
       let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-prettier', 'coc-omnisharp', 'coc-lua' ]
@@ -158,6 +82,7 @@ syntax on
 lua << EOF
 require "format".setup {
   -- https://github.com/lukas-reineke/format.nvim
+  -- TODO: resolve black apple m1 arch issues
 
   -- npm install lua-fmt -g
   -- pip install black
@@ -188,10 +113,6 @@ require "format".setup {
 }
 EOF
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                  MacOS | Unix/Linux/Win32 | :h feature=list                  "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:loaded_ruby_provider = 0
 let g:loaded_python_provider = 1
 let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
@@ -202,24 +123,13 @@ syntax sync maxlines=300
 " fix syntax on large files
 let g:vimsyn_embed='0'
 
-if has('termguicolors')
-  set termguicolors
-  set background=dark
-  colorscheme onehalfdark
-else
-  set t_Co=256
-  set background=dark
-  colorscheme onehalfdark
-endif
+set termguicolors
+set background=dark
+colorscheme onehalfdark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               python functions                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-if has('nvim')
-
-highlight! TermCursorNC guibg=Purple guifg=white ctermbg=1 ctermfg=15
-highlight! trans guibg=Purple guifg=white ctermbg=1 ctermfg=15
 
 function! StrList()
 python3 << EOF_
@@ -239,49 +149,9 @@ EOF_
 endfunction
 command! -nargs=0 -range Jlistfromcomma call StrListFromComma()
 
-endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim functions                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! s:commentOp(...)
-  '[,']call s:toggleComment()
-endfunction
-
-function! s:toggleComment() range
-    let comment = substitute(get(b:, 'commentstring', &commentstring), '\s*\(%s\)\s*', '%s', '')
-    let pattern = '\V' . printf(escape(comment, '\'), '\(\s\{-}\)\s\(\S\.\{-}\)\s\=')
-    let replace = '\1\2'
-  if getline('.') !~ pattern
-    let indent = matchstr(getline('.'), '^\s*')
-    let pattern = '^' . indent . '\zs\(\s*\)\(\S.*\)'
-    let replace = printf(comment, '\1 \2' . (comment =~ '%s$' ? '' : ' '))
-  endif
-  for lnum in range(a:firstline, a:lastline)
-    call setline(lnum, substitute(getline(lnum), pattern, replace, ''))
-  endfor
-endfunction
-
-" Toggle Vexplore (vanilla vim file browser)
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-    let expl_win_num = bufwinnr(t:expl_buf_num)
-    let cur_win_num = winnr()
-
-    if expl_win_num != -1
-      while expl_win_num != cur_win_num
-        exec "wincmd w"
-        let cur_win_num = winnr()
-      endwhile
-      close
-    endif
-    unlet t:expl_buf_num
-  else
-    Vexplore
-    let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
 
 function! NerdTreeToggleFind()
   if exists("g:NERDTree") && g:NERDTree.IsOpen()
@@ -333,13 +203,14 @@ augroup _enter
   autocmd VimEnter * command! -bang -nargs=? Files call fzf#vim#files(<q-args>, {'options': '--no-preview'}, <bang>0)
 augroup END
 
-augroup _writepre
+augroup _write
   autocmd!
   autocmd BufWritePre * silent! :call <SID>StripTrailingWhitespaces() | retab
+  " Plug 'lukas-reineke/format.nvim'
   autocmd BufWritePost * FormatWrite
 augroup END
 
-augroup _other
+augroup _setft
   autocmd!
   autocmd BufNewFile,BufRead,BufEnter *.asm,*.nasm setfiletype nasm
   autocmd BufNewFile,BufRead,BufEnter *.yml,*.yaml setfiletype ansible.yaml
@@ -351,19 +222,6 @@ augroup _filetype
   autocmd!
   autocmd FileType * set formatoptions-=cro fo+=j
 augroup END
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                shellcode goodies                             "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" remove spaces
-xmap <silent><leader>s s/\v\s+//ge<cr>
-
-" remove any spaces and hexify (visual select)
-xnoremap <silent><space>h :s/\v\s+//ge<cr><bar> :s/\v(..)/\\\x\1/ge<cr><bar> :s/\v.*/buffer \+\= b"&"/ge<cr>:noh<cr>
-
-" remove any spaces and un-hexify (visual select)
-xnoremap <silent>\h :s/\v\s+//ge<cr><bar> :s/\v\\x//ge<cr> :noh<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               plugin variables                               "
@@ -454,59 +312,33 @@ let g:fzf_colors = {
   \ 'gutter': ['fg', 'fzf_bg'],
   \ 'spinner': ['fg', 'fzf_spinner'] }
 
-" better netrw view (vanilla vim file browser)
-let g:netrw_list_hide = &wildignore
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split=4
-let g:netrw_winsize = 20
-let g:netrw_fastbrowse = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   bindings                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if exists("plugs")
+nnoremap <silent><C-e> :call NerdTreeToggleFind()<CR>
 
-  if has_key(plugs, 'nerdtree')
-    nnoremap <silent><C-e> :call NerdTreeToggleFind()<CR>
-  else
-    nnoremap <silent><C-e> :call ToggleVExplorer()<CR>
-  endif
+nnoremap <silent><C-p> :call FZFOpen(':GFiles')<CR>
+nnoremap <silent><leader>f :call FZFOpen(':Files')<CR>
+nnoremap <silent><leader>b :call FZFOpen(':Buffers')<CR>
 
-  if has_key(plugs, 'fzf') && has_key(plugs, 'fzf.vim')
-    nnoremap <silent><C-p> :call FZFOpen(':GFiles')<CR>
-    nnoremap <silent><leader>f :call FZFOpen(':Files')<CR>
-    nnoremap <silent><leader>b :call FZFOpen(':Buffers')<CR>
+if !empty(glob('~/.vim/autoload/plug.vim'))
+  nmap s  <Plug>Ysurround
+  nmap S  <Plug>YSurround
+  nmap sw siW
 
-  else
-    nnoremap <leader>f :call ToggleVExplorer()<CR>
-  endif
+  nmap <silent> [n <Plug>(ale_next_wrap)
+  nmap <silent> ]n <Plug>(ale_previous_wrap)
 
-  if has_key(plugs, 'coc.nvim')
-    nmap <silent> gr <Plug>(coc-references)
-    " trigger completion, manually
-    inoremap <silent><expr> <C-c> coc#refresh()
-  endif
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
+  let g:miniyank_filename = $HOME.'/.tmp/miniyank-shared-ring'
+  let g:miniyank_maxitems = 1
 
-  if has_key(plugs, 'vim-surround')
-    nmap s  <Plug>Ysurround
-    nmap S  <Plug>YSurround
-    nmap sw siW
-  endif
-
-  if has_key(plugs, 'ale')
-    nmap <silent> [n <Plug>(ale_next_wrap)
-    nmap <silent> ]n <Plug>(ale_previous_wrap)
-  endif
-
-  if has_key(plugs, "nvim-miniyank")
-    map p <Plug>(miniyank-autoput)
-    map P <Plug>(miniyank-autoPut)
-    let g:miniyank_filename = $HOME.'/.tmp/miniyank-shared-ring'
-    let g:miniyank_maxitems = 1
-  endif
-
+  nmap <silent> gr <Plug>(coc-references)
+  " trigger completion, manually
+  inoremap <silent><expr> <C-c> coc#refresh()
 endif
 
 if &diff
@@ -592,10 +424,6 @@ nnoremap <silent><leader>q :q<CR>
 nnoremap <silent><Tab> :bnext<CR>
 nnoremap <silent><S-Tab> :bprevious<CR>
 
-" remove any spaces/shellcode
-" nnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
-xnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
-
 nnoremap Y y$
 
 " mark and return to mark after yank
@@ -604,21 +432,6 @@ nnoremap yp mxyap`x
 
 " select visualy selected text for search
 xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
-
-" attemp to throw away this bindings..
-nmap \wa <Plug>Vimwiki2HTMLBrowse
-nmap \wb <Plug>VimwikiRenameFile
-nmap \wc <Plug>VimwikiDiaryIndex
-nmap \wd <Plug>VimwikiDeleteFile
-nmap \we <Plug>VimwikiTabIndex
-nmap \wf <Plug>VimwikiUISelect
-nmap \wg <Plug>VimwikiIndex
-nmap \wh <Plug>Vimwiki2HTML
-nmap \wj <Plug>VimwikiMakeYesterdayDiaryNote
-nmap \wk <Plug>VimwikiMakeTomorrowDiaryNote
-nmap \wl <Plug>VimwikiDiaryGenerateLinks
-nmap \wm <Plug>VimwikiTabMakeDiaryNote
-nmap \wn <Plug>VimwikiMakeDiaryNote
 
 set autoindent
 set scrolloff=2
@@ -682,38 +495,28 @@ set re=1
 set numberwidth=3
 set number
 
-if has('nvim')
-  set inccommand=nosplit
-  try
-    set signcolumn=number
-  catch
-    set signcolumn=yes
-  endtry
-  " pmenu/transparency/items
-  set pumheight=10
-  set pumblend=0
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  tnoremap jk <C-\><C-n>
-endif
+set inccommand=nosplit
+try
+  set signcolumn=number
+catch
+  set signcolumn=yes
+endtry
+
+" pmenu/transparency/items
+set pumheight=10
+set pumblend=0
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+tnoremap jk <C-\><C-n>
 
 " fixes issues with extra lines in EOF
 set fixendofline
-
-if has('folding')
-  set foldlevel=1
-  set foldmethod=indent
-  set foldnestmax=2
-  set nofoldenable
-endif
-
+set foldlevel=1
+set foldmethod=indent
+set foldnestmax=2
+set nofoldenable
 set fileformats=unix,dos
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                              CLIPBOARD SUPPORT                               "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " requires -> export DISPLAY=:0.0 on zshrc
-
 if has('macunix')
   let clip_copy = 'pbcopy'
   let clip_paste = 'pbpaste'
@@ -742,135 +545,4 @@ else
   set clipboard=unnamed
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           bad spelling support :(                            "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" move to next missed spelled word and choose first suggesting
-nnoremap <leader>s ]s1z=
-
-cnoreabbrev Q! q!
-cnoreabbrev Q1 q!
-cnoreabbrev Q qall!
-cnoreabbrev Qall qall
-cnoreabbrev Qall! qall!
-cnoreabbrev W w
-cnoreabbrev W! w!
-cnoreabbrev WQ wq
-cnoreabbrev Wa wa
-cnoreabbrev Wq wq
-cnoreabbrev X! x!
-cnoreabbrev X1 x!
-cnoreabbrev bd1 bd!
-cnoreabbrev Bd bd
-cnoreabbrev q1 q!
-cnoreabbrev qall1 qall!
-cnoreabbrev qq q!
-cnoreabbrev w1 w!
-cnoreabbrev wQ wq
-
-" noreabbrev
-noreabbrev Flase False
-noreabbrev accross across
-noreabbrev anotehr another
-noreabbrev becuase because
-noreabbrev corected corrected
-noreabbrev fro for
-noreabbrev waht what
-noreabbrev healt health
-noreabbrev initilise initialize
-noreabbrev initilize initialize
-noreabbrev lenght length
-noreabbrev lenhgt length
-noreabbrev mitake mistake
-noreabbrev shoudl should
-noreabbrev taht that
-noreabbrev teh the
-noreabbrev whlie while
-noreabbrev yeild yield
-noreabbrev yiedl yield
-noreabbrev pythno python
-
-" dang it, tmux
-imap <c-b> <nop>
-
-if g:colors_name == "onehalfdark"
-
-  hi!  Red     ctermfg=1    guifg=#e06c75
-  hi!  Green   ctermfg=2    guifg=#56b6c2
-  hi!  Yellow  ctermfg=3    guifg=#e5c07b
-  hi!  Blue    ctermfg=4    guifg=#61afef
-  hi!  Purple  ctermfg=5    guifg=#b67fd1
-  hi!  Aqua    ctermfg=6    guifg=#56b6c2
-  hi!  Orange  ctermfg=208  guifg=#e78a4e
-
-  hi!  RedItalic      cterm=italic  gui=italic  ctermfg=1  guifg=#e06c75
-  hi!  OrangeItalic   cterm=italic  gui=italic  ctermfg=208  guifg=#e78a4e
-  hi!  YellowItalic   cterm=italic  gui=italic  ctermfg=3  guifg=#e5c07b
-  hi!  GreenItalic    cterm=italic  gui=italic  ctermfg=2  guifg=#a9b665
-  hi!  AquaItalic     cterm=italic  gui=italic  ctermfg=6  guifg=#7daea3
-  hi!  BlueItalic     cterm=italic  gui=italic  ctermfg=4  guifg=#61afef
-  hi!  PurpleItalic   cterm=italic  gui=italic  ctermfg=5  guifg=#b67fd1
-  hi!  NormalItalic   cterm=italic  gui=italic  ctermfg=223  guifg=#d4be98
-  hi!  CommentItalic  cterm=italic  gui=italic  ctermfg=245  guifg=#5c6370
-  hi!  RedBold        cterm=bold    gui=bold    ctermfg=1  guifg=#e06c75
-  hi!  OrangeBold     cterm=bold    gui=bold    ctermfg=208  guifg=#e78a4e
-  hi!  YellowBold     cterm=bold    gui=bold    ctermfg=3  guifg=#d8a657
-  hi!  GreenBold      cterm=bold    gui=bold    ctermfg=2  guifg=#98c379
-  hi!  AquaBold       cterm=bold    gui=bold    ctermfg=6  guifg=#89b482
-  hi!  BlueBold       cterm=bold    gui=bold    ctermfg=4  guifg=#61afef
-  hi!  PurpleBold     cterm=bold    gui=bold    ctermfg=5  guifg=#b67fd1
-  hi!  NormalBold     cterm=bold    gui=bold    ctermfg=223  guifg=#dcdfe4
-  hi!  CommentBold    cterm=bold    gui=bold    ctermfg=245  guifg=#95c637
-
-  hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#a89984  guibg=NONE
-  hi!  Folded         ctermfg=245  ctermbg=NONE   guifg=#95c637  guibg=NONE
-  hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=1      guifg=#1d2021  guibg=#e78a4e
-  hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
-  hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
-  hi!  PmenuSel       ctermbg=239  ctermfg=7      guibg=#313640  guifg=#9297a1  gui=reverse
-  hi!  CommentNormal  ctermfg=8    guifg=#95c637
-  hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
-  hi!  Search         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
-  hi!  IncSearch      ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3a5286
-
-  " gutter
-  hi!  SignColumn  ctermfg=223   ctermbg=NONE   guifg=#d4be98  guibg=NONE
-  hi!  RedSign     ctermfg=1     ctermbg=NONE   guifg=#e06c75  guibg=NONE
-  hi!  YellowSign  ctermbg=NONE  guifg=#e5c07b  guibg=NONE
-  hi!  BlueSign    ctermfg=4     ctermbg=NONE   guifg=#61afef  guibg=NONE
-  hi!  link        lineNr        Comment
-
-  " markdown
-  hi!  link  markdownH1             GreenBold
-  hi!  link  markdownH2             BlueBold
-  hi!  link  markdownH3             OrangeBold
-  hi!  link  markdownH4             PurpleBold
-  hi!  link  markdownH5             YellowBold
-  hi!  link  markdownH6             RedBold
-  hi!  link  markdownUrl            PurpleBold
-  hi!  link  markdownCodeDelimiter  Comment
-  hi!  link  VimwikiHeader1         markdownH1
-  hi!  link  VimwikiHeader2         markdownH2
-  hi!  link  VimwikiHeader3         markdownH3
-  hi!  link  VimwikiHeader4         markdownH4
-  hi!  link  VimwikiHeader5         markdownH5
-  hi!  link  VimwikiHeader6         markdownH6
-  hi!  link  VimwikiPre             Comment
-  hi!  link  VimwikiLink            Purple
-  hi!  link  ALEWarningSign         Yellow
-  hi!  link  ALEErrorSign           YellowBold
-  hi!  link  Repeat                 RedItalic
-  hi!  link  Conditional            PurpleItalic
-  hi!  link  EndOfBuffer            Comment
-  hi!     VertSplit ctermbg=NONE guibg=NONE
-
-  silent!  syn  clear  Normal
-  silent!  syn  clear  Comment
-
-  hi!  Normal   ctermbg=0  guibg=none     guifg=none
-  hi!  Comment  ctermfg=8  guifg=#5c6370
-
-endif
-
-source ~/.dotfiles/vim/vimrc/shellcode.vimrc
+source ~/.dotfiles/vim/vimrc/aux.vimrc
