@@ -15,7 +15,6 @@ xnoremap <silent>\h :s/\v\s+//ge<cr><bar> :s/\v\\x//ge<cr> :noh<cr>
 " nnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
 xnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                           bad spelling support :(                            "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -140,7 +139,7 @@ if g:colors_name == "onehalfdark"
   hi!  link  Repeat                 RedItalic
   hi!  link  Conditional            PurpleItalic
   hi!  link  EndOfBuffer            Comment
-  hi!     VertSplit ctermbg=NONE guibg=NONE
+  hi!  VertSplit ctermbg=NONE guibg=NONE
 
   silent!  syn  clear  Normal
   silent!  syn  clear  Comment
@@ -154,7 +153,6 @@ endif
 "                              function mappings                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
   " remove any spaces (visual select)
   " vnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
 
@@ -167,7 +165,6 @@ endif
   " remove any spaces and un-hexify (visual select)
   " vnoremap <silent>\h :s/\v\s+//ge<cr><bar> :s/\v\\x//ge<cr> :noh<cr>
   " nnoremap <silent>\h :s/\v\s+//ge<cr><bar> :s/\v\\x//ge<cr> :noh<cr>
-
 
 " ========== convert Strings to Hex ==========
 
@@ -291,7 +288,6 @@ EOF_
 endfunction
 command! -nargs=0 -range JHexMath call HexMath()
 
-
 function! Hex2dec()
 python3 << EOF_
 import vim
@@ -303,8 +299,6 @@ EOF_
 endfunction
 command! -nargs=? -range Jhex2dec call Hex2dec()
 
-
-
 function! Dec2hex()
 python3 << EOF_
 import vim
@@ -315,7 +309,6 @@ EOF_
 endfunction
 command! -nargs=? -range Jdec2hex call Dec2hex()
 
-
 function! ToAscii()
 python3 << EOF_
 import vim
@@ -325,7 +318,6 @@ vim.current.line = " ".join([ str(ord(x)) for x in vim.current.line if x != '' ]
 EOF_
 endfunction
 command! -nargs=? -range Jtoascii call ToAscii()
-
 
 function! FromAscii()
 python3 << EOF_
@@ -338,7 +330,6 @@ vim.current.line = "".join([chr(int(x)) for x in l if x != ''])
 EOF_
 endfunction
 command! -nargs=? -range JfromAscii call FromAscii()
-
 
 " attemp to throw away this bindings..
 nmap \wa <Plug>Vimwiki2HTMLBrowse

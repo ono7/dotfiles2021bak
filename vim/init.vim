@@ -1,8 +1,5 @@
 " Follow the white rabbit...
 
-" ~/.fzf/install (setup keybindings)
-
-" disable ex mode
 nnoremap Q <Nop>
 nnoremap gQ <Nop>
 
@@ -18,7 +15,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 if !empty(glob('~/.vim/autoload/plug.vim'))
-
   " ondemand loading for filetypes = 'for', load on commands = 'on'
   call plug#begin('~/.config/nvim/plugged')
 
@@ -42,10 +38,11 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
       let g:AutoPairsFlyMode = 0
       let g:AutoPairsShortcutFastWrap='<C-e>'
       let g:AutoPairsShortcutBackInsert = '<C-b>'
-    Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
+    " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for' : 'jinja' }
     if isdirectory('/usr/local/opt/fzf')
       " use Ripgrep (Rg) for best experience
+      " ~/.fzf/install (setup keybindings)
       Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
     else
       Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -55,7 +52,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
-    Plug 'tpope/vim-repeat'
+    " Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-markdown', {'for' : 'markdown'}
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
       " close nerdtree when opening a file
@@ -120,6 +117,7 @@ let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
 set synmaxcol=0
 syntax sync minlines=256
 syntax sync maxlines=300
+
 " fix syntax on large files
 let g:vimsyn_embed='0'
 
@@ -231,7 +229,7 @@ augroup END
 let g:vimsyn_embed = 'l'
 
 " coc.vim
-if executable('~/local/node/bin/nodenode')
+if executable('~/local/node/bin/node')
   let g:coc_node_path = '~/local/node/bin/node'
 endif
 
@@ -312,18 +310,18 @@ let g:fzf_colors = {
   \ 'gutter': ['fg', 'fzf_bg'],
   \ 'spinner': ['fg', 'fzf_spinner'] }
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   bindings                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nnoremap <silent><C-e> :call NerdTreeToggleFind()<CR>
-
-nnoremap <silent><C-p> :call FZFOpen(':GFiles')<CR>
-nnoremap <silent><leader>f :call FZFOpen(':Files')<CR>
-nnoremap <silent><leader>b :call FZFOpen(':Buffers')<CR>
-
 if !empty(glob('~/.vim/autoload/plug.vim'))
+
+  nnoremap <silent><C-e> :call NerdTreeToggleFind()<CR>
+
+  nnoremap <silent><C-p> :call FZFOpen(':GFiles')<CR>
+  nnoremap <silent><leader>f :call FZFOpen(':Files')<CR>
+  nnoremap <silent><leader>b :call FZFOpen(':Buffers')<CR>
+
   nmap s  <Plug>Ysurround
   nmap S  <Plug>YSurround
   nmap sw siW
@@ -339,6 +337,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   nmap <silent> gr <Plug>(coc-references)
   " trigger completion, manually
   inoremap <silent><expr> <C-c> coc#refresh()
+
 endif
 
 if &diff
@@ -434,11 +433,10 @@ nnoremap yp mxyap`x
 xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 set autoindent
-set scrolloff=2
-set mouse=a
 set autoread
 set backspace=indent,eol,start
 set cmdheight=2
+set complete+=kspell
 set complete-=i complete-=t
 set completeopt-=preview
 set diffopt=filler
@@ -454,46 +452,44 @@ set ignorecase
 set incsearch
 set laststatus=0
 set magic
+set mouse=a
 set nobackup nowritebackup noswapfile
 set nojoinspaces
 set nolist
+set noshowcmd
 set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal
+set number
+set numberwidth=3
 set pastetoggle=<F2>
 set ruler
+set scrolloff=2
 set shiftround
 set shiftwidth=2
-set shortmess=atIoOsT
 set shortmess+=c
+set shortmess=atIoOsT
 set showmode
-set noshowcmd
 set sidescrolloff=1
-set smartcase
-set smarttab
+set smartcase smarttab
 set softtabstop=2
-set tabstop=2
 set spelllang=en_us
 set splitbelow
+set tabstop=2
 set textwidth=80
 set timeout timeoutlen=500 ttimeout ttimeoutlen=50
 set undolevels=999
 set updatetime=250
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__/*
 set winaltkeys=no
-set complete+=kspell
 
 " performance settings
 set lazyredraw
 set matchtime=0
-set nocursorcolumn
-set nocursorline
+set nocursorcolumn nocursorline
+set re=1
 set redrawtime=10000
 set ttyfast
-set re=1
-
-set numberwidth=3
-set number
 
 set inccommand=nosplit
 try
@@ -509,12 +505,12 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 tnoremap jk <C-\><C-n>
 
 " fixes issues with extra lines in EOF
+set fileformats=unix,dos
 set fixendofline
 set foldlevel=1
 set foldmethod=indent
 set foldnestmax=2
 set nofoldenable
-set fileformats=unix,dos
 
 " requires -> export DISPLAY=:0.0 on zshrc
 if has('macunix')
@@ -538,11 +534,7 @@ let g:clipboard = {
       \   'cache_enabled': 1
       \ }
 
-if has('unnamedplus')
-  set clipboard=unnamed
-  set clipboard+=unnamedplus
-else
-  set clipboard=unnamed
-endif
+set clipboard=unnamed
+set clipboard+=unnamedplus
 
 source ~/.dotfiles/vim/vimrc/aux.vimrc
