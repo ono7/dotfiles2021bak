@@ -52,7 +52,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-eunuch'
-    " Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-markdown', {'for' : 'markdown'}
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
       " close nerdtree when opening a file
@@ -126,67 +126,10 @@ set background=dark
 colorscheme onehalfdark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               python functions                               "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-function! StrList()
-python3 << EOF_
-import vim
-array = ", ".join([ '"' + x.strip() + '"' for x in vim.current.line.split() if x != '"' ])
-vim.current.line = '[ ' + array + ' ]'
-EOF_
-endfunction
-command! -nargs=0 -range Jlist call StrList()
-
-function! StrListFromComma()
-python3 << EOF_
-import vim
-array = ",".join([ '"' + x.strip() + '"' for x in vim.current.line.split(',') if x != '"' if x != "" ])
-vim.current.line = '[ ' + array + ' ]'
-EOF_
-endfunction
-command! -nargs=0 -range Jlistfromcomma call StrListFromComma()
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim functions                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! NerdTreeToggleFind()
-  if exists("g:NERDTree") && g:NERDTree.IsOpen()
-    NERDTreeClose
-  elseif filereadable(expand('%'))
-    NERDTreeFind
-  else
-    NERDTree
-  endif
-endfunction
-
-function! FZFOpen(command_str)
-  " prevents nerdtree window from being used when opening files through fzf search
-  if (expand('%') =~# 'NERD_tree' && winnr('$') > 1)
-    exe "normal! \<c-w>\<c-w>"
-    setlocal noincsearch
-  endif
-  exe 'normal! ' . a:command_str . "\<cr>"
-endfunction
-
-function! <SID>StripTrailingWhitespaces()
-  let l = line(".")
-  let c = col(".")
-  %s/\s\+$//e
-  %s#\($\n\s*\)\+\%$##e
-  call cursor(l, c)
-endfunction
-command! RemoveTrailingWhiteSpaces call <SID>StripTrailingWhitespaces()
-
-function! CopyMatches(reg)
-  " copy matches to main clipboard :CopyMatches *
-  let hits = []
-  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/gne
-  let reg = empty(a:reg) ? '+' : a:reg
-  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
-endfunction
-command! -register JcopyMatches call CopyMatches(<q-reg>)
+source ~/.dotfiles/vim/vimrc/vim.vimrc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                  autogroup                                   "
@@ -439,16 +382,18 @@ set cmdheight=2
 set complete+=kspell
 set complete-=i complete-=t
 set completeopt-=preview
+set clipboard=unnamed
+set clipboard+=unnamedplus
 set diffopt=filler
 set directory=~/.tmp
 set display+=lastline
 set encoding=utf-8 nobomb
-set expandtab
 set fileencoding=utf-8
 set fillchars+=vert:│
 set hidden
 set history=999
 set ignorecase
+set inccommand=nosplit
 set incsearch
 set laststatus=0
 set magic
@@ -460,8 +405,7 @@ set noshowcmd
 set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal
-set number
-set numberwidth=3
+set number numberwidth=3
 set pastetoggle=<F2>
 set ruler
 set scrolloff=2
@@ -472,11 +416,9 @@ set shortmess=atIoOsT
 set showmode
 set sidescrolloff=1
 set smartcase smarttab
-set softtabstop=2
 set spelllang=en_us
 set splitbelow
-set tabstop=2
-set textwidth=80
+set softtabstop=2 tabstop=2 textwidth=80 expandtab
 set timeout timeoutlen=500 ttimeout ttimeoutlen=50
 set undolevels=999
 set updatetime=250
@@ -491,7 +433,6 @@ set re=1
 set redrawtime=10000
 set ttyfast
 
-set inccommand=nosplit
 try
   set signcolumn=number
 catch
@@ -499,18 +440,15 @@ catch
 endtry
 
 " pmenu/transparency/items
-set pumheight=10
-set pumblend=0
+set pumheight=10 pumblend=0
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 tnoremap jk <C-\><C-n>
 
 " fixes issues with extra lines in EOF
 set fileformats=unix,dos
 set fixendofline
-set foldlevel=1
-set foldmethod=indent
-set foldnestmax=2
-set nofoldenable
+set foldlevel=1 foldmethod=indent foldnestmax=2 nofoldenable
+
 
 " requires -> export DISPLAY=:0.0 on zshrc
 if has('macunix')
@@ -534,7 +472,5 @@ let g:clipboard = {
       \   'cache_enabled': 1
       \ }
 
-set clipboard=unnamed
-set clipboard+=unnamedplus
-
 source ~/.dotfiles/vim/vimrc/aux.vimrc
+source ~/.dotfiles/vim/vimrc/python.vimrc
