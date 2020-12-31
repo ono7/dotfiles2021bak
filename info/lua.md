@@ -544,3 +544,36 @@ sorts in place
 ```lua
 table.sort(tbl)
 ```
+
+## name space / create module
+
+```lua
+mod = {}
+
+function mod.factorial(num)
+  local total = 1
+  for i = 1, num do
+    total = total * i
+  end
+  return total
+end
+
+return mod
+```
+
+## using tables for object oriented programming (OOP)
+
+```lua
+counter = {
+  count = 0
+}
+
+function counter.get(self)
+  return self.count
+end
+
+function counter.inc(self)
+  self.count = self.count + 1
+  return self.count
+end
+```
