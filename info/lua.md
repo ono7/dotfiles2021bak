@@ -1,6 +1,6 @@
 # linux lua-lsp support
 
-* consider a function to be a process that you can give information, and have it
+- consider a function to be a process that you can give information, and have it
   complete some task.
 
 ## sumneko/lua-language-server
@@ -10,29 +10,27 @@ one exception to keep the server from crashing when editing lua files
 inside a big project, this line needs to be modified from the defaults
 which recursively parse all files in the current folder
 
-  "Lua.runtime.path": ["?.lua"],
+"Lua.runtime.path": ["?.lua"],
 
 for some reason editing files in ~/ does not work... must be due to some sort of
 recursive resolutoin....
 
-* string recipes
+- string recipes
   http://lua-users.org/wiki/StringRecipes
 
-* lua operators
+- lua operators
   https://www.tutorialspoint.com/lua/lua_operators.htm
 
-* quick primer
+- quick primer
   https://www.youtube.com/watch?v=kgiEF1frHQ8
 
 ## interpreter
 
 use = in the command interpreter to evalue
 
-```lua
 lua> x = 123
 lua> = type(x)
 number
-```
 
 ## patterns
 
@@ -40,17 +38,17 @@ https://www.lua.org/pil/20.2.html
 
 ### lua character classes
 
-.   all characters
-%a  letters
-%c  control characters
-%d  digits
-%l  lower case letters
-%p  punctuation characters
-%s  space characters
-%u  upper case letters
-%w  alphanumeric characters
-%x  hexadecimal digits
-%z  the character with representation 0
+. all characters
+%a letters
+%c control characters
+%d digits
+%l lower case letters
+%p punctuation characters
+%s space characters
+%u upper case letters
+%w alphanumeric characters
+%x hexadecimal digits
+%z the character with representation 0
 
 `upper case letter represent the opposite of the class`
 
@@ -63,13 +61,13 @@ https://www.lua.org/pil/20.2.html
 `-` also 0 or more repetitions (shortest occurrence)
 `?` optional (0 or 1 occurrence)
 
-####  operators
+#### operators
 
-* lua operators explained
+- lua operators explained
 
   https://www.tutorialspoint.com/lua/lua_operators.htm
 
-`..`  Concatenates two strings. a..b where a is "Hello " and b is "World", will
+`..` Concatenates two strings. a..b where a is "Hello " and b is "World", will
 return "Hello World".
 
 `#` An unary operator that return the length of the a string or a table.
@@ -85,10 +83,11 @@ return "Hello World".
 
 == equal
 < less than
+
 > greater than
-<= less than or equal to
->= greater than or equal to
-~= inequality (not !=)
+> <= less than or equal to
+> = greater than or equal to
+> ~= inequality (not !=)
 
 ## combining statements and or, if else etc
 
@@ -96,19 +95,21 @@ return "Hello World".
 if x > 1 or x < 20 then print(x) end
 if x > 1 end x < 20 then print(x) end
 if not x > 1 end x < 20 then print(x) end
+print(20)
+
+```
 
 if x
 elseif y
 end
-```
 
 ## range, tested loops
 
 ```lua
 local count = 0
 
-for i=1, 10 do -- init i to 1, 10 is max range
-  for e=1, 10 do -- different variable
+for i = 1, 10 do -- init i to 1, 10 is max range
+  for e = 1, 10 do -- different variable
     count = count + 1 -- no += operator..
   end
 end
@@ -119,22 +120,22 @@ print(count)
 ## tables
 
 ```lua
-local colors = { "blue", "green" , "red" }
+local colors = {"blue", "green", "red"}
 
-for i=1, #colors do -- #colors is length of colors
+for i = 1, #colors do -- #colors is length of colors
   print(colors[i])
 end
 ```
+
 ## table manipulation
 
 ```lua
-
-local colors = { "blue", "green" , "red" }
+local colors = {"blue", "green", "red"}
 
 table.insert(colors, "orange") -- add orange
 table.remove(colors, "blue") -- remove blue
-
 ```
+
 ## first class functions
 
 ```lua
@@ -156,12 +157,13 @@ local fun = function (x) return x * 20 end
 
 ```lua
 -- prints local variable since its on the same scope/line
-local x = 63; print(64)
+local x = 63
+print(64)
 ```
 
 ## variables (*global/local) *default
 
-* assigments are global by default, use local to make them local
+- assigments are global by default, use local to make them local
 
 ## shortest occurance example
 
@@ -171,10 +173,9 @@ x = '/*this this*/test /*test */1232 test'
 -- this makes sure that only the first closing */ is matched correctly per group
 print(x:gsub('/%*.-%*/', '<comment>'))
 
-▶ lua test.lua
+lua test.lua
 <comment>test <comment>1232 test
 ```
-
 
 #### kali linux support
 
@@ -196,12 +197,11 @@ f:read()
 ## Lua starts counting at 1, not 0...
 
 ```lua
-local tbl = { "a", "b", "c" }
+local tbl = {"a", "b", "c"}
 
-for i=1, #tbl do
+for i = 1, #tbl do
   print(colors[i])
 end
-
 ```
 
 - break, continue - lua includes a **break** statement but not a continue
@@ -210,10 +210,10 @@ end
 ## data types
 
 ```lua
-myNum = 100                  --Number
-myOtherNum = 20.18           --Number
-myString = "Hello World!"    --String
-myBool = true                --Boolean
+myNum = 100 --Number
+myOtherNum = 20.18 --Number
+myString = "Hello World!" --String
+myBool = true --Boolean
 ```
 
 ## type checking
@@ -228,7 +228,6 @@ assert(type(n) == "number")
 
 ```lua
 -- Comment on a single line
-
 --[[
      Block comments
      Everything in here will be
@@ -240,40 +239,40 @@ assert(type(n) == "number")
 
 ```lua
 if myNum == 0 then
-   myNum = myNum + 1
+  myNum = myNum + 1
 end
 
 if myNum > 1 then
-   result = "myNum is greater than 1"
+  result = "myNum is greater than 1"
 elseif myNum < 1 then
-   result = "myNum is less than 1"
+  result = "myNum is less than 1"
 else
-   result = "myNum is equal to 1"
+  result = "myNum is equal to 1"
 end
 ```
 
 ## loops
 
 ```lua
- -- While Loop
+-- While Loop
 while myNum < 50 do
-   myNum = myNum + 1
+  myNum = myNum + 1
 end
 
 -- For Loop
 -- Loops 100 times, iterator "i" increases by 1 each loop
-for i=1,100 do
-   myNum = myNum + 1
+for i = 1, 100 do
+  myNum = myNum + 1
 end
 
 -- Optional third parameter is the increment value
 -- This loop decreases by 5 each time from 100 to 0
-for i=100,0,-5 do
-   myNum = myNum + 1
+for i = 100, 0, -5 do
+  myNum = myNum + 1
 end
 
 -- for loop include step
-for i=1,100,0.5 do
+for i = 1, 100, 0.5 do
   print(i)
 end
 ```
@@ -292,29 +291,31 @@ until i == 10
 
 ```lua
 function isNegative(n)
-   if n < 0 then
-      return true
-   else
-      return false
-   end
+  if n < 0 then
+    return true
+  else
+    return false
+  end
 end
 
-isNegative(-15)   -- Returns true
+isNegative(-15) -- Returns true
 
 -- Multiple parameters
-function pow(base, exp) return base^exp end
+function pow(base, exp)
+  return base ^ exp
+end
 
 -- Functions can be assigned to variables
 myVar = isNegative
-myVar(20)   -- Returns false
+myVar(20) -- Returns false
 ```
 
 ## tables
 
-* tables in lua are considered associative
-* an associative table is a collection of values that are each associated with a
+- tables in lua are considered associative
+- an associative table is a collection of values that are each associated with a
   key
-* table keys cannot contain reserved names
+- table keys cannot contain reserved names
 
 ```lua
 test = {}
@@ -322,24 +323,24 @@ test.end = 'test' -- error
 ```
 
 ```lua
-myTable = {}       -- Creates empty table
-myTable[1] = 'a'   -- Put character 'a' at index 1
+myTable = {} -- Creates empty table
+myTable[1] = "a" -- Put character 'a' at index 1
 
 -- NOTE: Tables in Lua start at index 1
 
-myTable["lua"] = 20    -- myTable contains 20 at index "lua"
-myTable[1] = nil       -- Removes value stored at index 1
+myTable["lua"] = 20 -- myTable contains 20 at index "lua"
+myTable[1] = nil -- Removes value stored at index 1
 
-myTable.name = "Alex"  -- myTable["name"] contains string "Alex"
+myTable.name = "Alex" -- myTable["name"] contains string "Alex"
 
 otherTable = {2, 3, 5} -- Creates table with 2 stored at index 1,
-                       -- 3 stored at index 2, and 5 at index 3
+-- 3 stored at index 2, and 5 at index 3
 
 -- Iterate through all values in a table
 for i, n in ipairs(otherTable) do
-   result = result + n
-   -- i stores the current index
-   -- n stores the value at current index
+  result = result + n
+  -- i stores the current index
+  -- n stores the value at current index
 end
 -- During loop, variable "result" increases by 2, then 3, then 5.
 ```
@@ -357,7 +358,7 @@ print(#tbl)
 ## dofile = loads and executes script
 
 ```lua
-dofile('myfile.lua')
+dofile("myfile.lua")
 ```
 
 ## iterating over tables
@@ -377,11 +378,11 @@ x = io.read()
 ```lua
 local vec = {}
 
-vec.norm = function ( x, y )
+vec.norm = function(x, y)
   return math.sqrt(x * x + y * y)
 end
 
-vec.dist = function (x1, y1, x2, y2)
+vec.dist = function(x1, y1, x2, y2)
   return vec.norm(x1 - x2, y1 - y2)
 end
 
@@ -412,19 +413,18 @@ function (x, y) error( 'this is an error msg' ) end
 
 ```lua
 -- open and write to file
-f = io.open('filename.txt', 'w')
+f = io.open("filename.txt", "w")
 
 -- writing to files
 
-f:write('hello there \n')
+f:write("hello there \n")
 f:close()
-
 ```
 
 - open and read from file
 
 ```lua
-f = io.open('filename.txt')
+f = io.open("filename.txt")
 
 x = f:read()
 print(x)
@@ -497,7 +497,7 @@ nil
 local mymodule = {}
 
 function mymodule.foo()
-    print("Hello World!")
+  print("Hello World!")
 end
 
 return mymodule
@@ -513,7 +513,7 @@ local function table_copy(t)
   local copy = {}
   for n,v in pairs(t) do
     if type(v) == 'table' then
-      v = table_copy(v)
+             v = table_copy(v)
     end
     copy[n] = v
   end
@@ -527,6 +527,6 @@ clear entry on table by assiging nil
 
 ```lua
 test = {}
-test.x = 'test'
+test.x = "test"
 test.x = nil
 ```

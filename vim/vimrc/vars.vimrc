@@ -26,6 +26,7 @@ let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=25
 " let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
+let g:vimwiki_global_ext = 0
 let g:vimwiki_table_mappings = 0
 let wiki = {}
 let wiki.path = 'wiki'
