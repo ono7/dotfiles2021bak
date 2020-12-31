@@ -43,26 +43,26 @@ cnoreabbrev w1 w!
 cnoreabbrev wQ wq
 
 " noreabbrev
-noreabbrev Flase False
-noreabbrev accross across
-noreabbrev anotehr another
-noreabbrev becuase because
-noreabbrev corected corrected
-noreabbrev fro for
-noreabbrev waht what
-noreabbrev healt health
-noreabbrev initilise initialize
-noreabbrev initilize initialize
-noreabbrev lenght length
-noreabbrev lenhgt length
-noreabbrev mitake mistake
-noreabbrev shoudl should
-noreabbrev taht that
-noreabbrev teh the
-noreabbrev whlie while
-noreabbrev yeild yield
-noreabbrev yiedl yield
-noreabbrev pythno python
+" noreabbrev Flase False
+" noreabbrev accross across
+" noreabbrev anotehr another
+" noreabbrev becuase because
+" noreabbrev corected corrected
+" noreabbrev fro for
+" noreabbrev waht what
+" noreabbrev healt health
+" noreabbrev initilise initialize
+" noreabbrev initilize initialize
+" noreabbrev lenght length
+" noreabbrev lenhgt length
+" noreabbrev mitake mistake
+" noreabbrev shoudl should
+" noreabbrev taht that
+" noreabbrev teh the
+" noreabbrev whlie while
+" noreabbrev yeild yield
+" noreabbrev yiedl yield
+" noreabbrev pythno python
 
 " dang it, tmux
 imap <c-b> <nop>

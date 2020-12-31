@@ -39,6 +39,7 @@
     "before_each",
     "after_each"
   ],
+  "Lua.diagnostics.neededFileStatus": "Opened",
   "Lua.completion.keywordSnippet": "Disable",
   "Lua.telemetry.enable": null
 }

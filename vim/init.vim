@@ -63,6 +63,7 @@ colorscheme onehalfdark
 lua << EOF
 require "format".setup {
   -- https://github.com/lukas-reineke/format.nvim
+  -- :h format.txt
 
   -- TODO: resolve black apple m1 arch issues
 
@@ -118,8 +119,8 @@ require "format".setup {
     {
       cmd = {"luafmt -i 2 -w replace"},
       start_pattern = "^```lua$",
-      end_pattern = "^```$",
-      target = "current"
+      end_pattern = "^```$"
+      -- target = "current"
     }
   }
 }
