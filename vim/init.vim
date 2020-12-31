@@ -17,37 +17,15 @@ endif
 if !empty(glob('~/.vim/autoload/plug.vim'))
   " ondemand loading for filetypes = 'for', load on commands = 'on'
   call plug#begin('~/.config/nvim/plugged')
-
     Plug 'bfredl/nvim-miniyank'
     Plug 'SirVer/ultisnips'
     Plug 'lukas-reineke/format.nvim'
-    Plug 'neoclide/coc.nvim', {'branch': 'release',
-          \ 'for' : [
-          \ 'python', 'yaml', 'jinja', 'ansible',
-          \ 'json', 'javascript', 'css', 'markdown', 'typescript',
-          \ 'terraform', 'cs', 'lua', 'vimwiki']}
-      let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-prettier', 'coc-omnisharp', 'coc-lua' ]
     Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
-      " use all the beautiful things jedi-vim offers, but leave completion to coc
-      let g:jedi#completions_enabled = 0
-      let g:jedi#goto_assignments_command = ""
     Plug 'christoomey/vim-tmux-navigator'
-      let g:tmux_navigator_disable_when_zoomed = 1
     Plug 'jiangmiao/auto-pairs'
-      let g:AutoPairsUseInsertedCount = 0
-      let g:AutoPairsFlyMode = 0
-      let g:AutoPairsShortcutFastWrap='<C-e>'
-      let g:AutoPairsShortcutBackInsert = '<C-b>'
-    " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for' : 'jinja' }
-    if isdirectory('/usr/local/opt/fzf')
-      " use Ripgrep (Rg) for best experience
-      " ~/.fzf/install (setup keybindings)
-      Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-    else
-      Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-      Plug 'junegunn/fzf.vim'
-    endif
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+    Plug 'junegunn/fzf.vim'
     Plug 'ervandew/supertab'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
@@ -55,20 +33,14 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-markdown', {'for' : 'markdown'}
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
-      " close nerdtree when opening a file
-      let NERDTreeQuitOnOpen = 0
-      let NERDTreeMinimalUI = 1
-      let g:NERDTreeWinSize=25
-      " let NERDTreeDirArrows = 1
-      let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
     Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs', 'lua'] }
     Plug 'vimwiki/vimwiki'
-      let g:vimwiki_table_mappings = 0
-      let wiki = {}
-      let wiki.path = 'wiki'
-      let wiki.nested_syntaxes = {'python': 'python', 'cpp': 'cpp', 'php': 'php',
-            \ 'javascript': 'javascript', 'bash' : 'sh', 'lua' : 'lua'}
-      let g:vimwiki_list = [wiki]
+    Plug 'neoclide/coc.nvim', {'branch': 'release',
+          \ 'for' : [
+          \ 'python', 'yaml', 'jinja', 'ansible',
+          \ 'json', 'javascript', 'css', 'markdown', 'typescript',
+          \ 'terraform', 'cs', 'lua', 'vimwiki']}
+    " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
   call plug#end()
 endif
 
@@ -76,13 +48,27 @@ filetype plugin indent on
 
 syntax on
 
+" lua hi
+let g:vimsyn_embed = 'l'
+
+set synmaxcol=0
+syntax sync minlines=256
+syntax sync maxlines=300
+
+set termguicolors
+set background=dark
+colorscheme onehalfdark
+
+" lukas-reineke/format.nvim
 lua << EOF
 require "format".setup {
   -- https://github.com/lukas-reineke/format.nvim
+
   -- TODO: resolve black apple m1 arch issues
 
   -- npm install lua-fmt -g
   -- pip install black
+  -- autocmd BufWritePost * FormatWrite
 
   vim = {
     {
@@ -110,20 +96,6 @@ require "format".setup {
 }
 EOF
 
-let g:loaded_ruby_provider = 0
-let g:loaded_python_provider = 1
-let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
-
-set synmaxcol=0
-syntax sync minlines=256
-syntax sync maxlines=300
-
-" fix syntax on large files
-let g:vimsyn_embed='0'
-
-set termguicolors
-set background=dark
-colorscheme onehalfdark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim functions                                 "
@@ -168,93 +140,11 @@ augroup END
 "                               plugin variables                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" lua hi
-let g:vimsyn_embed = 'l'
+source ~/.dotfiles/vim/vimrc/vars.vimrc
 
-" coc.vim
-if executable('~/local/node/bin/node')
-  let g:coc_node_path = '~/local/node/bin/node'
-endif
-
-let g:vim_markdown_folding_disabled = 1
-
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_format = '(%code%): %s'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_sign_warning = '⚠'
-let g:ale_sign_error = '•'
-let g:ale_sign_offset = 1000000
-let g:ale_virtualtext_cursor = 0
-let g:ale_warn_about_trailing_blank_lines = 0
-let b:ale_warn_about_trailing_whitespace = 0
-let g:ale_fixers = {
-      \ 'javascript': ['eslint'],
-      \}
-let g:ale_linters = {
-      \ 'ansible.yaml' : ['yamllint', 'ansible_lint'],
-      \ 'javascript' : ['eslint'],
-      \ 'python' : ['pylint'],
-      \}
-
-let g:asmsyntax = 'nasm'
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'nasm', 'vim', 'php', 'javascript', 'lua', 'sql']
-let g:markdown_syntax_conceal = 0
-" 1 = show if 2 files, 2 = always, 0 = disable
-let g:buftabline_show = 0
-let g:SuperTabDefaultCompletionType = "<C-n>"
-let g:SuperTabClosePreviewOnPopupClose = 1
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetDirectories=['~/.config/nvim/UltiSnips', 'UltiSnips']
-let g:UltiSnipsEditSplit="horizontal"
-let g:UltiSnipsUsePythonVersion = 3
-let g:indentLine_char = "‧"
-let g:indentLine_color_term = 8
-let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 2
-let g:indentLine_fileTypeExclude = ['text', 'markdown']
-let g:indentLine_enabled = 0
-
-" Plug 'junegunn/fzf.vim'
-" width: float range [0 ~ 1]
-" height: float range [0 ~ 1]
-" Optional
-"
-" yoffset: float default 0.5 range [0 ~ 1]
-" xoffset: float default 0.5 range [0 ~ 1]
-" highlight: [string]: Highlight group for border
-" border: [string default rounded]: Border style
-" Avaliable Border Style -> rounded: / sharp / horizontal / vertical / top / bottom / left / right
-
-hi! fzf_info ctermfg=6
-hi! fzf_bg ctermfg=0 guifg=#282c34
-hi! fzf_bg_plus ctermbg=237 guibg=#313640
-hi! fzf_spinner ctermfg=6
-
-let g:fzf_layout = { 'window': { 'width': 1, 'height': 1, 'highlight': 'Comment', 'border' : 'bottom' } }
-let g:fzf_history_dir = '~/.tmp/fzf-history'
-let g:fzf_buffers_jump = 1
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-let g:fzf_nvim_statusline = 1
-
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Comment'],
-  \ 'hl':      ['fg', 'RedBold'],
-  \ 'fg+':     ['fg', 'GreenBold'],
-  \ 'bg+':     ['bg', 'fzf_bg_plus'],
-  \ 'hl+':     ['fg', 'PurpleBold'],
-  \ 'info':    ['fg', 'fzf_info'],
-  \ 'prompt':  ['fg', 'BlueBold'],
-  \ 'pointer': ['fg', 'RedBold'],
-  \ 'gutter': ['fg', 'fzf_bg'],
-  \ 'spinner': ['fg', 'fzf_spinner'] }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                   bindings                                   "
+"                               plugin bindings                                "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if !empty(glob('~/.vim/autoload/plug.vim'))
@@ -429,7 +319,7 @@ set winaltkeys=no
 set lazyredraw
 set matchtime=0
 set nocursorcolumn nocursorline
-set re=1
+" set re=1
 set redrawtime=10000
 set ttyfast
 
@@ -472,5 +362,88 @@ let g:clipboard = {
       \   'cache_enabled': 1
       \ }
 
+hi! TermCursorNC guibg=Purple guifg=white ctermbg=1 ctermfg=15
+hi! trans guibg=Purple guifg=white ctermbg=1 ctermfg=15
+
+
+if g:colors_name == "onehalfdark"
+
+  hi!  Red     ctermfg=1    guifg=#e06c75
+  hi!  Green   ctermfg=2    guifg=#56b6c2
+  hi!  Yellow  ctermfg=3    guifg=#e5c07b
+  hi!  Blue    ctermfg=4    guifg=#61afef
+  hi!  Purple  ctermfg=5    guifg=#b67fd1
+  hi!  Aqua    ctermfg=6    guifg=#56b6c2
+  hi!  Orange  ctermfg=208  guifg=#e78a4e
+
+  hi!  RedItalic      cterm=italic  gui=italic  ctermfg=1  guifg=#e06c75
+  hi!  OrangeItalic   cterm=italic  gui=italic  ctermfg=208  guifg=#e78a4e
+  hi!  YellowItalic   cterm=italic  gui=italic  ctermfg=3  guifg=#e5c07b
+  hi!  GreenItalic    cterm=italic  gui=italic  ctermfg=2  guifg=#a9b665
+  hi!  AquaItalic     cterm=italic  gui=italic  ctermfg=6  guifg=#7daea3
+  hi!  BlueItalic     cterm=italic  gui=italic  ctermfg=4  guifg=#61afef
+  hi!  PurpleItalic   cterm=italic  gui=italic  ctermfg=5  guifg=#b67fd1
+  hi!  NormalItalic   cterm=italic  gui=italic  ctermfg=223  guifg=#d4be98
+  hi!  CommentItalic  cterm=italic  gui=italic  ctermfg=245  guifg=#5c6370
+  hi!  RedBold        cterm=bold    gui=bold    ctermfg=1  guifg=#e06c75
+  hi!  OrangeBold     cterm=bold    gui=bold    ctermfg=208  guifg=#e78a4e
+  hi!  YellowBold     cterm=bold    gui=bold    ctermfg=3  guifg=#d8a657
+  hi!  GreenBold      cterm=bold    gui=bold    ctermfg=2  guifg=#98c379
+  hi!  AquaBold       cterm=bold    gui=bold    ctermfg=6  guifg=#89b482
+  hi!  BlueBold       cterm=bold    gui=bold    ctermfg=4  guifg=#61afef
+  hi!  PurpleBold     cterm=bold    gui=bold    ctermfg=5  guifg=#b67fd1
+  hi!  NormalBold     cterm=bold    gui=bold    ctermfg=223  guifg=#dcdfe4
+  hi!  CommentBold    cterm=bold    gui=bold    ctermfg=245  guifg=#95c637
+
+  hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#a89984  guibg=NONE
+  hi!  Folded         ctermfg=245  ctermbg=NONE   guifg=#95c637  guibg=NONE
+  hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=1      guifg=#1d2021  guibg=#e78a4e
+  hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
+  hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
+  hi!  PmenuSel       ctermbg=239  ctermfg=7      guibg=#313640  guifg=#9297a1  gui=reverse
+  hi!  CommentNormal  ctermfg=8    guifg=#95c637
+  hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
+  hi!  Search         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
+  hi!  IncSearch      ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3a5286
+
+  " gutter
+  hi!  SignColumn  ctermfg=223   ctermbg=NONE   guifg=#d4be98  guibg=NONE
+  hi!  RedSign     ctermfg=1     ctermbg=NONE   guifg=#e06c75  guibg=NONE
+  hi!  YellowSign  ctermbg=NONE  guifg=#e5c07b  guibg=NONE
+  hi!  BlueSign    ctermfg=4     ctermbg=NONE   guifg=#61afef  guibg=NONE
+  hi!  link        lineNr        Comment
+
+  " markdown
+  hi!  link  markdownH1             GreenBold
+  hi!  link  markdownH2             BlueBold
+  hi!  link  markdownH3             OrangeBold
+  hi!  link  markdownH4             PurpleBold
+  hi!  link  markdownH5             YellowBold
+  hi!  link  markdownH6             RedBold
+  hi!  link  markdownUrl            PurpleBold
+  hi!  link  markdownCodeDelimiter  Comment
+  hi!  link  VimwikiHeader1         markdownH1
+  hi!  link  VimwikiHeader2         markdownH2
+  hi!  link  VimwikiHeader3         markdownH3
+  hi!  link  VimwikiHeader4         markdownH4
+  hi!  link  VimwikiHeader5         markdownH5
+  hi!  link  VimwikiHeader6         markdownH6
+  hi!  link  VimwikiPre             Comment
+  hi!  link  VimwikiLink            Purple
+  hi!  link  ALEWarningSign         Yellow
+  hi!  link  ALEErrorSign           YellowBold
+  hi!  link  Repeat                 RedItalic
+  hi!  link  Conditional            PurpleItalic
+  hi!  link  EndOfBuffer            Comment
+  hi!  VertSplit ctermbg=NONE guibg=NONE
+
+  silent!  syn  clear  Normal
+  silent!  syn  clear  Comment
+
+  hi!  Normal   ctermbg=0  guibg=none     guifg=none
+  hi!  Comment  ctermfg=8  guifg=#5c6370
+
+endif
+
+" source ~/.dotfiles/vim/vimrc/python.vimrc
 source ~/.dotfiles/vim/vimrc/aux.vimrc
-source ~/.dotfiles/vim/vimrc/python.vimrc
