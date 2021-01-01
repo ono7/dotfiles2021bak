@@ -1,11 +1,11 @@
 
-snippet "(function|func|fun)" "function" r
-function $1 ($2)
+snippet "\b(function|func|fun)" "function" r
+function $1($2)
   ${VISUAL/([\n\s]+$|^[\n\s]+)//g}$0
 end
 endsnippet
 
-snippet "(print|pr|p)" "print" br
+snippet "\b(print|pr|p)" "print" br
 print(${VISUAL/([\n\s]+$|^[\n\s]+)//g}$0)
 endsnippet
 

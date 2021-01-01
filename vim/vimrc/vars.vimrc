@@ -87,11 +87,6 @@ let g:indentLine_enabled = 0
 " border: [string default rounded]: Border style
 " Avaliable Border Style -> rounded: / sharp / horizontal / vertical / top / bottom / left / right
 
-hi! fzf_info ctermfg=6
-hi! fzf_bg ctermfg=0 guifg=#282c34
-hi! fzf_bg_plus ctermbg=237 guibg=#313640
-hi! fzf_spinner ctermfg=6
-
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 1, 'highlight': 'Comment', 'border' : 'bottom' } }
 let g:fzf_history_dir = '~/.tmp/fzf-history'
 let g:fzf_buffers_jump = 1
@@ -109,4 +104,3 @@ let g:fzf_colors = {
   \ 'pointer': ['fg', 'RedBold'],
   \ 'gutter': ['fg', 'fzf_bg'],
   \ 'spinner': ['fg', 'fzf_spinner'] }
-

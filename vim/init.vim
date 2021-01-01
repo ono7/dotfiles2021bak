@@ -59,77 +59,6 @@ set termguicolors
 set background=dark
 colorscheme onehalfdark
 
-" lukas-reineke/format.nvim
-lua << EOF
-require "format".setup {
-  -- https://github.com/lukas-reineke/format.nvim
-  -- :h format.txt
-
-  -- TODO: resolve black apple m1 arch issues
-
-  -- npm install lua-fmt prettier -g
-  -- pip install black
-  -- autocmd BufWritePost * FormatWrite
-
-  vim = {
-    {
-      cmd = {"luafmt -i 2 -w replace"},
-      start_pattern = "^lua << EOF$",
-      end_pattern = "^EOF$"
-    }
-  },
-  lua = {
-    {
-      cmd = {
-        function(file)
-          return string.format("luafmt -i 2 -l %s -w replace %s", vim.bo.textwidth, file)
-        end
-      }
-    }
-  },
-  python = {
-    {
-      cmd = {
-        "black"
-      }
-    }
-  },
-  vimwiki = {
-    {
-      cmd = {"prettier -w --parser babel"},
-      start_pattern = "^{{{javascript$",
-      end_pattern = "^}}}$",
-      target = "current"
-    },
-    {
-      cmd = {"luafmt -i 2 -w replace"},
-      start_pattern = "^{{{lua$",
-      end_pattern = "^}}}$",
-      target = "current"
-    },
-    {
-      cmd = {"black"},
-      start_pattern = "^{{{python$",
-      end_pattern = "^}}}$",
-      target = "current"
-    }
-  },
-  javascript = {
-    {cmd = {"prettier -w", "eslint --fix"}}
-  },
-  markdown = {
-    {cmd = {"prettier -w"}},
-    {
-      cmd = {"luafmt -i 2 -w replace"},
-      start_pattern = "^```lua$",
-      end_pattern = "^```$",
-      -- current only format where cursor is
-      target = "current"
-    }
-  }
-}
-EOF
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim functions                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -211,10 +140,81 @@ augroup END
 source ~/.dotfiles/vim/vimrc/vars.vimrc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                               plugin bindings                                "
+"                              if plug is loaded                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if !empty(glob('~/.vim/autoload/plug.vim'))
+
+" lukas-reineke/format.nvim
+lua << EOF
+require "format".setup {
+  -- https://github.com/lukas-reineke/format.nvim
+  -- :h format.txt
+
+  -- TODO: resolve black apple m1 arch issues
+
+  -- npm install lua-fmt prettier -g
+  -- pip install black
+  -- autocmd BufWritePost * FormatWrite
+
+  vim = {
+    {
+      cmd = {"luafmt -i 2 -w replace"},
+      start_pattern = "^lua << EOF$",
+      end_pattern = "^EOF$"
+    }
+  },
+  lua = {
+    {
+      cmd = {
+        function(file)
+          return string.format("luafmt -i 2 -l %s -w replace %s", vim.bo.textwidth, file)
+        end
+      }
+    }
+  },
+  python = {
+    {
+      cmd = {
+        "black"
+      }
+    }
+  },
+  vimwiki = {
+    {
+      cmd = {"prettier -w --parser babel"},
+      start_pattern = "^{{{javascript$",
+      end_pattern = "^}}}$",
+      target = "current"
+    },
+    {
+      cmd = {"luafmt -i 2 -w replace"},
+      start_pattern = "^{{{lua$",
+      end_pattern = "^}}}$",
+      target = "current"
+    },
+    {
+      cmd = {"black"},
+      start_pattern = "^{{{python$",
+      end_pattern = "^}}}$",
+      target = "current"
+    }
+  },
+  javascript = {
+    {cmd = {"prettier -w", "eslint --fix"}}
+  },
+  markdown = {
+    {cmd = {"prettier -w"}},
+    {
+      cmd = {"luafmt -i 2 -w replace"},
+      start_pattern = "^```lua$",
+      end_pattern = "^```$",
+      -- current only format where cursor is
+      target = "current"
+    }
+  }
+}
+EOF
 
   nnoremap <silent><C-e> :call NerdTreeToggleFind()<CR>
 
@@ -242,6 +242,7 @@ if &diff
     set cursorline
     map ] ]n
     map [ [n
+
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
