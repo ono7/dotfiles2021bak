@@ -356,7 +356,6 @@ set fillchars+=vert:│
 set hidden
 set history=999
 set ignorecase
-set inccommand=nosplit
 set incsearch
 set laststatus=0
 set magic
@@ -404,10 +403,13 @@ catch
   set signcolumn=yes
 endtry
 
-" pmenu/transparency/items
-set pumheight=10 pumblend=0
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-tnoremap jk <C-\><C-n>
+if has('nvim')
+  set inccommand=nosplit
+  " pmenu/transparency/items
+  set pumheight=10 pumblend=0
+  " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  tnoremap jk <C-\><C-n>
+endif
 
 " fixes issues with extra lines in EOF
 set fileformats=unix,dos
