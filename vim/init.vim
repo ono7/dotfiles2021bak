@@ -18,7 +18,6 @@ let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 1
 let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
 
-
 filetype off
 
 " auto install plug
@@ -27,7 +26,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 
 if !empty(glob('~/.vim/autoload/plug.vim'))
   " ondemand loading for filetypes = 'for', load on commands = 'on'
