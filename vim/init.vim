@@ -37,7 +37,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'vimwiki/vimwiki'
     Plug 'neoclide/coc.nvim', {'branch': 'release',
           \ 'for' : [
-          \ 'python', 'jinja', 'ansible',
+          \ 'python', 'jinja',
           \ 'json', 'javascript', 'css', 'typescript',
           \ 'terraform', 'cs', 'lua' ]}
     " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
@@ -130,7 +130,6 @@ require "format".setup {
 }
 EOF
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim functions                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -210,7 +209,6 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 source ~/.dotfiles/vim/vimrc/vars.vimrc
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               plugin bindings                                "
@@ -332,8 +330,6 @@ nnoremap yp mxyap`x
 " select visualy selected text for search
 xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
 
-" increment letters
-set nrformats+=alpha
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -364,6 +360,8 @@ set noshowcmd
 set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal
+" inc/dec letters with c-a/x
+set nrformats+=alpha
 set number numberwidth=3
 set pastetoggle=<F2>
 set ruler
@@ -400,14 +398,13 @@ endtry
 
 " pmenu/transparency/items
 set pumheight=10 pumblend=0
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 tnoremap jk <C-\><C-n>
 
 " fixes issues with extra lines in EOF
 set fileformats=unix,dos
 set fixendofline
 set foldlevel=1 foldmethod=indent foldnestmax=2 nofoldenable
-
 
 " requires -> export DISPLAY=:0.0 on zshrc
 if has('macunix')

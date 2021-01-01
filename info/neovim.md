@@ -12,5 +12,6 @@ cd neovim
 git remote add qvacua git@github.com:qvacua/neovim.git
 git fetch qvacua
 git checkout build-arm64-mac
+rm -r build/
 echo "DEPS_CMAKE_FLAGS += -DCMAKE_OSX_DEPLOYMENT_TARGET=11.00" > local.mk
-make SDKROOT=`xcrun --show-sdk-path` CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/nvim"
+make CMAKE_BUILD_TYPE=Release SDKROOT=`xcrun --show-sdk-path` CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/nvim"
