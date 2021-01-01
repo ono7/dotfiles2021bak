@@ -48,7 +48,7 @@ endsnippet
 snippet "(docs|doc|comment|com)" "docstring" br
 --[[
 
-  $0${VISUAL}
+  $0${VISUAL/\n{1,}/\n\n/g}
 
 --]]
 endsnippet
