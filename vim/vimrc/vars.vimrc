@@ -28,16 +28,21 @@ let g:NERDTreeWinSize=25
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
 let g:vimwiki_global_ext = 0
 let g:vimwiki_table_mappings = 0
-let wiki = {}
-let wiki.path = 'wiki'
-let wiki.nested_syntaxes = {'python': 'python', 'cpp': 'cpp', 'php': 'php',
-      \ 'javascript': 'javascript', 'bash' : 'sh', 'lua' : 'lua'}
+let g:wiki = {}
+let g:wiki.path = 'wiki'
+let g:wiki.nested_syntaxes = {}
+let g:wiki.nested_syntaxes.python = 'python'
+let g:wiki.nested_syntaxes.cpp = 'cpp'
+let g:wiki.nested_syntaxes.php = 'php'
+let g:wiki.nested_syntaxes.javascript = 'javascript'
+let g:wiki.nested_syntaxes.bash = 'sh'
+let g:wiki.nested_syntaxes.lua = 'lua'
 let g:vimwiki_list = [wiki]
 let g:vim_markdown_folding_disabled = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_format = '(%code%): %s'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 " let g:ale_sign_warning = '⚠'
@@ -46,16 +51,14 @@ let g:ale_sign_warning = '•'
 let g:ale_sign_offset = 1000000
 let g:ale_virtualtext_cursor = 0
 let g:ale_warn_about_trailing_blank_lines = 0
-let b:ale_warn_about_trailing_whitespace = 0
-let g:ale_fixers = {
-      \ 'javascript': ['eslint'],
-      \}
-let g:ale_linters = {
-      \ 'ansible.yaml' : ['yamllint', 'ansible_lint'],
-      \ 'javascript' : ['eslint'],
-      \ 'python' : ['pylint'],
-      \}
-
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_fixers = {}
+let g:ale_fix_on_save = 0
+let g:ale_linters = {}
+let g:ale_linters['ansible.yaml'] = ['yamllint', 'ansible_lint']
+let g:ale_linters['javascript'] = ['eslint']
+let g:ale_linters['python'] = ['pylint']
+let g:ale_linters_explicit = 1
 let g:asmsyntax = 'nasm'
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'nasm', 'vim', 'php', 'javascript', 'lua', 'sql']
 let g:markdown_syntax_conceal = 0
@@ -93,14 +96,14 @@ let g:fzf_buffers_jump = 1
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 let g:fzf_nvim_statusline = 1
 
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Comment'],
-  \ 'hl':      ['fg', 'RedBold'],
-  \ 'fg+':     ['fg', 'GreenBold'],
-  \ 'bg+':     ['bg', 'fzf_bg_plus'],
-  \ 'hl+':     ['fg', 'PurpleBold'],
-  \ 'info':    ['fg', 'fzf_info'],
-  \ 'prompt':  ['fg', 'BlueBold'],
-  \ 'pointer': ['fg', 'RedBold'],
-  \ 'gutter': ['fg', 'fzf_bg'],
-  \ 'spinner': ['fg', 'fzf_spinner'] }
+let g:fzf_colors = {}
+let g:fzf_colors.fg = ['fg', 'Comment']
+let g:fzf_colors.hl = ['fg', 'RedBold']
+let g:fzf_colors['fg+'] = ['fg', 'GreenBold']
+let g:fzf_colors['bg+']= ['bg', 'fzf_bg_plus']
+let g:fzf_colors['hl+']= ['fg', 'PurpleBold']
+let g:fzf_colors.info = ['fg', 'fzf_info']
+let g:fzf_colors.prompt = ['fg', 'BlueBold']
+let g:fzf_colors.pointer = ['fg', 'RedBold']
+let g:fzf_colors.gutter = ['fg', 'fzf_bg']
+let g:fzf_colors.spinner = ['fg', 'fzf_spinner']

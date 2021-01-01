@@ -3,7 +3,14 @@
 nnoremap Q <Nop>
 nnoremap gQ <Nop>
 
+" visual select mode
+nnoremap gh <Nop>
+nnoremap gH <Nop>
+
 let mapleader = " "
+
+" disable ale lsp before plugins are loaded
+let g:ale_disable_lsp = 1
 
 filetype off
 
@@ -13,6 +20,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 
 if !empty(glob('~/.vim/autoload/plug.vim'))
   " ondemand loading for filetypes = 'for', load on commands = 'on'

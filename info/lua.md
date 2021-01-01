@@ -667,3 +667,20 @@ ___concat     - Defines the behavior when used with the concatenation operator (
 ___index      - Defines the behavior when the table is indexed with a key that doesn’t exist in that table.
 ___newindex   - Defines the behavior when a previously unset key in the table is being set.
 ```
+
+```lua
+-- tbl = regular table
+-- mtable = metatable
+tbl = {"a", "b", "c"}
+mtable = {}
+setmetable(tbl, mtable)
+```
+
+- setmetatble returns the table passed as the first argument
+
+- getmetable(tbl) returns the metatable or nil
+
+```lua
+-- test to see if mt is set
+print(getmetatable(tbl) == mt)
+```
