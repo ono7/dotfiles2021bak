@@ -33,7 +33,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-markdown', {'for' : 'markdown'}
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
-    Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs', ] }
+    Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs', 'lua' ] }
     Plug 'vimwiki/vimwiki'
     Plug 'neoclide/coc.nvim', {'branch': 'release',
           \ 'for' : [
@@ -280,10 +280,10 @@ nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 
 " tmux send-kyes up and enter, *repeat last command*
 nnoremap <silent><leader>t :silent !tmux send-keys -t 2 c-p Enter<cr>
-nnoremap H ^<c-g>
-nnoremap L $<c-g>
-vnoremap H ^<c-g>
-vnoremap L $<c-g>
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
 
 " more natural re-do command
 nnoremap U <C-r>

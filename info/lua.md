@@ -605,4 +605,41 @@ do
     return obj
   end
 end
+-- using obj:get() makes automatically
+-- passes self as the first argument
+
+x = {}
+
+function x:get()
+  self.val = 9
+  return self
+end
 ```
+
+Instead of typing counter.get(counter), you can call counter:get(). Lua
+translates counter:get() into counter.get(counter), saving you a bit of typing
+and making code easier to read.
+
+## define functions using :
+
+Defining Functions Using :
+You can use the : operator to define functions, making this type of program- ming even more natural. When this happens, Lua includes an implicit first argument called self. That’s why you used the variable name self in the previous example.
+Redefine the earlier functions by typing the following into your interpreter:
+
+```lua
+counter = {
+  count = 0
+}
+
+function counter:get()
+  return self.count
+end
+
+function counter:inc()
+  self.count = self.count + 1
+end
+```
+
+## factory functions page 68
+
+return new objects when they are called
