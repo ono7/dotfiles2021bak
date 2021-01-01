@@ -2,7 +2,9 @@
 "                                     vars                                     "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" neovim providers
 let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 1
 let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
 
@@ -12,20 +14,25 @@ if executable('~/local/node/bin/node')
 endif
 
 let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-prettier', 'coc-omnisharp', 'coc-lua' ]
+
 let g:tmux_navigator_disable_when_zoomed = 1
+
 " use all the beautiful things jedi-vim offers, but leave completion to coc
 let g:jedi#completions_enabled = 0
 let g:jedi#goto_assignments_command = ""
+
 let g:AutoPairsUseInsertedCount = 0
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutFastWrap='<C-e>'
 let g:AutoPairsShortcutBackInsert = '<C-b>'
+
 " close nerdtree when opening a file
 let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=25
 " let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
+
 let g:vimwiki_global_ext = 0
 let g:vimwiki_table_mappings = 0
 let g:wiki = {}
@@ -39,6 +46,7 @@ let g:wiki.nested_syntaxes.bash = 'sh'
 let g:wiki.nested_syntaxes.lua = 'lua'
 let g:vimwiki_list = [wiki]
 let g:vim_markdown_folding_disabled = 1
+
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_format = '(%code%): %s'
 let g:ale_echo_msg_warning_str = 'W'
@@ -52,6 +60,7 @@ let g:ale_sign_offset = 1000000
 let g:ale_virtualtext_cursor = 0
 let g:ale_warn_about_trailing_blank_lines = 0
 let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_lint_on_filetype_changed = 0
 let g:ale_fixers = {}
 let g:ale_fix_on_save = 0
 let g:ale_linters = {}
@@ -59,6 +68,7 @@ let g:ale_linters['ansible.yaml'] = ['yamllint', 'ansible_lint']
 let g:ale_linters['javascript'] = ['eslint']
 let g:ale_linters['python'] = ['pylint']
 let g:ale_linters_explicit = 1
+
 let g:asmsyntax = 'nasm'
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'nasm', 'vim', 'php', 'javascript', 'lua', 'sql']
 let g:markdown_syntax_conceal = 0

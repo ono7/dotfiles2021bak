@@ -250,7 +250,6 @@ if &diff
     set cursorline
     map ] ]n
     map [ [n
-
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -424,18 +423,15 @@ else
   let clip_paste= 'xclip -out -selection clipboard'
 endif
 
-let g:clipboard = {
-      \   'name': 'limaClipboard',
-      \   'copy': {
-      \      '+': clip_copy,
-      \      '*': 'tmux load-buffer -'
-      \    },
-      \   'paste': {
-      \      '+': clip_paste,
-      \      '*': 'tmux save-buffer -'
-      \   },
-      \   'cache_enabled': 1
-      \ }
+let g:clipboard = {}
+let g:clipboard.name = 'limaClipboard'
+let g:clipboard.cache_enabled = 1
+let g:clipboard.copy = {}
+let g:clipboard.copy['+'] = clip_copy
+let g:clipboard.copy['*'] = 'tmux load-buffer -'
+let g:clipboard.paste = {}
+let g:clipboard.paste['+'] = clip_paste
+let g:clipboard.paste['*'] = 'tmux save-buffer -'
 
 hi! TermCursorNC guibg=Purple guifg=white ctermbg=1 ctermfg=15
 hi! trans guibg=Purple guifg=white ctermbg=1 ctermfg=15
