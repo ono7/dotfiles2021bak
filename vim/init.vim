@@ -368,7 +368,7 @@ set ignorecase
 set incsearch
 set laststatus=0
 set magic
-set mouse=a
+" set mouse=a
 set nobackup nowritebackup noswapfile
 set nojoinspaces
 set nolist
