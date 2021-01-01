@@ -151,7 +151,7 @@ source ~/.dotfiles/vim/vimrc/vars.vimrc
 "                              if plug is loaded                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if !empty(glob('~/.vim/autoload/plug.vim'))
+if !empty(glob('~/.vim/autoload/plug.vim')) && has('nvim')
 
 " lukas-reineke/format.nvim
 lua << EOF
