@@ -112,7 +112,7 @@ command! -register JcopyMatches call CopyMatches(<q-reg>)
 "                                  autogroup                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-augroup _enter
+augroup _init
   autocmd!
   autocmd BufEnter * silent! lcd %:p:h
   " restore last known position
@@ -128,7 +128,7 @@ augroup _write
   autocmd BufWritePost * FormatWrite
 augroup END
 
-augroup _setft
+augroup _set_type
   autocmd!
   autocmd BufNewFile,BufRead,BufEnter *.asm,*.nasm setfiletype nasm
   autocmd BufNewFile,BufRead,BufEnter *.yml,*.yaml setfiletype ansible.yaml
@@ -136,7 +136,7 @@ augroup _setft
   autocmd BufNewFile,BufRead,BufEnter *.ejs setfiletype html
 augroup END
 
-augroup _filetype
+augroup _format_opts
   autocmd!
   autocmd FileType * set formatoptions-=cro fo+=j
 augroup END
