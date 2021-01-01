@@ -37,11 +37,17 @@ for $0 do
 end
 endsnippet
 
-snippet "doc(s)?" "docstring" br
+# snippet "(docs|doc|comment|com)" "docstring" br
+# --[[
+
+# $0${VISUAL}
+
+# --]]
+# endsnippet
+
+snippet "(docs|doc|comment|com)" "docstring" br
 --[[
-
-$0${VISUAL}
-
+$0${VISUAL/[\n]{1,}/\n/g}
 --]]
 endsnippet
 

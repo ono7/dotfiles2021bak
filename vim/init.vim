@@ -224,15 +224,13 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   nnoremap <silent><leader>f :call FZFOpen(':Files')<CR>
   nnoremap <silent><leader>b :call FZFOpen(':Buffers')<CR>
 
-  nmap s  <Plug>Ysurround
-  nmap S  <Plug>YSurround
-  nmap sw siW
+  " nmap s  <Plug>Ysurround
 
   nmap <silent> [n <Plug>(ale_next_wrap)
   nmap <silent> ]n <Plug>(ale_previous_wrap)
 
-  map p <Plug>(miniyank-autoput)
-  map P <Plug>(miniyank-autoPut)
+  nmap p <Plug>(miniyank-autoput)
+  nmap P <Plug>(miniyank-autoPut)
   let g:miniyank_filename = $HOME.'/.tmp/miniyank-shared-ring'
   let g:miniyank_maxitems = 1
 

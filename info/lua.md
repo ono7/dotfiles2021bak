@@ -643,3 +643,27 @@ end
 ## factory functions page 68
 
 return new objects when they are called
+
+## Extending Tables with Metatables
+
+- Each table in Lua is capable of having a metatable attached to it. A metatable
+  is a secondary table that gives Lua extra information about how that table
+  should be treated when it is used. For example, by default, when you try to
+  print a table you are given as tring that looks something like table:
+  0x30d470,which isn’t extremely readable.
+
+## metamethods, are methods assinged to a metatable
+
+- they begin with two `__` underscores, e.g. `__index and __newindex`
+
+```
+___add        - behavior when used in addition
+___mul        - behavior when used in multiplication
+___div        - behavior when used in division
+___sub        - behavior when used in subtraction
+___unm        - behavior when negated (unary minus).
+___tostring   - argument to tostring(). This also affects the print() function, which calls tostring() directly.
+___concat     - Defines the behavior when used with the concatenation operator (..)
+___index      - Defines the behavior when the table is indexed with a key that doesn’t exist in that table.
+___newindex   - Defines the behavior when a previously unset key in the table is being set.
+```
