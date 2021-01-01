@@ -2,6 +2,23 @@
 
 03-16-2018 15:06
 
+increment numbers visual-block
+
+1
+1
+1
+1
+
+block select starting on second line, type g c-a
+
+1
+2
+3
+4
+
+" increment letters too
+set nrformats+=alpha
+
 use ctr-o to go to last known files, use multiple times to cycle through them
 
 use ctr-i to go the other direction (ctr-o *out, ctr-i *in)
@@ -36,6 +53,7 @@ v'm ( visual select to mark m )
 Here is a necessarily cryptic list of the Best Vim Tips. There is an [http://www.rayninfo.co.uk/vimtips.html updated version] and a [http://vim.wikia.com/wiki/Best_Vim_Tips?printable=yes printer friendly version].
 
 ===Basic use===
+
 <pre>
 <Esc> is the escape key or use <ctrl>[  sometimes written as  <C-[>
 
@@ -62,6 +80,7 @@ p           : paste the default register
 </pre>
 
 ===Still basic===
+
 <pre>
 COPY PASTE  (for CUTting lines use dd as described above)
 v           : visual mode -- use to select text with cursor movement or mouse
@@ -85,6 +104,7 @@ Commands are case sensitive:
 </pre>
 
 ===Really useful===
+
 <pre>
 www.vim.org   : Visit frequently
 comp.editors  : Vim dominated newsgroup
@@ -102,6 +122,7 @@ matchit.vim   : % now matches tags <tr><td><script> etc
 </pre>
 
 ===Make it easy to update/reload [[vimrc]]===
+
 <pre>
 " source $MYVIMRC reloads the saved $MYVIMRC
 :nmap <Leader>s :source $MYVIMRC
@@ -113,12 +134,14 @@ matchit.vim   : % now matches tags <tr><td><script> etc
 </pre>
 
 ===Visual mode mappings===
+
 <pre>
 :vmap sb "zdi<b><C-R>z</b><Esc> : wrap <b></b> around visually selected text
 :vmap st "zdi<?= <C-R>z ?><Esc> : wrap <?= ?> around visually selected text
 </pre>
 
 ===Exploring===
+
 <pre>
 :Ex     : file explorer note capital Ex
 \be     : show buffer explorer (requires plugin)
@@ -127,6 +150,7 @@ matchit.vim   : % now matches tags <tr><td><script> etc
 </pre>
 
 ===Great===
+
 <pre>
 guu     : lowercase line
 gUU     : uppercase line
@@ -145,6 +169,7 @@ G=gg          : auto (re)indent entire document
 If you use Ctrl-V for paste, you will probably need to [[VimTip30|unmap CTRL-A]] first.
 
 ===Easter eggs===
+
 *{{help|42}}
 *{{help|holy-grail}}
 *<nowiki>:</nowiki>help!
@@ -156,6 +181,7 @@ If you use Ctrl-V for paste, you will probably need to [[VimTip30|unmap CTRL-A]]
 *{{help|bar}}
 
 ===Markers and moving about===
+
 <pre>
 '.       : jump to last modification line (SUPER)
 `.       : jump to exact spot in last modification line
@@ -166,6 +192,7 @@ If you use Ctrl-V for paste, you will probably need to [[VimTip30|unmap CTRL-A]]
 </pre>
 
 ===Abbreviations and maps===
+
 <pre>
 :map <F7>  :'a,'bw file            " Write the lines from mark a to mark b to 'file'
 :map <F8>  :.w file<CR>            " Write the current line to 'file'
@@ -176,6 +203,7 @@ If you use Ctrl-V for paste, you will probably need to [[VimTip30|unmap CTRL-A]]
 </pre>
 
 ===For use in maps===
+
 <pre>
 <CR>     : carriage Return for maps
 <Esc>    : Escape
@@ -184,18 +212,21 @@ If you use Ctrl-V for paste, you will probably need to [[VimTip30|unmap CTRL-A]]
 </pre>
 
 ===List registers===
+
 <pre>
 :reg     : display contents of all registers
 "1p      : paste from register 1
 </pre>
 
 ===Execute command from buffer contents===
+
 <pre>
 "ayy@a   : execute the Vim command in the current line
 yy@"     : same
 </pre>
 
 ===Get output from shell commands===
+
 These use external programs – <code>ls, grep, date, sort, &hellip;</code> (see {{help|:sort}} to learn how to use Vim's built-in sort).
 <pre>
 :r!ls                 : reads in output of ls (use dir on Windows)
@@ -226,6 +257,7 @@ For example, after selecting multiple lines with visualmode:
 </pre>
 
 ===Multiple files===
+
 <pre>
 :wn           : write file and move to next (SUPER)
 :bd           : remove file from buffer list (SUPER)
@@ -247,6 +279,7 @@ For example, after selecting multiple lines with visualmode:
 </pre>
 
 ===Recording===
+
 <pre>
 qa            : record keystrokes to register a
 your commands
@@ -264,6 +297,8 @@ q             : quit recording
 </pre>
 
 ===vimrc essentials===
+
+
 <pre>
 :set incsearch : jumps to search word as you type (annoying but excellent)
 :set wildignore=*.o,*.obj,*.bak,*.exe
@@ -271,6 +306,8 @@ q             : quit recording
 </pre>
 
 ===Launching programs under Windows===
+
+
 There are a number of options to run applications on the Windows platform.
 
 This causes Windows to launch the program associated with the file extension. It also restores the paste buffer to its original value:
@@ -293,6 +330,7 @@ Or, for example, you can launch Internet Explorer directly:
 </pre>
 
 ===FTP from Vim===
+
 <pre>
 cmap <Leader>r :Nread ftp://209.51.134.122/public_html/index.html
 cmap <Leader>w :Nwrite ftp://209.51.134.122/public_html/index.html
@@ -302,6 +340,7 @@ let g:netrw_ftpmode="ascii"
 </pre>
 
 ===Appending to registers===
+
 <pre>
 # yank 5 lines into "a" then add a further 5
 "a5yy
@@ -311,6 +350,7 @@ let g:netrw_ftpmode="ascii"
 </pre>
 
 ===Conventional shifting===
+
 <pre>
 :'a,'b>>
 # visual shifting (builtin-repeat)
@@ -319,6 +359,7 @@ let g:netrw_ftpmode="ascii"
 </pre>
 
 ===Searching===
+
 <pre>
 /^fred.*joe.*bill  : line beginning with fred, followed by joe then bill
 /^[A-J]            : line beginning A-J
@@ -329,6 +370,7 @@ let g:netrw_ftpmode="ascii"
 </pre>
 
 ===Substitution===
+
 <pre>
 :%s/fred/joe/igc           : general substitute command
 :%s/\r//g                  : delete DOS Carriage Returns (^M)
@@ -351,6 +393,7 @@ let g:netrw_ftpmode="ascii"
  :%s/\%x01/^/g
 
 ===Global command===
+
 <pre>
 :g/one\|two/     : list lines containing "one" or "two"
 :g/^\s*$/d       : delete all blank lines
@@ -371,6 +414,7 @@ Delete all lines containing "green" but not "red" or "pink". Command <code>:g/^/
 </pre>
 
 ===Paste register *===
+
 <pre>
 :redir @* : redirect commands to paste
 :redir END
@@ -379,12 +423,14 @@ Delete all lines containing "green" but not "red" or "pink". Command <code>:g/^/
 </pre>
 
 ===Formatting text===
+
 <pre>
 gq<CR>
 gqap (a is motion p paragraph (visual mode))
 </pre>
 
 ===Operate command over multiple files===
+
 <pre>
 :argdo %s/foo/bar/
 :bufdo %s/foo/bar/
@@ -393,6 +439,7 @@ gqap (a is motion p paragraph (visual mode))
 </pre>
 
 ===Command line tricks===
+
 <pre>
 gvim -h
 ls | gvim -   : edit a PIPE!
@@ -402,6 +449,7 @@ gvim.exe -c "/$1" $(grep -isl "$1" *) &
 </pre>
 
 ===Preview in web browser===
+
 <pre>
 #add this to your .vimrc:
 command Preview :!firefox %<CR>
@@ -414,6 +462,7 @@ The Buffer Explorer scripts mentioned above (<code>\be</code> <code>\bs</code>) 
 Have recently started to appreciate taglist.vim (the most popular Vim script) it really comes into it's own with very long programs containting lots of subroutines/functions as it shows which function/sub you're in etc {{script|id=273}}.
 
 ===Vim traps===
+
 In regular expressions you must backslash <code>+</code> (match 1 or more).
 <pre>
 /fred\+/ : matches fred/freddy but not free
@@ -426,6 +475,7 @@ In regular expressions you must backslash <code>+</code> (match 1 or more).
 </pre>
 
 ===More tips===
+
 Pulling objects onto command/search line (SUPER)
 <pre>
 CTRL-R CTRL-W   : pull word under the cursor into a command line or search
@@ -493,6 +543,7 @@ Help for help
 </pre>
 
 ====To number the lines in the file====
+
 Try one of these
 <pre>
 :%! nl -ba
@@ -502,11 +553,13 @@ Try one of these
 To simply display how many lines are in the current buffer, type Ctrl-g (or <code>g</code> then Ctrl-g for more information).
 
 ====If you want to delete multiple adjacent duplicate lines====
+
 <pre>
 :%s/^\(.*\)\n\(\1\n\)*/\1\r/
 </pre>
 
 ===More, unformatted tips===
+
 TODO Might delete some of these if covered in other tips.
 
 ----
