@@ -25,12 +25,6 @@ endif
 if !empty(glob('~/.vim/autoload/plug.vim'))
   " ondemand loading for filetypes = 'for', load on commands = 'on'
   call plug#begin('~/.config/nvim/plugged')
-  if has('nvim')
-    Plug 'bfredl/nvim-miniyank'
-  endif
-    Plug 'SirVer/ultisnips'
-    Plug 'lukas-reineke/format.nvim'
-    Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'jiangmiao/auto-pairs'
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for' : 'jinja' }
@@ -43,14 +37,20 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-markdown', {'for' : 'markdown'}
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
-    Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs', 'lua' ] }
     Plug 'vimwiki/vimwiki'
+    " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
+  if has('nvim')
+    Plug 'bfredl/nvim-miniyank'
+    Plug 'SirVer/ultisnips'
+    Plug 'lukas-reineke/format.nvim'
+    Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs', 'lua' ] }
+    Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
     Plug 'neoclide/coc.nvim', {'branch': 'release',
           \ 'for' : [
           \ 'python', 'jinja',
           \ 'json', 'javascript', 'css', 'typescript',
           \ 'terraform', 'cs', 'lua' ]}
-    " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
+  endif
   call plug#end()
 endif
 
