@@ -25,7 +25,9 @@ endif
 if !empty(glob('~/.vim/autoload/plug.vim'))
   " ondemand loading for filetypes = 'for', load on commands = 'on'
   call plug#begin('~/.config/nvim/plugged')
+  if has('nvim')
     Plug 'bfredl/nvim-miniyank'
+  endif
     Plug 'SirVer/ultisnips'
     Plug 'lukas-reineke/format.nvim'
     Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
