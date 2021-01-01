@@ -3,9 +3,15 @@
 useful when showcmd is disabled
 g^G
 
-# build release
+# get release binaries one liner
+
+curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz | tar xzv -
+
+# build release apple m1
 
 ## https://github.com/mikelxc/Workarounds-for-ARM-mac
+
+- must build with release flag
 
 git clone git@github.com:neovim/neovim
 cd neovim
