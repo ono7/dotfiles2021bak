@@ -9,7 +9,7 @@ snippet report "osce report template" b
 
 <br>
 
-| Author      | Date			 |
+| Author      | Date             |
 |-------------|------------|
 | *Jose Lima* |  `!v strftime("%-m/%-d/%Y")` |
 
@@ -43,7 +43,7 @@ endsnippet
 
 snippet ima "insert image" b
 <p align="center">
-	<img src="img/${1:}.png" width="500">
+    <img src="img/${1:}.png" width="500">
 </p>
 $0
 endsnippet
@@ -85,16 +85,16 @@ Date | Version | Author
 endsnippet
 
 snippet xxxxxxx "place holder for cool functions"
-	# add file name and strip extension
-		`!v expand('%:t:r')`
-	# add date to file
-		`!v strftime("%a %b %-d %-I:%M:%S %p %Y")`
+    # add file name and strip extension
+        `!v expand('%:t:r')`
+    # add date to file
+        `!v strftime("%a %b %-d %-I:%M:%S %p %Y")`
 endsnippet
 
 snippet "(code|cod|c)" "code block" br
 
 `!v repeat(nr2char(96),3)`$1
-${VISUAL}
+${VISUAL/([\n\s]+$|^[\n\s]+)//g}
 `!v repeat(nr2char(96),3)`
 
 $0

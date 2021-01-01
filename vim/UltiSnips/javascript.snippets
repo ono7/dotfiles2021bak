@@ -49,7 +49,7 @@ endsnippet
 
 snippet cap "capitalize function"
 function capitalize(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1);
+    return string.charAt(0).toUpperCase() + string.slice(1);
 };
 endsnippet
 
@@ -63,19 +63,19 @@ endsnippet
 
 snippet "(function|func|fun)" "function (named)" r
 function${1}`!p snip.rv = space_before_function_paren(snip)`(${2}) {
-	${VISUAL}$0
+    $0${VISUAL/([\n\s]+$|^[\n\s]+)//g}
 }
 endsnippet
 
 snippet "(e|else)" "else" rb
 else {
-	${VISUAL}$0
+    $0${VISUAL/([\n\s]+$|^[\n\s]+)//g}
 }
 endsnippet
 
 snippet "tr(y)?" "try block" rb
 try {
-	${VISUAL}$1
+    ${VISUAL/([\n\s]+$|^[\n\s]+)//g}$1
 }
 catch ($0) {
 }
@@ -99,7 +99,7 @@ endsnippet
 
 snippet "if" "if statement" r
 if ($0) {
-	${VISUAL}
+    ${VISUAL}
 }
 endsnippet
 
