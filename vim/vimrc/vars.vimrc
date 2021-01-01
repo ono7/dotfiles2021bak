@@ -2,12 +2,6 @@
 "                                     vars                                     "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" neovim providers
-let g:loaded_ruby_provider = 0
-let g:loaded_perl_provider = 0
-let g:loaded_python_provider = 1
-let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
-
 " coc.vim
 if executable('~/local/node/bin/node')
   let g:coc_node_path = '~/local/node/bin/node'

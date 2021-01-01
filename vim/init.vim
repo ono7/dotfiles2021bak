@@ -12,6 +12,13 @@ let mapleader = " "
 " disable ale lsp before plugins are loaded
 let g:ale_disable_lsp = 1
 
+" neovim providers
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_python_provider = 1
+let g:python3_host_prog = $HOME."/.virtualenvs/prod3/bin/python3"
+
+
 filetype off
 
 " auto install plug
