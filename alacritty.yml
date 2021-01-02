@@ -21,22 +21,22 @@ scrolling:
 
 font:
   normal:
-    family: Operator Mono
+    family: Operator Mono SSm
     style: Book
 
   bold:
-    family: Operator Mono
+    family: Operator Mono SSm
     style: Bold
 
   italic:
-    family: Operator Mono
-    style: Medium Italic
+    family: Operator Mono SSm
+    style: Book Italic
 
   bold_italic:
-    family: Operator Mono
+    family: Operator Mono SSm
     style: Bold Italic
 
-  size: 24.0
+  size: 18.0
 
   offset:
     x: 0
