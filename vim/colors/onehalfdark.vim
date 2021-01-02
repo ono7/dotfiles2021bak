@@ -297,3 +297,6 @@ hi! fzf_info ctermfg=6
 hi! fzf_bg ctermfg=0 guifg=#282c34
 hi! fzf_bg_plus ctermbg=237 guibg=#313640
 hi! fzf_spinner ctermfg=6
+
+hi! TermCursorNC guibg=Purple guifg=white ctermbg=1 ctermfg=15
+hi! trans guibg=Purple guifg=white ctermbg=1 ctermfg=15

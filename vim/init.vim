@@ -449,8 +449,5 @@ let g:clipboard.paste['*'] = 'tmux save-buffer -'
 set clipboard=unnamed
 set clipboard+=unnamedplus
 
-hi! TermCursorNC guibg=Purple guifg=white ctermbg=1 ctermfg=15
-hi! trans guibg=Purple guifg=white ctermbg=1 ctermfg=15
-
 source ~/.dotfiles/vim/vimrc/aux.vimrc
 " source ~/.dotfiles/vim/vimrc/python.vimrc
