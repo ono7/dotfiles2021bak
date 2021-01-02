@@ -127,9 +127,9 @@ augroup END
 
 augroup _enter
   autocmd!
-  autocmd BufEnter * silent! lcd %:p:h
   " restore last known position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+  autocmd BufEnter * silent! lcd %:p:h
 augroup END
 
 augroup _write
