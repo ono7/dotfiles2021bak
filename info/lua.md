@@ -684,3 +684,23 @@ setmetable(tbl, mtable)
 -- test to see if mt is set
 print(getmetatable(tbl) == mt)
 ```
+
+### `__tostring`
+
+```lua
+-- prints table to stdout, affects tostring and print functions
+function mt.__tostring(tbl)
+  -- mt = metatable
+  local result = "{"
+
+  for i = 1, #tbl do
+    if i > 1 then
+      result = result .. ", "
+    end
+    result = result .. tostring(tbl[i])
+  end
+
+  result = result .. "}"
+  return result
+end
+```

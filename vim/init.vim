@@ -6,6 +6,8 @@ nnoremap gQ <Nop>
 " visual select mode
 nnoremap gh <Nop>
 nnoremap gH <Nop>
+" wth?
+nnoremap S <Nop>
 
 let mapleader = " "
 
