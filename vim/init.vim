@@ -28,7 +28,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 if !empty(glob('~/.vim/autoload/plug.vim'))
-  " ondemand loading for filetypes = 'for', load on commands = 'on'
   call plug#begin('~/.config/nvim/plugged')
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'jiangmiao/auto-pairs'
@@ -43,7 +42,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'tpope/vim-markdown', {'for' : 'markdown'}
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
     Plug 'vimwiki/vimwiki'
-    " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
   if has('nvim')
     Plug 'bfredl/nvim-miniyank'
     Plug 'SirVer/ultisnips'
@@ -52,9 +50,9 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
     Plug 'neoclide/coc.nvim', {'branch': 'release',
           \ 'for' : [
-          \ 'python', 'jinja',
-          \ 'json', 'javascript', 'css', 'typescript',
+          \ 'python', 'jinja','json', 'javascript', 'css', 'typescript',
           \ 'terraform', 'cs', 'lua' ]}
+    " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
   endif
   call plug#end()
 endif
@@ -121,11 +119,15 @@ command! -register JcopyMatches call CopyMatches(<q-reg>)
 
 augroup _init
   autocmd!
+  autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
+  autocmd VimEnter * command! -bang -nargs=? Files call fzf#vim#files(<q-args>, {'options': '--no-preview'}, <bang>0)
+augroup END
+
+augroup _enter
+  autocmd!
   autocmd BufEnter * silent! lcd %:p:h
   " restore last known position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-  autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
-  autocmd VimEnter * command! -bang -nargs=? Files call fzf#vim#files(<q-args>, {'options': '--no-preview'}, <bang>0)
 augroup END
 
 augroup _write
@@ -254,9 +256,9 @@ EOF
 endif
 
 if &diff
-    set cursorline
-    map ] ]n
-    map [ [n
+  set cursorline
+  map ] ]n
+  map [ [n
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -289,8 +291,8 @@ inoremap jk <Esc>:noh<cr><c-g>
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 
-" tmux send-kyes up and enter, *repeat last command*
 nnoremap <silent><leader>t :silent !tmux send-keys -t 2 c-p Enter<cr>
+
 nnoremap H ^
 nnoremap L $
 vnoremap H ^
@@ -345,6 +347,10 @@ nnoremap yp mxyap`x
 " select visualy selected text for search
 xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   settings                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -352,8 +358,6 @@ set cmdheight=2
 set complete+=kspell
 set complete-=i complete-=t
 set completeopt-=preview
-set clipboard=unnamed
-set clipboard+=unnamedplus
 set diffopt=filler
 set directory=~/.tmp
 set display+=lastline
@@ -366,7 +370,6 @@ set ignorecase
 set incsearch
 set laststatus=0
 set magic
-" set mouse=a
 set nobackup nowritebackup noswapfile
 set nojoinspaces
 set nolist
@@ -374,7 +377,6 @@ set noshowcmd
 set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal
-" inc/dec letters with c-a/x
 set nrformats+=alpha
 set number numberwidth=3
 set pastetoggle=<F2>
@@ -393,16 +395,17 @@ set softtabstop=2 tabstop=2 textwidth=80 expandtab
 set timeout timeoutlen=500 ttimeout ttimeoutlen=50
 set undolevels=999
 set updatetime=250
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__/*
+set wildignore+=*.o,*.obj,*.rbc,*.pyc,__pycache__/*,.git,.git/*
 set winaltkeys=no
+" set mouse=a
 
 " performance settings
 set lazyredraw
 set matchtime=0
 set nocursorcolumn nocursorline
-" set re=1
 set redrawtime=10000
 set ttyfast
+" set re=1
 
 try
   set signcolumn=number
@@ -412,9 +415,8 @@ endtry
 
 if has('nvim')
   set inccommand=nosplit
-  " pmenu/transparency/items
+  " pmenu/transparency/max items
   set pumheight=10 pumblend=0
-  " let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   tnoremap jk <C-\><C-n>
 endif
 
@@ -441,6 +443,9 @@ let g:clipboard.copy['*'] = 'tmux load-buffer -'
 let g:clipboard.paste = {}
 let g:clipboard.paste['+'] = clip_paste
 let g:clipboard.paste['*'] = 'tmux save-buffer -'
+
+set clipboard=unnamed
+set clipboard+=unnamedplus
 
 hi! TermCursorNC guibg=Purple guifg=white ctermbg=1 ctermfg=15
 hi! trans guibg=Purple guifg=white ctermbg=1 ctermfg=15
