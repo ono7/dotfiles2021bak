@@ -685,7 +685,7 @@ setmetable(tbl, mtable)
 print(getmetatable(tbl) == mt)
 ```
 
-### `__tostring`
+### `__tostring` metamethod
 
 ```lua
 -- prints table to stdout, affects tostring and print functions
@@ -704,3 +704,23 @@ function mt.__tostring(tbl)
   return result
 end
 ```
+
+### `__index` metamethod
+
+Normally, when a table does not have a value associated with a given key, nil is
+returned. That makes sense for run-of-the-mill tables, but at times it is more
+appropriate to take other action instead. The index metamethod allows that to
+happen, following this procedure:
+
+1. Code tries to access an unassociated key in a table.
+
+2. If the table has an
+   index metatable entry that is another table, look
+   up the same key in that table and return it (or nil if it doesn't exist).
+   This may
+   possibly trigger the `__index` metamethod of the second table,
+   making a chain.
+
+3. If the table has an
+   index metatable entry that is a function, call the
+   function with the table and the key as arguments, and return the result.
