@@ -15,3 +15,10 @@ kui nameplates
 ElvUI
 Poisoner
 BigDebuffs
+
+## sound
+
+turn volume up
+turn ambient down
+turn error sound off
+turn music down (very low)
