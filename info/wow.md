@@ -1,8 +1,17 @@
 # wow addons notes
 
-## disabled items
+## increase response time between global cooldowns
 
-* Automatic character movement
-* Automatic target selection
-* Automatic selection and use of spells or items
-* Real-time communication with external programs
+(macro find current value)
+/dump GetCVar("SpellQueueWindow")
+
+(macro - set optimal num latency + 100ms, if latency good, 100ms)
+/console SpellQueueWindow 100
+/reloadui
+
+## addons
+
+kui nameplates
+ElvUI
+Poisoner
+BigDebuffs
