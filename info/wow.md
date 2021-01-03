@@ -6,7 +6,7 @@
 /dump GetCVar("SpellQueueWindow")
 
 (macro - set optimal num latency + 100ms, if latency good, 100ms)
-/console SpellQueueWindow 200
+/console SpellQueueWindow 150?
 /reloadui
 
 to cancel spell queue macro
