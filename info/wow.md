@@ -6,8 +6,13 @@
 /dump GetCVar("SpellQueueWindow")
 
 (macro - set optimal num latency + 100ms, if latency good, 100ms)
-/console SpellQueueWindow 100
+/console SpellQueueWindow 200
 /reloadui
+
+to cancel spell queue macro
+
+/csq
+/cast zxy (high priority ability)
 
 ## addons
 
