@@ -27,3 +27,7 @@ turn volume up
 turn ambient down
 turn error sound off
 turn music down (very low)
+
+## macros
+
+/castsequence Ability1,InstantAbility2
