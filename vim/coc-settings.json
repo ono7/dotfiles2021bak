@@ -1,5 +1,6 @@
 {
   "diagnostic.displayByAle": true,
+  "diagnostic.messageDelay": 200,
   "python.jediEnabled": true,
   "python.venvFolders": ["venv", ".virtualenvs"],
   "python.jediPath": "~/.virtualenvs/prod3/lib/python3.7/site-packages",
