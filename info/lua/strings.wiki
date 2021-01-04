@@ -1,0 +1,22 @@
+= working with strings =
+
+
+
+== iterate over strings ==
+
+{{{lua
+-- using string.byte might be faster for bigger sets
+for c in string.gmatch(“sentence”,”.”) do
+  print(c)
+end
+
+}}}
+
+* string.gmatch - is best when you are only interested in the matches.
+
+* string.gsub - is best when you need to substitute the matches without regard
+  to their position.
+
+* string.match - is the most versatile, returning the first match and its
+  position. The cost is not being specialized for any task, thus needing more
+  code.

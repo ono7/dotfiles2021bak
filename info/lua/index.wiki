@@ -1,5 +1,7 @@
 = Lua resources =
 
+* [[strings|strings]]
+* [[metatables|metatables]]
 * [[debugging|debugging]]
 
 == modules ==
