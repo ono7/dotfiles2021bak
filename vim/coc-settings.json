@@ -6,15 +6,10 @@
   "python.analysis.diagnosticEnabled": false,
   "python.linting.pylintPath": "~/.virtualenvs/prod3/bin/pylint",
   "python.linting.pylintEnabled": true,
-  // "python.formatting.provider": "black",
-  // "python.formatting.blackPath": "~/.virtualenvs/prod3/bin/black",
-  // "python.formatting.blackArgs": [],
+  // TODO: move format jobs to format.vim
   "coc.preferences.formatOnSaveFiletypes": [
-    // "python",
     "json",
-    // "javascript",
     "yaml",
-    // "markdown",
     "typescript",
     "css"
   ],
