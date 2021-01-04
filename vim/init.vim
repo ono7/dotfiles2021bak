@@ -171,10 +171,8 @@ require "format".setup {
   -- https://github.com/lukas-reineke/format.nvim
   -- :h format.txt
 
-  -- TODO: resolve black apple m1 arch issues
-
   -- npm install lua-fmt prettier -g
-  -- pip install black
+  -- pip install black, pylint, epdb, ipython
   -- autocmd BufWritePost * FormatWrite
 
   vim = {
