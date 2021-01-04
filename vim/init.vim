@@ -411,12 +411,11 @@ set redrawtime=10000
 set ttyfast
 " set re=1
 
-" try
-"   set signcolumn=number
-" catch
-"   set signcolumn=yes
-set signcolumn=yes
-" endtry
+try
+  set signcolumn=number
+catch
+  set signcolumn=yes
+endtry
 
 if has('nvim')
   set inccommand=nosplit
