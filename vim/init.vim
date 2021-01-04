@@ -164,9 +164,10 @@ source ~/.dotfiles/vim/vimrc/vars.vimrc
 
 if !empty(glob('~/.vim/autoload/plug.vim')) && has('nvim')
 
-" lukas-reineke/format.nvim
+
 lua << EOF
 require "format".setup {
+  -- lukas-reineke/format.nvim
   -- https://github.com/lukas-reineke/format.nvim
   -- :h format.txt
 
@@ -380,7 +381,8 @@ set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal
 set nrformats+=alpha
-set number numberwidth=3
+set number
+set numberwidth=3
 set pastetoggle=<F2>
 set ruler
 set scrolloff=2
