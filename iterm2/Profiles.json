@@ -1,7 +1,13 @@
 {
 "Profiles": [
 {
-  "Thin Strokes" : 0,
+  "Ansi 5 Color" : {
+    "Red Component" : 0.77647058823529413,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.8666666666666667,
+    "Alpha Component" : 1,
+    "Green Component" : 0.47058823529411764
+  },
   "Working Directory" : "\/Users\/jlima",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -92,6 +98,7 @@
   },
   "Use Cursor Guide" : true,
   "Unlimited Scrollback" : false,
+  "Allow Title Setting" : false,
   "Custom Command" : "No",
   "Keyboard Map" : {
     "0xf700-0x260000" : {
@@ -403,14 +410,8 @@
   "Unicode Normalization" : 0,
   "Visual Bell" : true,
   "Custom Directory" : "No",
-  "ASCII Ligatures" : false,
-  "Ansi 5 Color" : {
-    "Red Component" : 0.77647058823529413,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.8666666666666667,
-    "Alpha Component" : 1,
-    "Green Component" : 0.47058823529411764
-  }
+  "Thin Strokes" : 0,
+  "ASCII Ligatures" : false
 }
 ]
 }
