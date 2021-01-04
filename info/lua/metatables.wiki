@@ -1,5 +1,4 @@
 = Contents =
-
   - [[#metatables|metatables]]
     - [[#metatables#creating modules|creating modules]]
     - [[#metatables#clearing tables|clearing tables]]
@@ -14,6 +13,7 @@
     - [[#metatables#metamethods, are methods assinged to a metatable|metamethods, are methods assinged to a metatable]]
       - [[#metatables#metamethods, are methods assinged to a metatable#`__tostring` metamethod|`__tostring` metamethod]]
       - [[#metatables#metamethods, are methods assinged to a metatable#`__index` metamethod|`__index` metamethod]]
+      - [[#metatables#metamethods, are methods assinged to a metatable#bypassing metatables|bypassing metatables]]
 
 = metatables =
 
@@ -278,3 +278,11 @@ happen, following this procedure:
 3. If the table has an
    index metatable entry that is a function, call the
    function with the table and the key as arguments, and return the result.
+
+=== bypassing metatables ===
+
+{{{lua
+-- used to bypass metatable __index and __newindex
+rawget()
+rawset()
+}}}
