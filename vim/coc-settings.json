@@ -3,7 +3,7 @@
   "diagnostic.messageDelay": 200,
   "python.jediEnabled": true,
   "python.venvFolders": ["venv", ".virtualenvs"],
-  "python.jediPath": "~/.virtualenvs/prod3/lib/python3.7/site-packages",
+  "python.pythonPath": "~/.virtualenvs/prod3/bin/python",
   "python.analysis.diagnosticEnabled": false,
   "python.linting.pylintPath": "~/.virtualenvs/prod3/bin/pylint",
   "python.linting.pylintEnabled": true,
