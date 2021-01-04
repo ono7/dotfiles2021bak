@@ -6,3 +6,13 @@ https://github.com/kikito/inspect.lua
     It is especially useful for debugging errors in tables. The objective here
     is human understanding (i.e. for debugging), not serialization or
     compactness.
+
+{{{lua
+ins = require "inspect"
+print(ins(test))
+-- {
+--   7,
+--   {1, 2, 3, 4},
+--   a = "lettera"
+-- }
+}}}

@@ -1,3 +1,7 @@
 = Lua resources =
 
 * [[debugging|debugging]]
+
+== modules ==
+
+* inspect (see debugging)
