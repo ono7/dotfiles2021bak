@@ -6,8 +6,6 @@ nnoremap gQ <Nop>
 " visual select mode
 nnoremap gh <Nop>
 nnoremap gH <Nop>
-" wth?
-nnoremap S <Nop>
 
 let mapleader = " "
 
@@ -313,9 +311,9 @@ nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 nnoremap <silent><leader>t :silent !tmux send-keys -t 2 c-p Enter<cr>
 
 nnoremap H ^
-nnoremap L $
+nnoremap L g_
 vnoremap H ^
-vnoremap L $
+vnoremap L g_
 
 nnoremap U <C-r>
 
@@ -344,6 +342,8 @@ nnoremap gd mMgd
 nnoremap * mM*
 nnoremap # mM#
 
+nmap V Vg_
+
 let g:surround_no_mappings = 1
 nmap S <Plug>YSurround
 nmap s <Plug>Ysurround
@@ -353,7 +353,7 @@ nmap ds  <Plug>Dsurround
 nmap cs  <Plug>Csurround
 nmap yS  <Plug>YSsurround
 xmap s   <Plug>VSurround
-xmap gS  <Plug>VgSurround
+" xmap gS  <Plug>VgSurround
 
 " speed up common buffer operations
 nnoremap <silent><leader>w :w<CR>
@@ -377,8 +377,7 @@ set autoindent
 set autoread
 set backspace=indent,eol,start
 set cmdheight=2
-set complete+=kspell
-set complete-=i complete-=t
+set complete+=kspell complete-=i complete-=t
 set completeopt-=preview
 set diffopt=filler
 set directory=~/.tmp
@@ -398,15 +397,12 @@ set nolist
 set noshowcmd
 set novisualbell noerrorbells
 set nowrap
-set nrformats-=octal
-set nrformats+=alpha
-set number
-set numberwidth=3
+set nrformats-=octal nrformats+=alpha
+set number numberwidth=3
 set pastetoggle=<F2>
 set ruler
 set scrolloff=2
-set shiftround
-set shiftwidth=2
+set shiftround shiftwidth=2
 set shortmess+=c
 set shortmess=atIoOsT
 set showmode
