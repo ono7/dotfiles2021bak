@@ -124,6 +124,8 @@ augroup _init
 augroup END
 
 augroup _resize
+  autocmd!
+  " resize splits when terminal size changes
   autocmd VimResized * :wincmd =
 augroup END
 
