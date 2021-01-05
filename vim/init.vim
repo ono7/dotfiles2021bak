@@ -344,10 +344,10 @@ nnoremap gd mMgd
 nnoremap * mM*
 nnoremap # mM#
 
-" surround
 nmap S <Plug>YSurround
 nmap s <Plug>Ysurround
 nmap sw <Plug>Ysurroundiw
+nmap ys <Plug>Yssurround
 
 " speed up common buffer operations
 nnoremap <silent><leader>w :w<CR>
