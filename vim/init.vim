@@ -322,25 +322,22 @@ cnoremap %s %s/\v
 cnoremap %g %g/\v
 cnoremap %v %v/\v
 
-" improved workflow with marks
-nnoremap / mM/\v
-xnoremap / mM/\v
-nnoremap ? mM?\v
-xnoremap ? mM?\v
-nnoremap 's `S
-nnoremap 'a `A
-nnoremap 'b `B
-nnoremap 'm `M
-nnoremap gg mMgg<c-g>
-nnoremap G mMG<c-g>
+" improved jumps w/marks (marks go to col ' `)
+nnoremap ' `
+nnoremap / ms/\v
+xnoremap / ms/\v
+nnoremap ? ms?\v
+xnoremap ? ms?\v
+nnoremap gg msgg<c-g>
+nnoremap G msG<c-g>
+nnoremap gd msgd
+nnoremap * ms*
+nnoremap # ms#
 
 nnoremap cw ciw
 nnoremap cW ciW
 nnoremap yw yiw
 nnoremap yW yiW
-nnoremap gd mMgd
-nnoremap * mM*
-nnoremap # mM#
 
 nmap V Vg_
 
