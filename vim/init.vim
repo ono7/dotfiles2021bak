@@ -123,6 +123,10 @@ augroup _init
   autocmd VimEnter * command! -bang -nargs=? Files call fzf#vim#files(<q-args>, {'options': '--no-preview'}, <bang>0)
 augroup END
 
+augroup _resize
+  autocmd VimResized * :wincmd =
+augroup END
+
 augroup _read
   autocmd!
   " restore last known position
