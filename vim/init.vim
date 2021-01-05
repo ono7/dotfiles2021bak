@@ -344,10 +344,16 @@ nnoremap gd mMgd
 nnoremap * mM*
 nnoremap # mM#
 
+let g:surround_no_mappings = 1
 nmap S <Plug>YSurround
 nmap s <Plug>Ysurround
 nmap sw <Plug>Ysurroundiw
 nmap ys <Plug>Yssurround
+nmap ds  <Plug>Dsurround
+nmap cs  <Plug>Csurround
+nmap yS  <Plug>YSsurround
+xmap s   <Plug>VSurround
+xmap gS  <Plug>VgSurround
 
 " speed up common buffer operations
 nnoremap <silent><leader>w :w<CR>
