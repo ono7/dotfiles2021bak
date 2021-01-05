@@ -198,6 +198,26 @@ require "format".setup {
       }
     }
   },
+  javascript = {
+    {
+      cmd = {"prettier -w --single-quote"}
+    }
+  },
+  json = {
+    {
+      cmd = {"prettier -w --parser json"}
+    }
+  },
+  typescript = {
+    {
+      cmd = {"prettier -w --parser typescript --single-quote"}
+    }
+  },
+  yaml = {
+    {
+      cmd = {"prettier -w --parser yaml --single-quote"}
+    }
+  },
   vimwiki = {
     {
       cmd = {"prettier -w --parser babel"},

@@ -7,20 +7,12 @@
   "python.analysis.diagnosticEnabled": false,
   "python.linting.pylintPath": "~/.virtualenvs/prod3/bin/pylint",
   "python.linting.pylintEnabled": true,
-  // TODO: move format jobs to format.vim
-  "coc.preferences.formatOnSaveFiletypes": [
-    "json",
-    "yaml",
-    "typescript",
-    "css"
-  ],
   "python.linting.enabled": true,
   "python.linting.maxNumberOfProblems": 100,
   "python.linting.ignorePatterns": [".vscode/*.py", "**/site-packages/**/*.py"],
   "javascript.suggestionActions.enabled": false,
   "tsserver.npm": "~/.npm-packages/bin/npm",
-  "javascript.preferences.quoteStyle": "single",
-  "prettier.singleQuote": true,
+  "coc.preferences.formatOnSaveFiletypes": [],
   "Lua.runtime.path": ["?.lua"],
   "Lua.runtime.version": "Lua 5.1",
   "Lua.workspace.maxPreload": 1000,
