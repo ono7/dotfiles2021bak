@@ -53,7 +53,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'neoclide/coc.nvim', {'branch': 'release',
           \ 'for' : [
           \ 'python', 'jinja','json', 'javascript', 'css', 'typescript',
-          \ 'terraform', 'cs', 'lua' ]}
+          \ 'terraform', 'cs', 'lua', 'yaml' ]}
     " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
   endif
   call plug#end()
@@ -142,7 +142,7 @@ augroup END
 augroup _set_type
   autocmd!
   autocmd BufNewFile,BufRead,BufEnter *.asm,*.nasm setfiletype nasm
-  autocmd BufNewFile,BufRead,BufEnter *.yml,*.yaml setfiletype ansible.yaml
+  " autocmd BufNewFile,BufRead,BufEnter *.yml,*.yaml setfiletype ansible.yaml
   autocmd BufNewFile,BufRead,BufEnter *.wiki setfiletype vimwiki
   autocmd BufNewFile,BufRead,BufEnter *.ejs setfiletype html
 augroup END
@@ -215,7 +215,7 @@ require "format".setup {
   },
   yaml = {
     {
-      cmd = {"prettier -w --parser yaml --single-quote"}
+      cmd = {"prettier -w --parser yaml"}
     }
   },
   vimwiki = {
@@ -247,8 +247,8 @@ require "format".setup {
       cmd = {"luafmt -i 2 -w replace"},
       start_pattern = "^```lua$",
       end_pattern = "^```$",
-      -- current only format where cursor is
       target = "current"
+      -- current only format where cursor is
     }
   }
 }

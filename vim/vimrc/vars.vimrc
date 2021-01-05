@@ -7,7 +7,7 @@ if executable('~/local/node/bin/node')
   let g:coc_node_path = '~/local/node/bin/node'
 endif
 
-let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-prettier', 'coc-omnisharp', 'coc-lua' ]
+let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-tsserver', 'coc-prettier', 'coc-omnisharp', 'coc-lua' , 'coc-yaml']
 
 let g:tmux_navigator_disable_when_zoomed = 1
 
