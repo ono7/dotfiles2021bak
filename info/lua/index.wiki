@@ -1,6 +1,8 @@
 = Lua resources =
 
+* [[performance|performance]]
 * [[strings|strings]]
+* [[hex|hex]]
 * [[metatables|metatables]]
 * [[debugging|debugging]]
 

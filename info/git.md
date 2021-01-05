@@ -1,3 +1,9 @@
+# highlight code for sharing
+
+* add #L(start num)-L(end num) to the end of URL, see below
+
+  https://github.com/ono7/security_and_bug_hunting/blob/main/hex.lua#L19-L20
+
 # proxy
 
 - fix issues with things using the git protocol instead http://github.com...
