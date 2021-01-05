@@ -44,18 +44,18 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'tpope/vim-markdown', {'for' : 'markdown'}
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
     Plug 'vimwiki/vimwiki'
-  if has('nvim')
-    Plug 'bfredl/nvim-miniyank'
-    Plug 'SirVer/ultisnips'
-    Plug 'lukas-reineke/format.nvim'
-    Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs', 'lua' ] }
-    Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
-    Plug 'neoclide/coc.nvim', {'branch': 'release',
-          \ 'for' : [
-          \ 'python', 'jinja','json', 'javascript', 'css', 'typescript',
-          \ 'terraform', 'cs', 'lua', 'yaml' ]}
+    if has('nvim')
+      Plug 'bfredl/nvim-miniyank'
+      Plug 'SirVer/ultisnips'
+      Plug 'lukas-reineke/format.nvim'
+      Plug 'dense-analysis/ale', { 'for' : ['yaml', 'python', 'javascript', 'typescript', 'json', 'ruby', 'cs', 'lua' ] }
+      Plug 'davidhalter/jedi-vim', { 'for' : ['python'] }
+      Plug 'neoclide/coc.nvim', {'branch': 'release',
+            \ 'for' : [
+            \ 'python', 'jinja','json', 'javascript', 'css', 'typescript',
+            \ 'terraform', 'cs', 'lua', 'yaml' ]}
+    endif
     " Plug 'Yggdroot/indentLine', { 'on' : ['IndentLinesToggle','IndentLinesEnable']}
-  endif
   call plug#end()
 endif
 
@@ -125,7 +125,7 @@ augroup _init
   autocmd VimEnter * command! -bang -nargs=? Files call fzf#vim#files(<q-args>, {'options': '--no-preview'}, <bang>0)
 augroup END
 
-augroup _enter
+augroup _read
   autocmd!
   " restore last known position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif

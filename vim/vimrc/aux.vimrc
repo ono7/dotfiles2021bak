@@ -15,10 +15,6 @@ xnoremap <silent>\h :s/\v\s+//ge<cr><bar> :s/\v\\x//ge<cr> :noh<cr>
 " nnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
 xnoremap <silent><leader>s ^ :s/\v\s+//ge<cr><bar> :noh<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           bad spelling support :(                            "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " move to next missed spelled word and choose first suggesting
 nnoremap <leader>s ]s1z=
 
@@ -41,28 +37,6 @@ cnoreabbrev qall1 qall!
 cnoreabbrev qq q!
 cnoreabbrev w1 w!
 cnoreabbrev wQ wq
-
-" noreabbrev
-" noreabbrev Flase False
-" noreabbrev accross across
-" noreabbrev anotehr another
-" noreabbrev becuase because
-" noreabbrev corected corrected
-" noreabbrev fro for
-" noreabbrev waht what
-" noreabbrev healt health
-" noreabbrev initilise initialize
-" noreabbrev initilize initialize
-" noreabbrev lenght length
-" noreabbrev lenhgt length
-" noreabbrev mitake mistake
-" noreabbrev shoudl should
-" noreabbrev taht that
-" noreabbrev teh the
-" noreabbrev whlie while
-" noreabbrev yeild yield
-" noreabbrev yiedl yield
-" noreabbrev pythno python
 
 " dang it, tmux
 imap <c-b> <nop>
