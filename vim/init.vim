@@ -260,8 +260,6 @@ EOF
   nnoremap <silent><leader>f :call FZFOpen(':Files')<CR>
   nnoremap <silent><leader>b :call FZFOpen(':Buffers')<CR>
 
-  " nmap s  <Plug>Ysurround
-
   nmap <silent> [n <Plug>(ale_next_wrap)
   nmap <silent> ]n <Plug>(ale_previous_wrap)
 
@@ -291,7 +289,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
   \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
   \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" diable c-z (bg)
+" disable c-z (bg)
 nnoremap <c-z> <nop>
 cnoremap <c-f> <nop>
 nnoremap cp yap<S-}>p
@@ -308,7 +306,7 @@ nnoremap <leader>vr :source $MYVIMRC<cr>
 
 inoremap jk <Esc>:noh<cr><c-g>
 
-" move better around line wraps
+" move around line wraps
 nnoremap <expr> k v:count == 0 ? 'gk' : 'k'
 nnoremap <expr> j v:count == 0 ? 'gj' : 'j'
 
@@ -319,7 +317,6 @@ nnoremap L $
 vnoremap H ^
 vnoremap L $
 
-" more natural re-do command
 nnoremap U <C-r>
 
 cnoremap w!! w !sudo tee % > /dev/null
@@ -336,10 +333,6 @@ nnoremap 's `S
 nnoremap 'a `A
 nnoremap 'b `B
 nnoremap 'm `M
-nnoremap 'v `V
-nnoremap ss mS
-nnoremap sa mA
-nnoremap sb mB
 nnoremap gg mMgg<c-g>
 nnoremap G mMG<c-g>
 
@@ -347,15 +340,17 @@ nnoremap cw ciw
 nnoremap cW ciW
 nnoremap yw yiw
 nnoremap yW yiW
-xnoremap w iw
-xnoremap W iW
 nnoremap gd mMgd
 nnoremap * mM*
 nnoremap # mM#
 
+" surround
+nmap S <Plug>YSurround
+nmap s <Plug>Ysurround
+nmap sw <Plug>Ysurroundiw
+
 " speed up common buffer operations
 nnoremap <silent><leader>w :w<CR>
-nnoremap <silent><leader>q :q<CR>
 nnoremap <silent><Tab> :bnext<CR>
 nnoremap <silent><S-Tab> :bprevious<CR>
 
