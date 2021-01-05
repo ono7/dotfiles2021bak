@@ -18,6 +18,9 @@
   "Lua.workspace.maxPreload": 1000,
   "Lua.workspace.preloadFileSize": 200,
   "Lua.workspace.ignoreDir": [".vscode", ".dotfiles", "~/.dotfiles"],
+  "Lua.diagnostics.neededFileStatus": "Opened",
+  "Lua.completion.keywordSnippet": "Disable",
+  "Lua.telemetry.enable": null,
   "Lua.diagnostics.disable": [
     "lowercase-global",
     "unused-local",
@@ -31,8 +34,5 @@
     "describe",
     "before_each",
     "after_each"
-  ],
-  "Lua.diagnostics.neededFileStatus": "Opened",
-  "Lua.completion.keywordSnippet": "Disable",
-  "Lua.telemetry.enable": null
+  ]
 }
