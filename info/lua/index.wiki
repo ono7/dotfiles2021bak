@@ -5,6 +5,7 @@
 * [[hex|hex]]
 * [[metatables|metatables]]
 * [[debugging|debugging]]
+* [[functions|functions]]
 
 == modules ==
 
