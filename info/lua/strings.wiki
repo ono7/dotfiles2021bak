@@ -6,10 +6,10 @@
 
 {{{lua
 -- using string.byte might be faster for bigger sets
-for c in string.gmatch(“sentence”,”.”) do
+
+for c in string.gmatch("sentence", ".") do
   print(c)
 end
-
 }}}
 
 * string.gmatch - is best when you are only interested in the matches.

@@ -50,3 +50,31 @@ away the rest by wrapping the select in parenthesis
 {{{lua
 x = (select(2, GetRaidRosterInfo()))
 }}}
+
+
+* select can also be used in vararg functions as it can provide the number of
+  arguments passed to the ellipsis in the function declaration
+
+{{{lua
+function print_args(...)
+  local num_args = select("#", ...)
+  for i = 1, num_args do
+    local arg = select(i, ...)
+    print(i, arg)
+  end
+end
+}}}
+
+=== functionn signatures ===
+
+* describe what the function does and how its used
+
+{{{lua
+
+ret = foo(arg1, arg2)
+
+-- signature
+
+ret = foo(arg1, [,arg2]) -- brackets indicate arg2 is optional
+
+}}}

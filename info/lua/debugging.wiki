@@ -7,6 +7,10 @@ https://github.com/kikito/inspect.lua
     is human understanding (i.e. for debugging), not serialization or
     compactness.
 
+
+== debug with print/select ==
+
+=== inspecting tables ===
 {{{lua
 ins = require "inspect"
 print(ins(test))
@@ -15,4 +19,33 @@ print(ins(test))
 --   {1, 2, 3, 4},
 --   a = "lettera"
 -- }
+}}}
+
+
+=== varargs ===
+{{{lua
+
+function print_args2(...)
+  -- works
+  for i = 1, select("#", ...) do
+    -- (select()) wrapped only returns 1 argument
+    print(i, (select(i, ...)))
+  end
+end
+}}}
+
+=== print ===
+
+use print to see what the function returns
+
+{{{lua
+tbl1 = {...}
+print(ipairs(tbl1))
+
+--[[
+
+  > print(ipairs(tbl1))
+  function: 0x104d063a4   nil     0
+
+--]]
 }}}
