@@ -1,3 +1,9 @@
+= Contents =
+
+  - [[#working with strings|working with strings]]
+    - [[#working with strings#iterate over strings|iterate over strings]]
+    - [[#working with strings#string formatting|string formatting]]
+
 = working with strings =
 
 
@@ -20,3 +26,53 @@ end
 * string.match - is the most versatile, returning the first match and its
   position. The cost is not being specialized for any task, thus needing more
   code.
+
+== string formatting ==
+
+* %c—Takes a number argument and formats it as the ASCII character that
+  corresponds to the number.
+
+* %d, %i—Takesanumberargumentandformatsitasasignedinteger.
+
+* %o—Takes a number argument and formats it as an octal number.
+
+* %u—Takes a number argument and formats it as an unsigned integer.
+
+* %x—Takes a number argument and formats it as a hexadecimal number, using
+  lowercase letters.
+
+* %X—Takes a number argument and formats it as a hexadecimal number, using
+  capital letters.
+
+* %e—Takes a number argument and formats it as scientific notation, with a
+  lowercase e.
+
+* %E—Takes a number argument and formats it as scientific notation, with an
+  uppercase E.
+
+* %f—Takes a number argument and formats it as a floating-point number. %g and
+  %G—Takes a number and formats it according to either %e (or %E
+  if %G is specified) or %f, depending on which is shortest.
+
+* %q—Formats a string so it can safely be read back into a Lua interpreter.
+
+* %s—Takes a string and formats it according to the supplied options.
+
+{{{lua
+
+string.format(“%%c: %c“, 83)            %c: S
+string.format(“%+d“, 17.0)              +17
+string.format(“%05d“, 17)               00017
+string.format(“%o“, 17)                 21
+string.format(“%u“, 3.14)               3
+string.format(“%x“, 13)                 D
+string.format(“%X“, 13)                 D
+string.format(“%e“, 1000)               1.000000e+03
+string.format(“%E“, 1000)               1.000000E+03
+string.format(“%6.3f“, 13)              13.000
+string.format(“%q“, [[“One“, “Two“]])   “\“One\“, \“Two\““
+string.format(“%s“, “monkey“)           monkey
+string.format(“%10s“, “monkey“)         monkey mon
+string.format(“%5.3s“, “monkey“)
+
+}}}

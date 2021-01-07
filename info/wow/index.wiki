@@ -1,6 +1,15 @@
-# wow addons notes
+= Contents =
+  - [[#wow notes|wow notes]]
+    - [[#wow notes#increase response time between global cooldowns|increase response time between global cooldowns]]
+    - [[#wow notes#addons|addons]]
+    - [[#wow notes#sound|sound]]
+    - [[#wow notes#macros|macros]]
 
-## increase response time between global cooldowns
+= wow notes =
+
+* [[programming|programming]]
+
+== increase response time between global cooldowns ==
 
 (macro find current value)
 /dump GetCVar("SpellQueueWindow")
@@ -14,20 +23,20 @@ to cancel spell queue macro
 /csq
 /cast zxy (high priority ability)
 
-## addons
+== addons ==
 
 kui nameplates
 ElvUI
 Poisoner
 BigDebuffs
 
-## sound
+== sound ==
 
 turn volume up
 turn ambient down
 turn error sound off
 turn music down (very low)
 
-## macros
+== macros ==
 
 /castsequence Ability1,InstantAbility2
