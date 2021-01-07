@@ -401,7 +401,7 @@ set noshowcmd
 set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal nrformats+=alpha
-set number numberwidth=3
+set number numberwidth=2
 set pastetoggle=<F2>
 set ruler
 set scrolloff=2
