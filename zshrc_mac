@@ -135,7 +135,7 @@ fi
 alias gd='git diff'
 alias gs='git status'
 
-alias cdr='cd $(git rev-parse --show-toplevel)  2>/dev/null'
+alias cdr='cd "$(git rev-parse --show-toplevel)"  2>/dev/null'
 alias c='clear'
 alias fzf='~/.fzf/bin/fzf'
 alias tf='terraform'
