@@ -1,13 +1,9 @@
+# uncomment next line to start profiling
+# zmodload zsh/zprof
+
 ZSH_DISABLE_COMPFIX="true"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-# autoload -Uz compinit
-# if [ "$(whoami)" = "jose.lima" ]; then
-#   compinit -i # Ignore insecure directories
-# else
-#   compinit
-# fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=/opt/homebrew/bin:$HOME/.npm-packages/bin:$HOME/local/bin:$HOME/local/node/bin:$HOME/local/yarn/bin:$HOME/bin:/usr/local/bin:/usr/local/share/dotnet:$PATH
@@ -139,7 +135,7 @@ fi
 alias gd='git diff'
 alias gs='git status'
 
-alias cdr='cd $(git rev-parse --show-toplevel) 2>/dev/null'
+alias cdr='cd $(git rev-parse --show-toplevel)  2>/dev/null'
 alias c='clear'
 alias fzf='~/.fzf/bin/fzf'
 alias tf='terraform'
@@ -273,7 +269,14 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # autocompletion
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-autoload -Uz compinit && compinit -i
+
+# autoload -Uz compinit && compinit -i
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-${HOME}}/$ZSH_COMPDUMP(#qN.mh+24) ]]; then
+  compinit -d $ZSH_COMPDUMP;
+else
+  compinit -C;
+fi
 
 export FZF_DEFAULT_OPTS='--height 40% --no-preview'
 
@@ -286,3 +289,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 HISTSIZE=5000
+# zprof ends profiling
+# zprof
