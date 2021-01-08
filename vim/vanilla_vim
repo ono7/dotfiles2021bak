@@ -13,6 +13,7 @@
 " set smartcase
 " set smartindent
 " set smarttab
+" set hidden
 " set autoindent
 " set softtabstop=2
 " set tabstop=2 shiftwidth=2 expandtab
