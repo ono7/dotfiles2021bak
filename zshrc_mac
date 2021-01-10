@@ -226,7 +226,7 @@ function vc () {
 }
 
 function vs () {
-  vim $(fzf)
+  vim "$(fzf)"
 }
 
 # load other functions
