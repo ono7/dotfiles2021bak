@@ -353,6 +353,8 @@ nmap yS  <Plug>YSsurround
 xmap s   <Plug>VSurround
 " xmap gS  <Plug>VgSurround
 
+nmap \wt <Plug>VimwikiTOC
+
 " speed up common buffer operations
 nnoremap <silent><leader>w :w<CR>
 nnoremap <silent><Tab> :bnext<CR>
@@ -396,7 +398,7 @@ set noshowcmd
 set novisualbell noerrorbells
 set nowrap
 set nrformats-=octal nrformats+=alpha
-set number numberwidth=2
+set nonumber numberwidth=2
 set pastetoggle=<F2>
 set ruler
 set scrolloff=2
@@ -424,11 +426,12 @@ set redrawtime=10000
 set ttyfast
 " set re=1
 
-try
-  set signcolumn=number
-catch
-  set signcolumn=yes
-endtry
+set signcolumn=yes
+" try
+"   set signcolumn=number
+" catch
+"   set signcolumn=yes
+" endtry
 
 if has('nvim')
   set inccommand=nosplit

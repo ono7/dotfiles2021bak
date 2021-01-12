@@ -1,6 +1,6 @@
 {
   "diagnostic.displayByAle": true,
-  "diagnostic.messageDelay": 200,
+  "diagnostic.messageDelay": 150,
   "python.jediEnabled": true,
   "python.venvFolders": ["venv", ".virtualenvs"],
   "python.pythonPath": "~/.virtualenvs/prod3/bin/python",

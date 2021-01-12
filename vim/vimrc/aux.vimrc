@@ -3,7 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " " remove spaces
-" xmap <silent><leader>s s/\v\s+//ge<cr>
+"xmap<silent><leader>ss/\v\s+//ge<cr>
 
 " remove any spaces and hexify (visual select)
 xnoremap <silent><space>h :s/\v\s+//ge<cr><bar> :s/\v(..)/\\\x\1/ge<cr><bar> :s/\v.*/buffer \+\= b"&"/ge<cr>:noh<cr>
