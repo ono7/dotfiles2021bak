@@ -202,11 +202,6 @@ require "format".setup {
       }
     }
   },
-  javascript = {
-    {
-      cmd = {"prettier -w --single-quote"}
-    }
-  },
   json = {
     {
       cmd = {"prettier -w --parser json"}
@@ -243,7 +238,7 @@ require "format".setup {
     }
   },
   javascript = {
-    {cmd = {"prettier -w", "eslint --fix"}}
+    {cmd = {"prettier -w --single-quote", "eslint --fix"}}
   },
   markdown = {
     {cmd = {"prettier -w"}},
@@ -350,7 +345,7 @@ nmap V Vg_
 let g:surround_no_mappings = 1
 nmap S <Plug>YSurround
 nmap s <Plug>Ysurround
-nmap sw <Plug>Ysurroundiw
+nmap sw <Plug>YsurroundiW
 nmap ys <Plug>Yssurround
 nmap ds  <Plug>Dsurround
 nmap cs  <Plug>Csurround
