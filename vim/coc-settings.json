@@ -16,7 +16,7 @@
   "Lua.runtime.path": ["?.lua"],
   "Lua.runtime.version": "Lua 5.1",
   "Lua.workspace.maxPreload": 1000,
-  "Lua.workspace.preloadFileSize": 200,
+  "Lua.workspace.preloadFileSize": 800,
   "Lua.workspace.ignoreDir": [".vscode", ".dotfiles", "~/.dotfiles"],
   "Lua.diagnostics.neededFileStatus": "Opened",
   "Lua.completion.keywordSnippet": "Disable",

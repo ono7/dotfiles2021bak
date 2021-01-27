@@ -85,17 +85,14 @@ hi! link pyDocstr2 Comment
 syn match pyMathOp /\v[\*\/\%\^\&\$\\|\{\}]/
 hi! link pyMathOp Orange
 
-syn match pyCompOp /\v[.,<>~]/
-hi! link pyCompOp NormalBold
+syn match pyCompOp /\v[.,<>~;]/
+hi! link pyCompOp Normal
 
 syn match pyCompOp1 /\v[=:?]/
-hi! link pyCompOp1 BlueBold
-
-syn match pyCompOp3 /\v[;]/
-hi! link pyCompOp3 Normal
+hi! link pyCompOp1 Blue
 
 syn match pyCompOp4 /\v[!]/
-hi! link pyCompOp4 RedBold
+hi! link pyCompOp4 Red
 
 " syn match pySpecialComment "\v\##.*\ze:"
 " hi! def link pySpecialComment Purple
