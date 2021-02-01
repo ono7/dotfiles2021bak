@@ -12,7 +12,7 @@ syn keyword luaKeywords1 self
 hi! def link luaKeywords1 Red
 
 syn keyword luaKeywords2 local
-hi! def link luaKeywords2 Purple
+hi! def link luaKeywords2 Aqua
 
 hi! link luaCond PurpleItalic
 hi! link luaFunction PurpleItalic
@@ -34,7 +34,7 @@ hi! link luaMathOp Orange
 " hi! link luaCompOp NormalBold
 
 syn match luaCompOp1 /\v[=~.+/%*#<>]/
-hi! link luaCompOp1 Purple
+hi! link luaCompOp1 Blue
 
 syn match luaCompOp3 /\v[,]/
 hi! link luaCompOp3 Normal

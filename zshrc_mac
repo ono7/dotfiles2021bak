@@ -118,8 +118,9 @@ if [[ -f ~/nvim/bin/nvim ]]; then
   alias v=vim
   alias vimdiff='vim -d'
 else
-  alias vi='nvim'
-  alias v='nvim'
+  alias vim='nvim'
+  alias vi=vim
+  alias v=vim
   alias vimdiff='nvim -d'
 fi
 
