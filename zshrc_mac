@@ -118,12 +118,9 @@ if [[ -f ~/nvim/bin/nvim ]]; then
   alias v=vim
   alias vimdiff='vim -d'
 else
-  echo 'Need to install neovim in ~/nvim-osx64/'
-fi
-
-if [[ -f ~/local/nvim.appimage ]]; then
-  alias vim='~/local/nvim.appimage'
-  alias vi=vim
+  alias vi='nvim'
+  alias v='nvim'
+  alias vimdiff='nvim -d'
 fi
 
 if [[ -f ~/local/bin/tmux ]]; then

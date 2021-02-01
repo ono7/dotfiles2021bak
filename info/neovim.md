@@ -21,3 +21,9 @@ git checkout build-arm64-mac
 rm -r build/
 echo "DEPS_CMAKE_FLAGS += -DCMAKE_OSX_DEPLOYMENT_TARGET=11.00" > local.mk
 make CMAKE_BUILD_TYPE=Release SDKROOT=`xcrun --show-sdk-path` CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/nvim"
+
+# homebrew - installs nightly
+
+brew install --HEAD tree-sitter
+brew install --HEAD luajit
+brew install --HEAD neovim
