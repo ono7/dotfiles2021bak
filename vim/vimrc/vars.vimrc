@@ -27,7 +27,7 @@ let g:NERDTreeWinSize=25
 " let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
 
-" let g:vimwiki_global_ext = 0
+let g:vimwiki_global_ext = 0
 let g:vimwiki_table_mappings = 0
 let g:wiki = {}
 
@@ -40,7 +40,7 @@ let g:wiki.nested_syntaxes.php = 'php'
 let g:wiki.nested_syntaxes.javascript = 'javascript'
 let g:wiki.nested_syntaxes.bash = 'sh'
 let g:wiki.nested_syntaxes.lua = 'lua'
-let g:vimwiki_list = [wiki]
+" let g:vimwiki_list = [wiki]
 
 let g:vim_markdown_folding_disabled = 1
 
