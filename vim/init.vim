@@ -373,6 +373,7 @@ xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
 "                                   settings                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set cursorline
 set autoindent
 set autoread
 set backspace=indent,eol,start
@@ -421,7 +422,7 @@ set winaltkeys=no
 " performance settings
 set lazyredraw
 set matchtime=0
-set nocursorcolumn nocursorline
+set nocursorcolumn
 set redrawtime=10000
 set ttyfast
 " set re=1

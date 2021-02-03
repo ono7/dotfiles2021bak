@@ -54,7 +54,7 @@ schemes:
   onehalf: &onehalf
     cursor:
       text: "0x282c34"
-      cursor: "0x4176a2"
+      cursor: "0x405e9e"
 
     primary:
       background: "0x282c34"
