@@ -214,7 +214,7 @@ require "format".setup {
   },
   yaml = {
     {
-      cmd = {"prettier -w --parser yaml"}
+      cmd = {"prettier -w --parser yaml --single-quote --quote-props preserve"}
     }
   },
   vimwiki = {
