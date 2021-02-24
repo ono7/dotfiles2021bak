@@ -74,8 +74,8 @@ call s:h("DiffChange", s:yellow, "", "")
 call s:h("DiffDelete", s:red, "", "")
 call s:h("DiffText", s:blue, "", "")
 
-call s:h("IncSearch", s:bg, s:yellow, "")
-call s:h("Search", s:bg, s:yellow, "")
+call s:h("IncSearch", s:bg, s:green, "")
+call s:h("Search", s:bg, s:green, "")
 
 call s:h("ErrorMsg", s:fg, "", "")
 call s:h("ModeMsg", s:fg, "", "")
@@ -255,8 +255,8 @@ hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
 hi!  PmenuSel       ctermbg=239  ctermfg=7      guibg=#313640  guifg=#9297a1  gui=reverse
 hi!  CommentNormal  ctermfg=8    guifg=#95c637
 hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
-hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
-hi!  Search      ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3a5286
+" hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
+" hi!  Search      ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3a5286
 
 " gutter
 hi!  SignColumn  ctermfg=223   ctermbg=NONE   guifg=#d4be98  guibg=NONE
