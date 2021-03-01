@@ -395,7 +395,7 @@ set magic
 set nobackup nowritebackup noswapfile
 set nojoinspaces
 set list
-set listchars=tab:→\ ,trail:∙,nbsp:•
+set listchars=tab:→\ ,trail:·,nbsp:•
 set noshowcmd
 set novisualbell noerrorbells
 set nowrap

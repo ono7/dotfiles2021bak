@@ -294,6 +294,8 @@ silent!  syn  clear  Comment
 
 hi!  Normal   ctermbg=0  guibg=none     guifg=none
 hi!  Comment  ctermfg=8  guifg=#5c6370
+hi!  link SpecialKey Red
+hi!  link NonText Red
 hi! fzf_info ctermfg=6
 hi! fzf_bg ctermfg=0 guifg=#282c34
 hi! fzf_bg_plus ctermbg=237 guibg=#313640
