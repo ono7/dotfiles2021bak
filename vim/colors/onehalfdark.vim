@@ -247,7 +247,7 @@ hi!  NormalBold     cterm=bold    gui=bold    ctermfg=223  guifg=#dcdfe4
 hi!  CommentBold    cterm=bold    gui=bold    ctermfg=245  guifg=#95c637
 
 " hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#a89984  guibg=NONE
-hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#27303e  guibg=NONE
+" hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#27303e  guibg=NONE
 hi!  Folded         ctermfg=245  ctermbg=NONE   guifg=#95c637  guibg=NONE
 hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=1      guifg=#1d2021  guibg=#e78a4e
 hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
