@@ -335,10 +335,8 @@ nnoremap gd msgd
 nnoremap * ms*
 nnoremap # ms#
 
-nnoremap cw ciw
-nnoremap cW ciW
 nnoremap yw yiw
-nnoremap yW yiW
+vnoremap yW yiW
 
 nmap V Vg_
 
@@ -372,6 +370,9 @@ xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   settings                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" this (iskeyword) may break colorscheme
+set iskeyword-=_
 
 set cursorline
 set autoindent
