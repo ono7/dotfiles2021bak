@@ -335,15 +335,13 @@ nnoremap gd msgd
 nnoremap * ms*
 nnoremap # ms#
 
-" vnoremap yW yiW
-
 nmap V Vg_
 
 let g:surround_no_mappings = 1
 nmap S <Plug>YSurround
 nmap s <Plug>Ysurround
 nmap sw <Plug>YsurroundiW
-" nmap ys <Plug>Yssurround
+nmap ys <Plug>Yssurround
 nmap ds  <Plug>Dsurround
 nmap cs  <Plug>Csurround
 " nmap yS  <Plug>YSsurround
@@ -361,7 +359,6 @@ nnoremap Y y$
 
 " mark and return to mark after yank
 vnoremap y mxy`x
-" nnoremap yp mxyap`x
 
 " select visualy selected text for search
 xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
