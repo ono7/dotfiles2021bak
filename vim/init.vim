@@ -367,9 +367,6 @@ xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
 "                                   settings                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" this (iskeyword) may break colorscheme
-set iskeyword-=_
-
 set cursorline
 set autoindent
 set autoread
