@@ -11,7 +11,7 @@ syn match tfMathOp /\v[\+\-\*\/\%\^\&\$\\|\{\}=]/
 hi! link tfMathOp Orange
 
 syn match tfCompOp /\v[=!<>~+-]/
-hi! link tfCompOp NormalBold
+hi! link tfCompOp Normal
 
 hi! link terraRepeat RedItalic
 hi! link terraConditional RedItalic
