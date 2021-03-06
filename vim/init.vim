@@ -367,7 +367,7 @@ xnoremap <enter> y/\V<C-r>=escape(@",'/\')<CR><CR>
 "                                   settings                                   "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" set cursorline
+set cursorline
 set autoindent
 set autoread
 set backspace=indent,eol,start
