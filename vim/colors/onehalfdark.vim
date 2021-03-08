@@ -99,7 +99,8 @@ call s:h("TabLine", s:comment_fg, s:cursor_line, "")
 call s:h("TabLineFill", s:comment_fg, s:cursor_line, "")
 call s:h("TabLineSel", s:fg, s:bg, "")
 
-call s:h("Visual", "", s:selection, "")
+" call s:h("IncSearch", s:bg, s:green, "")
+call s:h("Visual", s:bg, s:green, "")
 call s:h("VisualNOS", "", s:selection, "")
 
 call s:h("ColorColumn", "", s:color_col, "")
@@ -253,7 +254,7 @@ hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
 hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
 hi!  PmenuSel       ctermbg=239  ctermfg=7      guibg=#313640  guifg=#9297a1  gui=reverse
 hi!  CommentNormal  ctermfg=8    guifg=#95c637
-hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
+" hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
 " hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
 " hi!  Search      ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3a5286
 
