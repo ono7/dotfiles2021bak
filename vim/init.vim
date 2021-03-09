@@ -119,6 +119,7 @@ command! -register JcopyMatches call CopyMatches(<q-reg>)
 
 augroup _init
   autocmd!
+  autocmd BufWinEnter * if line2byte(line("$") + 1) > 1000000 | syntax clear | endif
   autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
   autocmd VimEnter * command! -bang -nargs=? Files call fzf#vim#files(<q-args>, {'options': '--no-preview'}, <bang>0)
 augroup END
