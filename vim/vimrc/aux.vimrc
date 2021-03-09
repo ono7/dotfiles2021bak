@@ -25,8 +25,8 @@ cnoreabbrev Qall qall
 cnoreabbrev Qall! qall!
 cnoreabbrev W w
 cnoreabbrev W! w!
-cnoreabbrev WQ wq
-cnoreabbrev Wa wa
+" cnoreabbrev WQ wq
+" cnoreabbrev Wa wa
 cnoreabbrev Wq wq
 cnoreabbrev X! x!
 cnoreabbrev X1 x!
@@ -36,7 +36,7 @@ cnoreabbrev q1 q!
 cnoreabbrev qall1 qall!
 cnoreabbrev qq q!
 cnoreabbrev w1 w!
-cnoreabbrev wQ wq
+" cnoreabbrev wQ wq
 
 " dang it, tmux
 imap <c-b> <nop>
