@@ -1,13 +1,7 @@
 {
 "Profiles": [
 {
-  "Ansi 5 Color" : {
-    "Red Component" : 0.77647058823529413,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.8666666666666667,
-    "Alpha Component" : 1,
-    "Green Component" : 0.47058823529411764
-  },
+  "Thin Strokes" : 3,
   "Working Directory" : "\/Users\/jlima",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -83,11 +77,11 @@
   },
   "Use Non-ASCII Font" : false,
   "Link Color" : {
-    "Red Component" : 0.25490197539329529,
+    "Red Component" : 0.44313725490196076,
     "Color Space" : "sRGB",
-    "Blue Component" : 0.62352943420410156,
+    "Blue Component" : 0.58823529411764708,
     "Alpha Component" : 1,
-    "Green Component" : 0.36862745881080627
+    "Green Component" : 0.50196078431372548
   },
   "Shortcut" : "",
   "Background Image Location" : "",
@@ -357,8 +351,8 @@
     "Green Component" : 0.17254901960784313
   },
   "Blur" : false,
+  "Normal Font" : "OperatorMonoSSm-Medium 18",
   "Vertical Spacing" : 1,
-  "Normal Font" : "OperatorMonoSSm-Book 18",
   "Use Underline Color" : false,
   "Ansi 7 Color" : {
     "Red Component" : 0.86274509803921573,
@@ -410,18 +404,18 @@
   "Columns" : 80,
   "Unicode Normalization" : 0,
   "Visual Bell" : true,
+  "Custom Directory" : "No",
   "ASCII Ligatures" : false,
-  "Thin Strokes" : 0,
-  "Custom Directory" : "No"
-},
-{
   "Ansi 5 Color" : {
     "Red Component" : 0.77647058823529413,
     "Color Space" : "sRGB",
     "Blue Component" : 0.8666666666666667,
     "Alpha Component" : 1,
     "Green Component" : 0.47058823529411764
-  },
+  }
+},
+{
+  "Thin Strokes" : 0,
   "Working Directory" : "\/Users\/jlima",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -771,8 +765,8 @@
     "Green Component" : 0.17254901960784313
   },
   "Blur" : false,
-  "Vertical Spacing" : 1,
   "Normal Font" : "OperatorMonoSSm-Book 18",
+  "Vertical Spacing" : 1,
   "Use Underline Color" : false,
   "Ansi 7 Color" : {
     "Red Component" : 0.86274509803921573,
@@ -824,18 +818,18 @@
   "Columns" : 80,
   "Unicode Normalization" : 0,
   "Visual Bell" : true,
+  "Custom Directory" : "No",
   "ASCII Ligatures" : false,
-  "Thin Strokes" : 0,
-  "Custom Directory" : "No"
-},
-{
   "Ansi 5 Color" : {
     "Red Component" : 0.77647058823529413,
     "Color Space" : "sRGB",
     "Blue Component" : 0.8666666666666667,
     "Alpha Component" : 1,
     "Green Component" : 0.47058823529411764
-  },
+  }
+},
+{
+  "Thin Strokes" : 0,
   "Working Directory" : "\/Users\/jlima",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -1154,14 +1148,6 @@
   "Name" : "dotfiles.dark",
   "Blinking Cursor" : false,
   "Guid" : "6A8E176F-9834-437B-92F5-AA3409415E51",
-  "Idle Code" : 0,
-  "Ansi 10 Color" : {
-    "Red Component" : 0.59607843137254901,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.47450980392156861,
-    "Alpha Component" : 1,
-    "Green Component" : 0.76470588235294112
-  },
   "Ansi 8 Color" : {
     "Red Component" : 0.36078431372549019,
     "Color Space" : "sRGB",
@@ -1169,6 +1155,14 @@
     "Alpha Component" : 1,
     "Green Component" : 0.38823529411764707
   },
+  "Ansi 10 Color" : {
+    "Red Component" : 0.59607843137254901,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.47450980392156861,
+    "Alpha Component" : 1,
+    "Green Component" : 0.76470588235294112
+  },
+  "Idle Code" : 0,
   "Badge Color" : {
     "Red Component" : 1,
     "Color Space" : "sRGB",
@@ -1186,7 +1180,7 @@
     "Green Component" : 0.17254901960784313
   },
   "Blur" : false,
-  "Normal Font" : "OperatorMonoSSm-Book 18",
+  "Normal Font" : "OperatorMonoSSm-Medium 18",
   "Vertical Spacing" : 1,
   "Use Underline Color" : false,
   "Ansi 7 Color" : {
@@ -1242,9 +1236,15 @@
   "Columns" : 80,
   "Unicode Normalization" : 0,
   "Visual Bell" : true,
+  "Custom Directory" : "No",
   "ASCII Ligatures" : false,
-  "Thin Strokes" : 0,
-  "Custom Directory" : "No"
+  "Ansi 5 Color" : {
+    "Red Component" : 0.77647058823529413,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.8666666666666667,
+    "Alpha Component" : 1,
+    "Green Component" : 0.47058823529411764
+  }
 }
 ]
 }
