@@ -264,8 +264,8 @@ EOF
 
   nmap p <Plug>(miniyank-autoput)
   nmap P <Plug>(miniyank-autoPut)
-  let g:miniyank_filename = $HOME.'/.tmp/miniyank-shared-ring'
-  let g:miniyank_maxitems = 1
+  " let g:miniyank_filename = $HOME.'/.tmp/miniyank-shared-ring'
+  let g:miniyank_maxitems = 10
 
   nmap <silent> gr <Plug>(coc-references)
   " trigger completion, manually
