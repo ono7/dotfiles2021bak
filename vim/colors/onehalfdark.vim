@@ -251,8 +251,9 @@ hi!  CommentBold    cterm=bold    gui=bold    ctermfg=245  guifg=#95c637
 hi!  Folded         ctermfg=245  ctermbg=NONE   guifg=#95c637  guibg=NONE
 hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=1      guifg=#1d2021  guibg=#e78a4e
 hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
-hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
-hi!  PmenuSel       ctermbg=239  ctermfg=7      guibg=#313640  guifg=#9297a1  gui=reverse
+" hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
+hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#2c3748  guifg=#9297a1
+hi!  PmenuSel       ctermbg=239  ctermfg=7      guibg=#313640 guifg=#9297a1  gui=reverse
 hi!  CommentNormal  ctermfg=8    guifg=#95c637
 " hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
 " hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
