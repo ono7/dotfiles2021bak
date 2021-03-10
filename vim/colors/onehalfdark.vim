@@ -298,6 +298,8 @@ hi!  link  TSKeywordOperator      RedItalic
 hi!  link  TSFuncBuiltin          Yellow
 hi!  link  TSParameter            Normal
 hi!  link  Function               Normal
+hi!  link  TSConstructor          Orange
+hi!  link  TSType                 Orange
 hi!  VertSplit ctermbg=NONE guibg=NONE
 
 silent!  syn  clear  Normal
