@@ -300,6 +300,7 @@ hi!  link  TSParameter            Normal
 hi!  link  Function               Normal
 hi!  link  TSConstructor          Orange
 hi!  link  TSType                 Orange
+hi!  link  TSVariableBuiltin      CommentItalic
 hi!  VertSplit ctermbg=NONE guibg=NONE
 
 silent!  syn  clear  Normal
