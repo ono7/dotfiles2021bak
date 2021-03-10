@@ -43,6 +43,8 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
     Plug 'vimwiki/vimwiki'
     if has('nvim')
+      Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+      Plug 'nvim-treesitter/playground'
       Plug 'bfredl/nvim-miniyank'
       Plug 'SirVer/ultisnips'
       Plug 'lukas-reineke/format.nvim'
@@ -71,6 +73,26 @@ syntax sync maxlines=300
 set termguicolors
 set background=dark
 colorscheme onehalfdark
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                  treesitter                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+  },
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    persist_queries = false -- Whether the query persists across vim sessions
+  },
+}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                vim functions                                 "

@@ -131,8 +131,8 @@ call s:h("Identifier", s:red, "", "")
 call s:h("Function", s:blue, "", "")
 call s:h("Statement", s:purple, "", "")
 
-call s:h("Conditional", s:purple, "", "")
-call s:h("Repeat", s:purple, "", "")
+call s:h("Conditional", s:red, "", "")
+call s:h("Repeat", s:red, "", "")
 call s:h("Label", s:purple, "", "")
 call s:h("Operator", s:fg, "", "")
 call s:h("Keyword", s:red, "", "")
@@ -286,8 +286,18 @@ hi!  link  VimwikiLink            Purple
 hi!  link  ALEWarningSign         Yellow
 hi!  link  ALEErrorSign           YellowBold
 hi!  link  Repeat                 RedItalic
-hi!  link  Conditional            PurpleItalic
+hi!  link  Conditional            RedItalic
 hi!  link  EndOfBuffer            Comment
+hi!  link  Include                BlueItalic
+hi!  link  Keyword                RedItalic
+hi!  link  SpecialChar            Purple
+hi!  link  Delimiter              Purple
+hi!  link  TSPunctDelimiter       Normal
+hi!  link  Operator               Blue
+hi!  link  TSKeywordOperator      RedItalic
+hi!  link  TSFuncBuiltin          Yellow
+hi!  link  TSParameter            Normal
+hi!  link  Function               Normal
 hi!  VertSplit ctermbg=NONE guibg=NONE
 
 silent!  syn  clear  Normal
