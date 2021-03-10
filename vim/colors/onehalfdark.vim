@@ -295,13 +295,14 @@ hi!  link  Delimiter              Purple
 hi!  link  TSPunctDelimiter       Normal
 hi!  link  Operator               Blue
 hi!  link  TSKeywordOperator      RedItalic
-hi!  link  TSFuncBuiltin          Yellow
+" hi!  link  TSFuncBuiltin          NormalItalic
 hi!  link  TSParameter            Normal
 hi!  link  Function               Normal
 hi!  link  TSConstructor          Orange
 hi!  link  TSType                 Orange
-hi!  link  TSVariableBuiltin      NormalItalic
-" hi!  TSVariableBuiltin  cterm=italic  gui=italic  ctermfg=245  guifg=#dcdfe4
+hi!  TSFuncBuiltin ctermfg=223 guifg=#d4be98
+hi!  TSVariableBuiltin  gui=italic  ctermfg=245  guifg=#d4be98
+
 hi!  VertSplit ctermbg=NONE guibg=NONE
 
 silent!  syn  clear  Normal
