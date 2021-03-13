@@ -8,7 +8,21 @@
   hosts: localhost
   gather_facts: no
 
+  vars:
+    proxy: test.test.com:8080
+    proxy_u: jose.lima
+    proxy_p: xyz
+    pip_proxies:
+      HTTP_PROXY: '{{ proxy }}'
+      HTTPS_PROXY: '{{ proxy }}'
+
   tasks:
+    - name: proxy auth
+      shell: curl http://yahoo.com -v --ntlm --negotiate -u {{ proxy_u }}:{{ proxy_p | urlencode }}
+      environment:
+        http_proxy: '{{ proxy }}'
+        https_proxy: '{{ proxy }}'
+
     - name: install venv
       pip:
         name:
@@ -16,6 +30,7 @@
         state: latest
         virtualenv: ~/.virtualenvs/project_env
         virtualenv_command: python3 -m venv
+      # environment: '{{ pip_proxies }}'
 
     - name: install venv
       pip:
@@ -24,3 +39,4 @@
           - pytest
           - ansible-lint==4.3.7
         virtualenv: ~/.virtualenvs/project_env
+      # environment: '{{ pip_proxies }}'
