@@ -247,15 +247,15 @@ hi!  PurpleBold     cterm=bold    gui=bold    ctermfg=5  guifg=#b67fd1
 hi!  NormalBold     cterm=bold    gui=bold    ctermfg=223  guifg=#dcdfe4
 hi!  CommentBold    cterm=bold    gui=bold    ctermfg=245  guifg=#95c637
 
-" hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#a89984  guibg=NONE
+hi!  CursorLineNr   ctermfg=246  ctermbg=NONE   guifg=#dcdfe4  guibg=NONE
 hi!  Folded         ctermfg=245  ctermbg=NONE   guifg=#95c637  guibg=NONE
 hi!  Cursor         gui=NONE     cterm=NONE     ctermbg=208    ctermfg=1      guifg=#1d2021  guibg=#e78a4e
 hi!  MsgArea        ctermfg=246  ctermbg=NONE   guifg=#9297a1  guibg=NONE
-" hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
 hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#2c3748  guifg=#9297a1
 hi!  PmenuSel       ctermbg=239  ctermfg=7      guibg=#313640 guifg=#9297a1  gui=reverse
 hi!  CommentNormal  ctermfg=8    guifg=#95c637
 " hi!  Visual         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
+" hi!  Pmenu          ctermbg=235  ctermfg=8      guibg=#313640  guifg=#9297a1
 " hi!  IncSearch         ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3e4451
 " hi!  Search      ctermfg=234  ctermbg=5      guifg=NONE     guibg=#3a5286
 
@@ -308,14 +308,14 @@ hi!  VertSplit ctermbg=NONE guibg=NONE
 silent!  syn  clear  Normal
 silent!  syn  clear  Comment
 
-hi!  Normal   ctermbg=0  guibg=none     guifg=none
-hi!  Comment  ctermfg=8  guifg=#5c6370
-hi!  link SpecialKey Orange
-hi!  link NonText Orange
-hi! fzf_info ctermfg=6
-hi! fzf_bg ctermfg=0 guifg=#282c34
-hi! fzf_bg_plus ctermbg=237 guibg=#313640
-hi! fzf_spinner ctermfg=6
+hi!  Normal       ctermbg=0    guibg=none     guifg=none
+hi!  Comment      ctermfg=8    guifg=#5c6370
+hi!  link         SpecialKey   Orange
+hi!  link         NonText      Orange
+hi!  fzf_info     ctermfg=6
+hi!  fzf_bg       ctermfg=0    guifg=#282c34
+hi!  fzf_bg_plus  ctermbg=237  guibg=#313640
+hi!  fzf_spinner  ctermfg=6
 
-hi! TermCursorNC guibg=Purple guifg=white ctermbg=1 ctermfg=15
-hi! trans guibg=Purple guifg=white ctermbg=1 ctermfg=15
+hi!  TermCursorNC  guibg=Purple  guifg=white  ctermbg=1  ctermfg=15
+hi!  trans         guibg=Purple  guifg=white  ctermbg=1  ctermfg=15
