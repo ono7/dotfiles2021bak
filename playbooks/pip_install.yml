@@ -1,0 +1,27 @@
+---
+################################################################################
+#                                  Jose.Lima                                   #
+#                     Network Optimization and Automation                      #
+################################################################################
+
+- name: 'install pip packages'
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+    packages_list:
+
+  tasks:
+    - name: 'upgrade pip'
+      pip:
+        name:
+          - pip
+        state: latest
+
+    - name: 'deploy modules'
+      pip:
+        name:
+          - pip
+          - ansible==2.9.13
+          - pytest
+          - ansible-lint==4.3.7
