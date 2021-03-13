@@ -24,4 +24,3 @@
           - pytest
           - ansible-lint==4.3.7
         virtualenv: ~/.virtualenvs/project_env
-        virtualenv_command: python3 -m venv
