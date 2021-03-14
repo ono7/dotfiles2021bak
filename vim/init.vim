@@ -43,6 +43,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'scrooloose/nerdtree',{ 'on': ['NERDTreeToggle', 'NERDTree', 'NERDTreeFind', 'NERDTreeClose'] }
     Plug 'vimwiki/vimwiki'
     if has('nvim')
+      " Plug 'norcalli/nvim-colorizer.lua'
       Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
       Plug 'nvim-treesitter/playground'
       Plug 'bfredl/nvim-miniyank'
